@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Jaraad Ramsey — a dependable and adaptable worker available for part-time opportunities around Mullaloo, Western Australia." />
+  <meta name="theme-color" content="#050505" />
+  <title>Jaraad Ramsey — Reliable. Capable. Ready.</title>
+
+  <style>
+    :root {
+      --bg: #050505;
+      --bg-soft: #0a0a0a;
+      --panel: rgba(255,255,255,.045);
+      --panel-strong: rgba(255,255,255,.075);
+      --text: #f5f5f5;
+      --muted: #a7a7a7;
+      --line: rgba(255,255,255,.12);
+      --line-soft: rgba(255,255,255,.075);
+      --accent: #ffffff;
+      --shadow: 0 30px 100px rgba(0,0,0,.45);
+      --radius-lg: 32px;
+      --radius-md: 22px;
+      --radius-sm: 14px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 78% 10%, rgba(255,255,255,.09), transparent 26rem),
+        radial-gradient(circle at 10% 40%, rgba(255,255,255,.05), transparent 28rem),
+        linear-gradient(180deg, #050505 0%, #080808 58%, #050505 100%);
+      color: var(--text);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; }
+
+    a:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 4px;
+      border-radius: 8px;
+    }
+
+    .shell {
+      width: min(calc(100% - 32px), var(--max));
+      margin-inline: auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      background: rgba(5,5,5,.72);
+      backdrop-filter: blur(20px) saturate(150%);
+      -webkit-backdrop-filter: blur(20px) saturate(150%);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.03));
+      font-size: .85rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.08);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      text-decoration: none;
+      font-weight: 750;
+      letter-spacing: -.01em;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,.3);
+    }
+
+    .button:active { transform: translateY(0); }
+
+    .button.primary {
+      background: #fff;
+      color: #050505;
+      border-color: #fff;
+    }
+
+    .button.secondary {
+      background: rgba(255,255,255,.04);
+    }
+
+    .hero {
+      min-height: calc(100vh - 72px);
+      display: grid;
+      align-items: center;
+      padding: 72px 0 84px;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 8% 40%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent);
+      filter: blur(.2px);
+      opacity: .6;
+      animation: glow 4.5s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0%,100% { opacity: .25; transform: translateX(-3%); }
+      50% { opacity: .75; transform: translateX(3%); }
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, .8fr);
+      gap: 64px;
+      align-items: center;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #d4d4d4;
+      border: 1px solid var(--line-soft);
+      background: rgba(255,255,255,.025);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: .84rem;
+      margin-bottom: 26px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 16px rgba(255,255,255,.9);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3.6rem, 8.7vw, 7.8rem);
+      line-height: .88;
+      letter-spacing: -.075em;
+      max-width: 940px;
+    }
+
+    .hero-sub {
+      margin: 28px 0 34px;
+      max-width: 760px;
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      color: var(--muted);
+      letter-spacing: -.015em;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-card {
+      border: 1px solid var(--line);
+      background: #0b0b0b;
+      border-radius: var(--radius-lg);
+      min-height: 590px;
+      aspect-ratio: 4 / 5;
+      box-shadow: 0 34px 110px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.09);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      transition: transform .45s cubic-bezier(.2,.8,.2,1), border-color .45s ease, box-shadow .45s ease;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 42%, rgba(3,3,3,.16) 58%, rgba(3,3,3,.94) 100%);
+      pointer-events: none;
+    }
+
+    .hero-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255,255,255,.22);
+      box-shadow: 0 42px 125px rgba(0,0,0,.62), inset 0 1px 0 rgba(255,255,255,.12);
+    }
+
+    .hero-portrait {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 42%;
+      filter: saturate(.82) contrast(1.03) brightness(.92);
+      transform: scale(1.002);
+      transition: transform .7s cubic-bezier(.2,.8,.2,1), filter .45s ease;
+    }
+
+    .hero-card:hover .hero-portrait {
+      transform: scale(1.028);
+      filter: saturate(.88) contrast(1.03) brightness(.95);
+    }
+
+    .portrait-overlay {
+      position: absolute;
+      z-index: 2;
+      left: 28px;
+      right: 28px;
+      bottom: 28px;
+      color: #fff;
+      text-shadow: 0 2px 22px rgba(0,0,0,.55);
+    }
+
+    .portrait-name {
+      margin: 0 0 20px;
+      font-size: 1.55rem;
+      font-weight: 780;
+      letter-spacing: -.035em;
+      line-height: 1;
+    }
+
+    .portrait-details {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 22px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,.22);
+    }
+
+    .portrait-detail span {
+      display: block;
+      margin-bottom: 5px;
+      color: rgba(255,255,255,.62);
+      font-size: .72rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .portrait-detail strong {
+      display: block;
+      font-size: .91rem;
+      line-height: 1.35;
+      letter-spacing: -.01em;
+    }
+
+    section {
+      padding: 104px 0;
+      scroll-margin-top: 88px;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 52px;
+      align-items: start;
+      margin-bottom: 42px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: .96;
+      letter-spacing: -.06em;
+    }
+
+    .section-heading p {
+      margin: 4px 0 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .experience-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(255,255,255,.10), transparent 24rem),
+        linear-gradient(145deg, #101010, #090909);
+      min-height: 520px;
+      padding: 46px;
+      display: flex;
+      align-items: flex-end;
+      box-shadow: var(--shadow);
+    }
+
+    .industrial-lines {
+      position: absolute;
+      inset: 0;
+      opacity: .32;
+      background:
+        repeating-linear-gradient(90deg, transparent 0 72px, rgba(255,255,255,.045) 73px),
+        repeating-linear-gradient(0deg, transparent 0 72px, rgba(255,255,255,.035) 73px);
+      mask-image: linear-gradient(to bottom, black 0%, transparent 70%);
+    }
+
+    .experience-glow {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.12);
+      top: -180px;
+      right: -90px;
+      box-shadow:
+        0 0 70px rgba(255,255,255,.05),
+        inset 0 0 80px rgba(255,255,255,.025);
+    }
+
+    .experience-content {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+    }
+
+    .label {
+      color: #d1d1d1;
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      margin-bottom: 14px;
+    }
+
+    .experience-content h3 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 4rem);
+      letter-spacing: -.045em;
+      line-height: 1;
+    }
+
+    .experience-meta {
+      margin: 12px 0 20px;
+      color: #d0d0d0;
+      font-size: 1.05rem;
+    }
+
+    .experience-copy {
+      color: var(--muted);
+      font-size: 1.06rem;
+      max-width: 720px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .chip {
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.035);
+      color: #d9d9d9;
+      font-size: .88rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .skill-card {
+      min-height: 230px;
+      padding: 28px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--line-soft);
+      background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
+      position: relative;
+      overflow: hidden;
+      transition: transform .22s ease, border-color .22s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,.22);
+    }
+
+    .skill-card::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      right: -90px;
+      bottom: -90px;
+      border: 1px solid rgba(255,255,255,.07);
+    }
+
+    .skill-number {
+      font-size: .76rem;
+      letter-spacing: .18em;
+      color: #888;
+      margin-bottom: 46px;
+    }
+
+    .skill-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.45rem;
+      letter-spacing: -.025em;
+    }
+
+    .skill-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .availability-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 18px;
+    }
+
+    .availability-card,
+    .education-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,.035);
+      padding: 34px;
+    }
+
+    .availability-big {
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: .9;
+      letter-spacing: -.065em;
+      margin: 16px 0 24px;
+    }
+
+    .availability-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .expectations {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .expectation {
+      padding: 24px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .expectation strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text);
+      font-size: 1.04rem;
+    }
+
+    .availability-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #d6d6d6;
+    }
+
+    .check {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      background: #fff;
+      color: #050505;
+      font-size: .78rem;
+      font-weight: 900;
+    }
+
+    .education-card h3 {
+      margin: 0 0 26px;
+      font-size: 1.75rem;
+      letter-spacing: -.035em;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 0;
+    }
+
+    .timeline-item {
+      padding: 22px 0;
+      border-top: 1px solid var(--line-soft);
+    }
+
+    .timeline-item:first-child { border-top: 0; padding-top: 0; }
+
+    .timeline-year {
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      color: #8d8d8d;
+      margin-bottom: 6px;
+    }
+
+    .timeline-item strong {
+      display: block;
+      font-size: 1.04rem;
+      margin-bottom: 5px;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .contact {
+      padding-bottom: 72px;
+    }
+
+    .contact-card {
+      text-align: center;
+      padding: 72px 26px;
+      border-radius: 38px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 50% -10%, rgba(255,255,255,.16), transparent 24rem),
+        linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.02));
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card h2 {
+      max-width: 920px;
+      margin-inline: auto;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      max-width: 700px;
+      margin: 22px auto 30px;
+      font-size: 1.06rem;
+    }
+
+    .contact-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .contact-meta {
+      margin-top: 22px;
+      color: #8f8f8f;
+      font-size: .9rem;
+    }
+
+    footer {
+      padding: 28px 0 44px;
+      border-top: 1px solid var(--line-soft);
+      color: #858585;
+      font-size: .88rem;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .section-heading,
+      .availability-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero { min-height: auto; }
+      .hero-card { width: min(100%, 620px); min-height: auto; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .expectations { grid-template-columns: 1fr; gap: 0; }
+      .section-heading { gap: 18px; }
+      .experience-card { min-height: 470px; padding: 30px; }
+    }
+
+    @media (max-width: 640px) {
+      .shell { width: min(calc(100% - 22px), var(--max)); }
+
+      .nav-inner { min-height: 64px; }
+      .nav-links a:not(.button) { display: none; }
+      .nav-links { gap: 0; }
+      .nav .button { min-height: 42px; padding-inline: 15px; font-size: .88rem; }
+
+      .hero { padding-top: 52px; }
+      h1 { font-size: clamp(3.25rem, 17vw, 5rem); }
+      .hero-grid { gap: 34px; }
+      .portrait-overlay { left: 22px; right: 22px; bottom: 22px; }
+      .portrait-details { gap: 14px; }
+      .hero-actions .button { flex: 1 1 150px; }
+
+      section { padding: 78px 0; }
+      .section-heading { margin-bottom: 28px; }
+
+      .experience-card { min-height: 520px; }
+      .skill-card { min-height: 210px; }
+      .contact-card { padding: 54px 18px; }
+      .contact-actions .button { flex: 1 1 100%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="shell nav-inner">
+      <a class="brand" href="#top" aria-label="Back to top">
+        <span class="brand-mark">JR</span>
+        <span>Jaraad Ramsey</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#experience">Experience</a>
+        <a href="#skills">Strengths</a>
+        <a href="#availability">Availability</a>
+        <a class="button secondary" href="https://jaraadramsey.com">Client Login</a>
+        <a class="button primary" href="personal-training.html">Personal Training</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="shell hero-grid">
+        <div class="reveal">
+          <div class="kicker">
+            <span class="status-dot"></span>
+            Available immediately • Mullaloo, Western Australia
+          </div>
+
+          <h1>RELIABLE.<br>CAPABLE.<br>READY.</h1>
+
+          <p class="hero-sub">
+            I’m Jaraad Ramsey, an adaptable and dependable worker with experience in practical, technical and
+            team-based environments. I learn workplace systems quickly, communicate clearly and approach every task carefully.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button primary" href="#contact">Contact Jaraad</a>
+            <a class="button secondary" href="Jaraad-Ramsey-Resume-2026.pdf" target="_blank" rel="noopener noreferrer">View résumé</a>
+          </div>
+        </div>
+
+        <aside class="hero-card reveal" aria-label="Portrait and quick profile">
+          <img
+            class="hero-portrait"
+            src="assets/jaraad-ramsey-portrait.webp"
+            alt="Portrait of Jaraad Ramsey"
+            width="1086"
+            height="1448"
+            decoding="async"
+            fetchpriority="high"
+          />
+
+          <div class="portrait-overlay">
+            <p class="portrait-name">Jaraad Ramsey</p>
+            <div class="portrait-details">
+              <div class="portrait-detail">
+                <span>Currently completing</span>
+                <strong>Certificate III &amp; IV in Fitness</strong>
+              </div>
+              <div class="portrait-detail">
+                <span>Available for</span>
+                <strong>Part-time employment</strong>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section id="experience">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <h2>EXPERIENCE IN PRACTICAL OPERATIONS.</h2>
+          <p>
+            My background at Expro developed the habits that matter in any workplace: following procedures, supporting a team,
+            working accurately and staying dependable when deadlines matter.
+          </p>
+        </div>
+
+        <article class="experience-card reveal">
+          <div class="industrial-lines" aria-hidden="true"></div>
+          <div class="experience-glow" aria-hidden="true"></div>
+
+          <div class="experience-content">
+            <div class="label">Featured experience</div>
+            <h3>Expro — Perth Base</h3>
+            <div class="experience-meta">Subsea Operator / Technician • 2024–2026</div>
+
+            <p class="experience-copy">
+              Supported internal teams with equipment processes, troubleshooting and accurate record keeping in a practical,
+              safety-conscious environment. The role required clear communication, careful work and the ability to learn
+              unfamiliar tools and procedures quickly.
+            </p>
+
+            <div class="chips">
+              <span class="chip">Technical troubleshooting</span>
+              <span class="chip">Operational support</span>
+              <span class="chip">Physical work</span>
+              <span class="chip">Team communication</span>
+              <span class="chip">Safety awareness</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <h2>WHAT I BRING TO A TEAM.</h2>
+          <p>
+            I work well in roles that value reliability, practical effort and the ability to learn new systems.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <div class="skill-number">01</div>
+            <h3>Technical aptitude</h3>
+            <p>
+              I learn unfamiliar equipment, software and workplace systems quickly, and take a methodical approach when resolving problems.
+            </p>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-number">02</div>
+            <h3>Physically capable</h3>
+            <p>
+              I’m comfortable in active, hands-on roles and can maintain a consistent standard of work throughout a shift.
+            </p>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-number">03</div>
+            <h3>Fast learner</h3>
+            <p>
+              I absorb procedures quickly, take feedback well and adapt to unfamiliar systems, workflows and responsibilities.
+            </p>
+          </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-number">04</div>
+            <h3>Clear communicator</h3>
+            <p>
+              I can explain technical ideas in plain language, work with people from different backgrounds and contribute
+              positively to a team environment.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="availability">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <h2>READY TO START.</h2>
+          <p>
+            I’m seeking stable part-time work while completing my Certificates III &amp; IV in Fitness.
+          </p>
+        </div>
+
+        <div class="availability-grid">
+          <article class="availability-card reveal">
+            <div class="label">Current availability</div>
+            <div class="availability-big">ASAP.</div>
+
+            <div class="availability-list">
+              <div class="availability-row"><span class="check">✓</span><span>Available for part-time work</span></div>
+              <div class="availability-row"><span class="check">✓</span><span>Available every day except Saturday</span></div>
+              <div class="availability-row"><span class="check">✓</span><span>Open to retail, supermarkets, gyms, hospitality and practical roles</span></div>
+              <div class="availability-row"><span class="check">✓</span><span>Seeking opportunities around Mullaloo, Western Australia</span></div>
+            </div>
+          </article>
+
+          <article class="education-card reveal">
+            <h3>Education & development</h3>
+
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-year">Current</div>
+                <strong>Certificates III &amp; IV in Fitness</strong>
+                <p>Developing knowledge in client screening, exercise programming, safety and professional practice.</p>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-year">2025–Present</div>
+                <strong>Curtin University</strong>
+                <p>Bachelor of Engineering — Engineering Foundations.</p>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-year">2023</div>
+                <strong>Ocean Reef Senior High School</strong>
+                <p>ATAR 90.10 with Mathematics Methods, Specialist Mathematics, Chemistry, Physics and Engineering Studies.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="expectations reveal" aria-label="What employers can expect">
+          <div class="expectation"><strong>Dependable</strong><span>A consistent, considered approach to shifts, procedures and team responsibilities.</span></div>
+          <div class="expectation"><strong>Adaptable</strong><span>Comfortable learning new systems, equipment and workplace routines.</span></div>
+          <div class="expectation"><strong>Team-minded</strong><span>Clear communication and a willingness to support the work that needs to be done.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="shell">
+        <div class="contact-card reveal">
+          <div class="label">Let’s talk</div>
+          <h2>LET’S DISCUSS HOW I CAN SUPPORT YOUR TEAM.</h2>
+          <p>
+            I’m available for reliable part-time work around Mullaloo, Western Australia and can begin immediately.
+          </p>
+
+          <div class="contact-actions">
+            <a class="button primary" href="mailto:jaraad05@gmail.com">Email Jaraad</a>
+            <a class="button secondary" href="tel:+61478417858">Call 0478 417 858</a>
+            <a class="button secondary" href="Jaraad-Ramsey-Resume-2026.pdf" target="_blank" rel="noopener noreferrer">View résumé</a>
+          </div>
+
+          <div class="contact-meta">
+            Mullaloo, Western Australia • <a href="mailto:jaraad05@gmail.com">jaraad05@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-row">
+      <span>© 2026 Jaraad Ramsey</span>
+      <span>Available for part-time opportunities around Mullaloo, Western Australia.</span>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
