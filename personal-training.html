@@ -3,915 +3,516 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Jaraad Ramsey coaching dashboard for client information, nutrition and workout planning." />
-  <meta name="theme-color" content="#10120f" />
-  <title>Trainer Dashboard — Jaraad Ramsey</title>
+  <meta name="description" content="Jaraad Ramsey personal training — evidence-based coaching, sustainable nutrition and long-term habits." />
+  <meta name="theme-color" content="#050505" />
+  <title>Personal Training — Jaraad Ramsey</title>
 
   <style>
     :root {
-      color-scheme: light;
-      --ink: #171914;
-      --muted: #686d63;
-      --soft: #f1f3ed;
-      --surface: #ffffff;
-      --surface-2: #f8f9f5;
-      --line: #dde1d7;
-      --line-strong: #c7cdc0;
-      --green: #244f39;
-      --green-dark: #153426;
-      --green-soft: #e7f0e9;
-      --lime: #dceca9;
-      --orange: #a95623;
-      --orange-soft: #fff0e6;
-      --red: #a23a33;
-      --red-soft: #fce9e6;
-      --sidebar: #10120f;
-      --sidebar-muted: #a8aea2;
-      --radius: 16px;
-      --radius-sm: 11px;
-      --shadow: 0 8px 24px rgba(24, 32, 22, .06);
+      --bg: #050505;
+      --panel: rgba(255,255,255,.045);
+      --panel-strong: rgba(255,255,255,.075);
+      --text: #f5f5f5;
+      --muted: #a7a7a7;
+      --line: rgba(255,255,255,.12);
+      --line-soft: rgba(255,255,255,.075);
+      --shadow: 0 30px 100px rgba(0,0,0,.45);
+      --radius-lg: 32px;
+      --radius-md: 22px;
+      --max: 1180px;
     }
 
     * { box-sizing: border-box; }
-    html { background: var(--soft); }
+    html { scroll-behavior: smooth; background: var(--bg); }
     body {
       margin: 0;
-      min-width: 320px;
-      color: var(--ink);
-      background: var(--soft);
-      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.45;
-    }
-    button, input, select { font: inherit; }
-    button, a, input, select { -webkit-tap-highlight-color: transparent; }
-    button { color: inherit; }
-    button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
-      outline: 3px solid #9ab56a;
-      outline-offset: 2px;
-    }
-    [hidden] { display: none !important; }
-
-    .app-shell {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 248px minmax(0, 1fr);
+      color: var(--text);
+      background:
+        radial-gradient(circle at 82% 8%, rgba(255,255,255,.09), transparent 28rem),
+        radial-gradient(circle at 8% 48%, rgba(255,255,255,.045), transparent 30rem),
+        linear-gradient(180deg, #050505 0%, #090909 56%, #050505 100%);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.55;
+      overflow-x: hidden;
     }
 
-    .sidebar {
-      min-height: 100vh;
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 4px;
+    }
+    .shell { width: min(calc(100% - 32px), var(--max)); margin-inline: auto; }
+
+    .nav {
       position: sticky;
       top: 0;
-      align-self: start;
-      display: flex;
-      flex-direction: column;
-      padding: 22px 16px;
-      color: #f7f8f4;
-      background: var(--sidebar);
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      background: rgba(5,5,5,.72);
+      backdrop-filter: blur(20px) saturate(150%);
+      -webkit-backdrop-filter: blur(20px) saturate(150%);
     }
-    .brand {
-      min-height: 52px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 0 8px;
-      color: inherit;
-      text-decoration: none;
-    }
-    .brand-mark {
-      width: 38px;
-      height: 38px;
-      flex: 0 0 auto;
-      display: grid;
-      place-items: center;
-      border-radius: 10px;
-      color: var(--green-dark);
-      background: var(--lime);
-      font-size: .8rem;
-      font-weight: 900;
-      letter-spacing: -.02em;
-    }
-    .brand-copy strong, .brand-copy small { display: block; }
-    .brand-copy strong { font-size: .96rem; letter-spacing: -.02em; }
-    .brand-copy small { margin-top: 1px; color: var(--sidebar-muted); font-size: .72rem; }
+    .nav-inner { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 800; letter-spacing: -.02em; }
+    .brand-mark { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 11px; border: 1px solid var(--line); background: linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.03)); font-size: .85rem; }
+    .nav-links { display: flex; align-items: center; gap: 22px; color: var(--muted); font-size: .92rem; }
+    .nav-links a { text-decoration: none; transition: color .2s ease; }
+    .nav-links a:hover { color: var(--text); }
 
-    .primary-nav {
-      display: grid;
-      gap: 5px;
-      margin-top: 38px;
-    }
-    .nav-button {
-      width: 100%;
-      min-height: 45px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 0 12px;
-      border: 0;
-      border-radius: 10px;
-      color: var(--sidebar-muted);
-      background: transparent;
-      text-align: left;
-      cursor: pointer;
-    }
-    .nav-button[aria-selected="true"] {
-      color: #fff;
-      background: #252a23;
-    }
-    .nav-index {
-      width: 26px;
-      height: 26px;
-      display: grid;
-      place-items: center;
-      border: 1px solid #41473e;
-      border-radius: 8px;
-      font-size: .68rem;
-      font-weight: 800;
-    }
-    .nav-button[aria-selected="true"] .nav-index {
-      border-color: var(--lime);
-      color: var(--green-dark);
-      background: var(--lime);
-    }
-    .nav-label { font-size: .88rem; font-weight: 700; }
-
-    .sidebar-note {
-      margin-top: auto;
-      padding: 14px;
-      border: 1px solid #343932;
-      border-radius: 12px;
-      color: var(--sidebar-muted);
-      font-size: .75rem;
-      line-height: 1.45;
-    }
-    .sidebar-note strong { display: block; margin-bottom: 4px; color: #fff; font-size: .78rem; }
-
-    .app-main { min-width: 0; }
-    .topbar {
-      min-height: 82px;
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      padding: 14px 28px;
-      border-bottom: 1px solid var(--line);
-      background: rgba(241, 243, 237, .96);
-    }
-    .page-heading h1 { margin: 0; font-size: 1.5rem; line-height: 1.2; letter-spacing: -.035em; }
-    .page-heading p { margin: 4px 0 0; color: var(--muted); font-size: .8rem; }
-    .top-actions { display: flex; align-items: center; gap: 10px; }
-    .search-box { position: relative; }
-    .search-box label {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      clip: rect(0 0 0 0);
-    }
-    .search-box input {
-      width: min(31vw, 300px);
-      min-height: 42px;
-      padding: 0 14px 0 38px;
-      border: 1px solid var(--line);
-      border-radius: 11px;
-      color: var(--ink);
-      background: var(--surface);
-    }
-    .search-box::before {
-      content: "";
-      width: 12px;
-      height: 12px;
-      position: absolute;
-      left: 14px;
-      top: 13px;
-      border: 2px solid #7e8478;
-      border-radius: 50%;
-      pointer-events: none;
-    }
-    .search-box::after {
-      content: "";
-      width: 6px;
-      height: 2px;
-      position: absolute;
-      left: 25px;
-      top: 27px;
-      background: #7e8478;
-      transform: rotate(45deg);
-      pointer-events: none;
-    }
-    .avatar {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      flex: 0 0 auto;
-      border-radius: 50%;
-      color: #fff;
-      background: var(--green);
-      font-size: .75rem;
-      font-weight: 850;
-    }
-
-    .content { max-width: 1460px; margin: 0 auto; padding: 26px 28px 48px; }
-    .demo-notice {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 18px;
-      padding: 11px 14px;
-      border: 1px solid #cad8b6;
-      border-radius: 11px;
-      color: #3d4b2c;
-      background: #f3f8e7;
-      font-size: .78rem;
-    }
-    .demo-notice strong { font-weight: 800; }
-    .demo-notice a { color: inherit; font-weight: 800; }
-
-    .view-panel { display: block; }
-    .section-bar {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 18px;
-      margin-bottom: 16px;
-    }
-    .section-bar h2 { margin: 0; font-size: 1.08rem; letter-spacing: -.025em; }
-    .section-bar p { margin: 3px 0 0; color: var(--muted); font-size: .78rem; }
-    .text-button {
-      min-height: 38px;
-      padding: 0 13px;
-      border: 1px solid var(--line-strong);
-      border-radius: 9px;
-      background: var(--surface);
-      cursor: pointer;
-      font-size: .78rem;
-      font-weight: 750;
-    }
-    .text-button.primary { border-color: var(--green); color: #fff; background: var(--green); }
-
-    .metric-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-      margin-bottom: 22px;
-    }
-    .metric-card, .panel {
-      border: 1px solid var(--line);
-      background: var(--surface);
-      box-shadow: var(--shadow);
-    }
-    .metric-card { min-height: 132px; padding: 18px; border-radius: var(--radius); }
-    .metric-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-    .metric-label { color: var(--muted); font-size: .76rem; font-weight: 700; }
-    .metric-badge {
-      padding: 4px 7px;
-      border-radius: 999px;
-      color: var(--green);
-      background: var(--green-soft);
-      font-size: .65rem;
-      font-weight: 800;
-    }
-    .metric-value { display: block; margin-top: 18px; font-size: 1.85rem; line-height: 1; letter-spacing: -.05em; }
-    .metric-foot { display: block; margin-top: 8px; color: var(--muted); font-size: .7rem; }
-
-    .dashboard-grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(280px, .75fr); gap: 16px; }
-    .panel { min-width: 0; border-radius: var(--radius); }
-    .panel-header {
-      min-height: 58px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      padding: 14px 17px;
-      border-bottom: 1px solid var(--line);
-    }
-    .panel-header h3 { margin: 0; font-size: .9rem; letter-spacing: -.015em; }
-    .panel-header span { color: var(--muted); font-size: .7rem; }
-    .panel-body { padding: 9px 17px 15px; }
-
-    .schedule-item, .attention-item {
-      display: grid;
-      align-items: center;
-      gap: 12px;
-      padding: 13px 0;
-      border-bottom: 1px solid #edf0e9;
-    }
-    .schedule-item:last-child, .attention-item:last-child { border-bottom: 0; }
-    .schedule-item { grid-template-columns: 58px 34px minmax(0, 1fr) auto; }
-    .schedule-time { color: var(--muted); font-size: .72rem; font-weight: 750; }
-    .person-initial {
-      width: 34px;
-      height: 34px;
-      display: grid;
-      place-items: center;
-      border-radius: 9px;
-      color: var(--green-dark);
-      background: var(--green-soft);
-      font-size: .7rem;
-      font-weight: 850;
-    }
-    .item-copy { min-width: 0; }
-    .item-copy strong { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .8rem; }
-    .item-copy span { display: block; margin-top: 2px; color: var(--muted); font-size: .7rem; }
-    .status {
+    .button {
       display: inline-flex;
       align-items: center;
-      min-height: 24px;
-      padding: 0 8px;
-      border-radius: 999px;
-      font-size: .64rem;
-      font-weight: 850;
-      white-space: nowrap;
-    }
-    .status.on-track { color: var(--green); background: var(--green-soft); }
-    .status.due { color: var(--orange); background: var(--orange-soft); }
-    .status.overdue { color: var(--red); background: var(--red-soft); }
-    .attention-item { grid-template-columns: 8px minmax(0, 1fr); }
-    .alert-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
-    .alert-dot.red { background: var(--red); }
-
-    .table-wrap { width: 100%; overflow-x: auto; }
-    table { width: 100%; border-collapse: collapse; }
-    th, td { padding: 13px 16px; border-bottom: 1px solid #edf0e9; text-align: left; vertical-align: middle; }
-    th { color: var(--muted); background: var(--surface-2); font-size: .66rem; letter-spacing: .05em; text-transform: uppercase; }
-    td { font-size: .76rem; }
-    tbody tr:last-child td { border-bottom: 0; }
-    .client-cell { display: flex; align-items: center; gap: 10px; min-width: 160px; }
-    .client-cell button { padding: 0; border: 0; background: transparent; text-align: left; cursor: pointer; }
-    .client-cell strong, .client-cell small { display: block; }
-    .client-cell strong { font-size: .78rem; }
-    .client-cell small { margin-top: 2px; color: var(--muted); font-size: .68rem; }
-    .bar { width: 104px; height: 7px; overflow: hidden; border-radius: 999px; background: #e9ece5; }
-    .bar span { display: block; height: 100%; border-radius: inherit; background: var(--green); }
-    .bar-value { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
-
-    .client-toolbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-    .client-toolbar .search-box input { width: min(58vw, 340px); }
-    .client-workspace { display: grid; grid-template-columns: minmax(250px, .6fr) minmax(0, 1.4fr); gap: 16px; }
-    .client-list { padding: 8px; }
-    .client-card {
-      width: 100%;
-      display: grid;
-      grid-template-columns: 40px minmax(0, 1fr) auto;
-      align-items: center;
-      gap: 11px;
-      padding: 11px;
-      border: 1px solid transparent;
-      border-radius: 11px;
-      background: transparent;
-      text-align: left;
-      cursor: pointer;
-    }
-    .client-card[aria-selected="true"] { border-color: #c8d7c6; background: #f1f7f2; }
-    .client-card .person-initial { width: 40px; height: 40px; border-radius: 11px; }
-    .client-card strong, .client-card small { display: block; }
-    .client-card strong { font-size: .8rem; }
-    .client-card small { margin-top: 3px; color: var(--muted); font-size: .68rem; }
-    .client-chevron { color: #9aa194; font-size: 1rem; }
-
-    .profile-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 20px;
-      border-bottom: 1px solid var(--line);
-    }
-    .profile-title { display: flex; align-items: center; gap: 13px; }
-    .profile-title .person-initial { width: 48px; height: 48px; border-radius: 13px; font-size: .8rem; }
-    .profile-title h2 { margin: 0; font-size: 1.2rem; letter-spacing: -.03em; }
-    .profile-title p { margin: 4px 0 0; color: var(--muted); font-size: .72rem; }
-    .profile-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; padding: 16px; }
-    .profile-field { min-height: 82px; padding: 13px; border: 1px solid var(--line); border-radius: 11px; background: var(--surface-2); }
-    .profile-field span { display: block; color: var(--muted); font-size: .65rem; font-weight: 700; text-transform: uppercase; }
-    .profile-field strong { display: block; margin-top: 7px; font-size: .78rem; line-height: 1.4; }
-    .profile-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 16px 16px; }
-    .note-card { padding: 15px; border: 1px solid var(--line); border-radius: 11px; }
-    .note-card h3 { margin: 0 0 8px; font-size: .76rem; }
-    .note-card p { margin: 0; color: var(--muted); font-size: .72rem; line-height: 1.55; }
-
-    .select-control {
-      min-height: 40px;
-      padding: 0 34px 0 12px;
-      border: 1px solid var(--line-strong);
-      border-radius: 9px;
-      color: var(--ink);
-      background: var(--surface);
-      font-size: .78rem;
-      font-weight: 700;
-    }
-    .nutrition-layout, .workout-layout { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(270px, .75fr); gap: 16px; }
-    .macro-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 11px; padding: 16px; }
-    .macro-card { padding: 13px; border: 1px solid var(--line); border-radius: 11px; background: var(--surface-2); }
-    .macro-card span, .macro-card small { display: block; }
-    .macro-card span { color: var(--muted); font-size: .67rem; }
-    .macro-card strong { display: block; margin: 8px 0 2px; font-size: 1.15rem; letter-spacing: -.035em; }
-    .macro-card small { color: var(--muted); font-size: .62rem; }
-    .meal-list { padding: 6px 16px 14px; }
-    .meal-row {
-      display: grid;
-      grid-template-columns: 82px minmax(0, 1fr) auto;
-      align-items: center;
-      gap: 12px;
-      padding: 13px 0;
-      border-bottom: 1px solid #edf0e9;
-    }
-    .meal-row:last-child { border-bottom: 0; }
-    .meal-time { color: var(--muted); font-size: .67rem; }
-    .meal-copy strong, .meal-copy span { display: block; }
-    .meal-copy strong { font-size: .77rem; }
-    .meal-copy span { margin-top: 3px; color: var(--muted); font-size: .67rem; }
-    .meal-calories { font-size: .69rem; font-weight: 800; white-space: nowrap; }
-    .adherence { padding: 16px; }
-    .adherence-score { font-size: 2.35rem; line-height: 1; letter-spacing: -.06em; }
-    .adherence > p { margin: 8px 0 18px; color: var(--muted); font-size: .7rem; }
-    .day-row { display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; align-items: center; gap: 10px; margin: 10px 0; }
-    .day-row span, .day-row strong { font-size: .67rem; }
-    .day-row strong { text-align: right; }
-
-    .day-tabs { display: flex; gap: 7px; padding: 13px 16px; overflow-x: auto; border-bottom: 1px solid var(--line); }
-    .day-tab {
-      min-height: 34px;
-      padding: 0 11px;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
       border: 1px solid var(--line);
-      border-radius: 8px;
-      color: var(--muted);
-      background: var(--surface);
-      cursor: pointer;
-      font-size: .68rem;
+      border-radius: 999px;
+      background: transparent;
+      color: inherit;
+      text-decoration: none;
+      font: inherit;
       font-weight: 750;
-      white-space: nowrap;
+      letter-spacing: -.01em;
+      cursor: pointer;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
     }
-    .day-tab[aria-selected="true"] { border-color: var(--green); color: #fff; background: var(--green); }
-    .workout-summary { padding: 16px; }
-    .workout-summary h3 { margin: 0; font-size: 1.05rem; letter-spacing: -.025em; }
-    .workout-summary p { margin: 5px 0 0; color: var(--muted); font-size: .72rem; }
-    .exercise-name { min-width: 180px; font-weight: 750; }
-    .workout-note-list { margin: 0; padding: 15px 17px 17px 32px; color: var(--muted); font-size: .72rem; }
-    .workout-note-list li + li { margin-top: 9px; }
+    .button:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.3); }
+    .button.primary { color: #050505; background: #fff; border-color: #fff; }
+    .button.secondary { background: rgba(255,255,255,.04); }
 
-    .empty-state { padding: 32px 18px; color: var(--muted); text-align: center; font-size: .78rem; }
-    .mobile-only { display: none; }
+    .hero { min-height: calc(100vh - 72px); display: grid; align-items: center; padding: 90px 0 100px; position: relative; }
+    .hero::after { content: ""; position: absolute; left: 42%; right: 0; bottom: 9%; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.38), transparent); animation: glow 4.5s ease-in-out infinite; }
+    @keyframes glow { 0%,100% { opacity: .25; transform: translateX(-3%); } 50% { opacity: .75; transform: translateX(3%); } }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 28px; padding: 8px 12px; border: 1px solid var(--line-soft); border-radius: 999px; background: rgba(255,255,255,.025); color: #d4d4d4; font-size: .84rem; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: #fff; box-shadow: 0 0 16px rgba(255,255,255,.9); }
+    h1 { margin: 0; max-width: 1060px; font-size: clamp(4rem, 9vw, 8.4rem); line-height: .88; letter-spacing: -.075em; text-transform: uppercase; }
+    .hero-copy { max-width: 820px; margin: 30px 0 36px; color: var(--muted); font-size: clamp(1.08rem, 2vw, 1.38rem); letter-spacing: -.015em; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
-    @media (max-width: 1120px) {
-      .metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .profile-grid, .macro-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .nutrition-layout, .workout-layout { grid-template-columns: 1fr; }
+    section { padding: 104px 0; scroll-margin-top: 88px; }
+    .section-heading { display: grid; grid-template-columns: .8fr 1.2fr; gap: 52px; align-items: start; margin-bottom: 42px; }
+    h2 { margin: 0; font-size: clamp(2.6rem, 6vw, 5rem); line-height: .96; letter-spacing: -.06em; text-transform: uppercase; }
+    .section-heading p { max-width: 720px; margin: 5px 0 0; color: var(--muted); font-size: 1.08rem; }
+    .label { margin-bottom: 14px; color: #d1d1d1; font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; }
+
+    .case-studies { display: grid; gap: 28px; }
+    .study-card { overflow: hidden; padding: 34px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: radial-gradient(circle at 85% 10%, rgba(255,255,255,.08), transparent 22rem), linear-gradient(145deg, #101010, #080808); box-shadow: var(--shadow); scroll-margin-top: 92px; }
+    #case-studies { padding-top: 124px; }
+    #case-studies .section-heading { margin-bottom: 24px; }
+    .study-index { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 34px; }
+    .study-index a { padding: 9px 13px; border: 1px solid var(--line-soft); border-radius: 999px; color: #aaa; background: rgba(255,255,255,.02); text-decoration: none; font-size: .8rem; transition: color .2s ease, border-color .2s ease, background .2s ease; }
+    .study-index a:hover { color: #fff; border-color: var(--line); background: rgba(255,255,255,.045); }
+    .featured-study { padding: 46px; border-color: rgba(255,255,255,.2); background: radial-gradient(circle at 78% 8%, rgba(255,255,255,.14), transparent 27rem), linear-gradient(145deg, #141414, #080808); }
+    .featured-heading { margin-bottom: 32px; }
+    .featured-name { margin: 0; max-width: 1020px; font-size: clamp(3.4rem, 7vw, 6.8rem); line-height: .88; letter-spacing: -.065em; text-transform: uppercase; }
+    .featured-intro { max-width: 760px; margin: 24px 0 0; color: var(--muted); font-size: 1.08rem; }
+    .progress-status { display: inline-flex; align-items: center; gap: 9px; margin-top: 22px; padding: 9px 13px; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; color: #e4e4e4; font-size: .72rem; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
+    .progress-status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #f2f2f2; box-shadow: 0 0 0 4px rgba(255,255,255,.09); }
+    .featured-metrics { grid-template-columns: repeat(3, 1fr); }
+    .featured-sections { grid-template-columns: repeat(2, 1fr); }
+    .featured-sections .study-note { min-height: 165px; }
+    .featured-sections .wide { grid-column: 1 / -1; }
+    .study-note p + p { margin-top: 12px; }
+    .study-note strong { color: #e7e7e7; }
+    .training-week { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 18px 0; }
+    .training-day { padding: 14px; border: 1px solid var(--line-soft); border-radius: 13px; background: rgba(255,255,255,.02); }
+    .training-day strong { display: block; margin-bottom: 5px; font-size: .76rem; letter-spacing: .1em; text-transform: uppercase; }
+    .training-day span { color: var(--muted); font-size: .9rem; line-height: 1.45; }
+    .study-top { display: grid; grid-template-columns: .7fr 1.3fr; align-items: end; gap: 38px; margin-bottom: 26px; }
+    .study-name { margin: 0; font-size: clamp(2rem, 5vw, 4rem); line-height: 1; letter-spacing: -.05em; }
+    .study-summary { margin: 0; color: var(--muted); font-size: 1.02rem; }
+    .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .study-media { min-height: 390px; margin: 0; position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-md); background: linear-gradient(135deg, rgba(255,255,255,.055), transparent 48%), linear-gradient(145deg, #141414, #090909); }
+    .study-media.featured-media { min-height: 660px; }
+    .study-media::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0 74px, rgba(255,255,255,.025) 75px), repeating-linear-gradient(0deg, transparent 0 74px, rgba(255,255,255,.02) 75px); mask-image: linear-gradient(to bottom, black, transparent 78%); }
+    .study-media.has-image::before { z-index: 1; background: linear-gradient(to top, rgba(0,0,0,.7), transparent 30%); mask-image: none; pointer-events: none; }
+    .study-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 32%; }
+    .study-media span { position: absolute; z-index: 2; left: 18px; bottom: 16px; color: #f2f2f2; font-size: .75rem; letter-spacing: .15em; text-transform: uppercase; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 14px; }
+    .stat { padding: 18px; border: 1px solid var(--line-soft); border-radius: 16px; background: rgba(255,255,255,.025); }
+    .stat span { display: block; margin-bottom: 7px; color: #888; font-size: .7rem; letter-spacing: .11em; text-transform: uppercase; }
+    .stat strong { display: block; color: #d8d8d8; font-size: .92rem; line-height: 1.3; }
+    .study-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+    .study-note { min-height: 145px; padding: 20px; border: 1px solid var(--line-soft); border-radius: 16px; background: rgba(255,255,255,.025); }
+    .study-note h4 { margin: 0 0 10px; font-size: .76rem; letter-spacing: .13em; text-transform: uppercase; }
+    .study-note p { margin: 0; color: var(--muted); }
+    .reflection { min-height: 112px; margin: 0; position: relative; }
+    .reflection::before { content: "“"; color: rgba(255,255,255,.14); font-size: 4rem; line-height: .8; }
+
+    .philosophy-grid, .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .feature-card, .service-card { min-height: 235px; padding: 28px; position: relative; overflow: hidden; border: 1px solid var(--line-soft); border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018)); }
+    .feature-icon { width: 42px; height: 42px; display: grid; place-items: center; margin-bottom: 52px; border: 1px solid var(--line); border-radius: 13px; background: rgba(255,255,255,.04); color: #d8d8d8; font-size: .76rem; letter-spacing: .08em; }
+    .feature-card h3, .service-card h3 { margin: 0 0 10px; font-size: 1.45rem; letter-spacing: -.025em; }
+    .feature-card p, .service-card p { margin: 0; color: var(--muted); }
+    .service-card { min-height: 215px; display: flex; flex-direction: column; justify-content: space-between; }
+    .service-status { align-self: flex-start; padding: 7px 10px; border: 1px solid var(--line); border-radius: 999px; color: #aaa; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; }
+    .service-card[aria-disabled="true"] { opacity: .82; }
+
+    .faq-list { display: grid; gap: 10px; }
+    details { border: 1px solid var(--line-soft); border-radius: 18px; background: rgba(255,255,255,.025); transition: background .2s ease, border-color .2s ease; }
+    details[open] { background: rgba(255,255,255,.045); border-color: var(--line); }
+    summary { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 22px 24px; cursor: pointer; list-style: none; font-weight: 700; letter-spacing: -.015em; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: #888; font-size: 1.25rem; font-weight: 400; }
+    details[open] summary::after { content: "–"; }
+    details p { max-width: 800px; margin: 0; padding: 0 24px 24px; color: var(--muted); }
+
+    .contact-card { padding: 58px; border: 1px solid var(--line); border-radius: 38px; background: radial-gradient(circle at 90% 0%, rgba(255,255,255,.12), transparent 25rem), linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.02)); box-shadow: var(--shadow); }
+    .contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 64px; }
+    .contact-intro h2 { font-size: clamp(2.8rem, 6vw, 5.2rem); }
+    .contact-intro p { color: var(--muted); }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .field { display: grid; gap: 7px; }
+    .field.full { grid-column: 1 / -1; }
+    label { color: #bdbdbd; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
+    input, select, textarea { width: 100%; min-height: 50px; padding: 13px 15px; border: 1px solid var(--line); border-radius: 14px; background: rgba(0,0,0,.28); color: var(--text); font: inherit; }
+    textarea { min-height: 132px; resize: vertical; }
+    input::placeholder, textarea::placeholder { color: #666; }
+    .form-note { margin: 12px 0 0; color: #777; font-size: .8rem; }
+    .form-message { min-height: 1.4em; margin-top: 12px; color: #cfcfcf; font-size: .88rem; }
+
+    footer { padding: 28px 0 44px; border-top: 1px solid var(--line-soft); color: #858585; font-size: .88rem; }
+    .footer-row { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      .section-heading, .contact-grid { grid-template-columns: 1fr; gap: 22px; }
+      .hero { min-height: auto; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      .contact-grid { gap: 38px; }
+      .nav-links a:not(.button) { display: none; }
+      .featured-metrics { grid-template-columns: repeat(2, 1fr); }
     }
-
-    @media (max-width: 820px) {
-      .app-shell { display: block; }
-      .sidebar {
-        min-height: auto;
-        position: sticky;
-        z-index: 40;
-        padding: 10px 12px 9px;
-      }
-      .brand { min-height: 39px; padding: 0 2px; }
-      .brand-mark { width: 32px; height: 32px; border-radius: 9px; }
-      .brand-copy small { display: none; }
-      .primary-nav { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; margin-top: 9px; }
-      .nav-button { min-height: 42px; justify-content: center; gap: 6px; padding: 0 6px; }
-      .nav-index { display: none; }
-      .nav-label { font-size: .72rem; }
-      .sidebar-note { display: none; }
-      .topbar { top: 100px; min-height: 70px; padding: 10px 16px; }
-      .page-heading h1 { font-size: 1.2rem; }
-      .dashboard-grid, .client-workspace { grid-template-columns: 1fr; }
-      .profile-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    @media (max-width: 640px) {
+      .shell { width: min(calc(100% - 22px), var(--max)); }
+      .nav-inner { min-height: 64px; }
+      .nav-links { gap: 0; }
+      .nav .button { min-height: 42px; padding-inline: 15px; font-size: .88rem; }
+      .hero { padding: 66px 0 80px; }
+      h1 { font-size: clamp(3.3rem, 16.5vw, 5rem); }
+      .hero-actions .button { flex: 1 1 150px; }
+      section { padding: 78px 0; }
+      .section-heading { margin-bottom: 28px; }
+      .study-card { padding: 18px; }
+      .featured-study { padding: 22px; }
+      .featured-name { font-size: clamp(2.35rem, 9.8vw, 3rem); line-height: .92; }
+      .study-top { grid-template-columns: 1fr; align-items: start; gap: 14px; }
+      .comparison { gap: 8px; }
+      .study-media { min-height: 255px; }
+      .study-media.featured-media { min-height: 310px; }
+      .stats, .study-notes, .philosophy-grid, .services-grid, .form-grid { grid-template-columns: 1fr; }
+      .featured-sections .wide { grid-column: auto; }
+      .training-week { grid-template-columns: 1fr; }
+      .feature-card { min-height: 210px; }
+      .field.full { grid-column: auto; }
+      .contact-card { padding: 36px 20px; border-radius: 28px; }
     }
-
-    @media (max-width: 560px) {
-      .sidebar { top: 0; }
-      .brand { display: none; }
-      .primary-nav { margin-top: 0; }
-      .nav-button { min-height: 45px; }
-      .topbar { top: 64px; display: block; padding: 10px 12px; }
-      .page-heading p { display: none; }
-      .top-actions { margin-top: 9px; }
-      .search-box { flex: 1; }
-      .search-box input { width: 100%; }
-      .avatar { width: 40px; height: 40px; }
-      .content { padding: 14px 12px 32px; }
-      .demo-notice { align-items: flex-start; }
-      .demo-notice a { display: none; }
-      .metric-grid { gap: 9px; }
-      .metric-card { min-height: 114px; padding: 14px; }
-      .metric-value { margin-top: 15px; font-size: 1.5rem; }
-      .section-bar { align-items: center; }
-      .client-toolbar { align-items: stretch; flex-direction: column; }
-      .client-toolbar .search-box input { width: 100%; }
-      .profile-header { align-items: stretch; flex-direction: column; padding: 16px; }
-      .profile-grid, .profile-notes { grid-template-columns: 1fr; }
-      .macro-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .schedule-item { grid-template-columns: 49px 30px minmax(0, 1fr); }
-      .schedule-item .status { display: none; }
-      .person-initial { width: 30px; height: 30px; }
-      .meal-row { grid-template-columns: 64px minmax(0, 1fr); }
-      .meal-calories { display: none; }
-      th, td { padding: 11px 13px; }
-      .mobile-hide { display: none; }
-      .mobile-only { display: inline; }
-    }
-
-    @media (max-width: 380px) {
-      .nav-label { font-size: .65rem; }
-      .metric-grid { grid-template-columns: 1fr; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
     }
   </style>
 </head>
 
 <body>
-  <div class="app-shell">
-    <aside class="sidebar" aria-label="Trainer dashboard navigation">
-      <a class="brand" href="index.html" aria-label="Jaraad Ramsey home">
+  <nav class="nav">
+    <div class="shell nav-inner">
+      <a class="brand" href="personal-training.html" aria-label="Personal Training home">
         <span class="brand-mark">JR</span>
-        <span class="brand-copy"><strong>Coach Console</strong><small>Jaraad Ramsey Training</small></span>
+        <span>Personal Training</span>
       </a>
-
-      <nav class="primary-nav" aria-label="Dashboard sections">
-        <button class="nav-button" type="button" data-view="overview" aria-selected="true"><span class="nav-index">01</span><span class="nav-label">Overview</span></button>
-        <button class="nav-button" type="button" data-view="clients" aria-selected="false"><span class="nav-index">02</span><span class="nav-label">Clients</span></button>
-        <button class="nav-button" type="button" data-view="nutrition" aria-selected="false"><span class="nav-index">03</span><span class="nav-label">Nutrition</span></button>
-        <button class="nav-button" type="button" data-view="workouts" aria-selected="false"><span class="nav-index">04</span><span class="nav-label">Workouts</span></button>
-      </nav>
-
-      <div class="sidebar-note">
-        <strong>Dashboard preview</strong>
-        Sample records only. Add secure sign-in and storage before using real client information.
+      <div class="nav-links">
+        <a href="#case-studies">Case Studies</a>
+        <a href="#philosophy">Philosophy</a>
+        <a href="#services">Services</a>
+        <a href="#faq">FAQ</a>
+        <a class="button secondary" href="https://jaraadramsey.com">Client Login</a>
+        <a class="button primary" href="index.html">Employment</a>
       </div>
-    </aside>
-
-    <div class="app-main">
-      <header class="topbar">
-        <div class="page-heading">
-          <h1 id="page-title">Good morning, Jaraad</h1>
-          <p id="current-date">Trainer dashboard</p>
-        </div>
-        <div class="top-actions">
-          <div class="search-box">
-            <label for="global-search">Search clients</label>
-            <input id="global-search" type="search" placeholder="Search clients" autocomplete="off" />
-          </div>
-          <div class="avatar" aria-label="Jaraad Ramsey profile">JR</div>
-        </div>
-      </header>
-
-      <main class="content">
-        <div class="demo-notice">
-          <span><strong>Preview data:</strong> this dashboard contains sample coaching records and does not store private client information.</span>
-          <a href="index.html">Back to website</a>
-        </div>
-
-        <section class="view-panel" id="view-overview" data-panel="overview" aria-labelledby="overview-heading">
-          <div class="section-bar">
-            <div><h2 id="overview-heading">Today at a glance</h2><p>Your clients, sessions and check-ins in one place.</p></div>
-            <button class="text-button primary" type="button" data-open-view="clients">View clients</button>
-          </div>
-
-          <div class="metric-grid">
-            <article class="metric-card"><div class="metric-top"><span class="metric-label">Active clients</span><span class="metric-badge">Demo</span></div><strong class="metric-value">3</strong><span class="metric-foot">All currently active</span></article>
-            <article class="metric-card"><div class="metric-top"><span class="metric-label">Sessions this week</span><span class="metric-badge">+2</span></div><strong class="metric-value">14</strong><span class="metric-foot">5 sessions remaining</span></article>
-            <article class="metric-card"><div class="metric-top"><span class="metric-label">Nutrition adherence</span><span class="metric-badge">Strong</span></div><strong class="metric-value">92%</strong><span class="metric-foot">Average across clients</span></article>
-            <article class="metric-card"><div class="metric-top"><span class="metric-label">Check-ins due</span><span class="metric-badge">Action</span></div><strong class="metric-value">2</strong><span class="metric-foot">One due today</span></article>
-          </div>
-
-          <div class="dashboard-grid">
-            <section class="panel" aria-labelledby="schedule-heading">
-              <div class="panel-header"><h3 id="schedule-heading">Today’s schedule</h3><span>3 sessions</span></div>
-              <div class="panel-body">
-                <div class="schedule-item"><span class="schedule-time">8:00 AM</span><span class="person-initial">AN</span><span class="item-copy"><strong>Anton</strong><span>Upper strength · 60 min</span></span><span class="status on-track">Confirmed</span></div>
-                <div class="schedule-item"><span class="schedule-time">4:30 PM</span><span class="person-initial">MI</span><span class="item-copy"><strong>Michael</strong><span>Lower body · 60 min</span></span><span class="status on-track">Confirmed</span></div>
-                <div class="schedule-item"><span class="schedule-time">6:00 PM</span><span class="person-initial">JR</span><span class="item-copy"><strong>Jaraad</strong><span>Chest, back &amp; triceps · 75 min</span></span><span class="status due">Personal</span></div>
-              </div>
-            </section>
-
-            <section class="panel" aria-labelledby="attention-heading">
-              <div class="panel-header"><h3 id="attention-heading">Needs attention</h3><span>2 items</span></div>
-              <div class="panel-body">
-                <div class="attention-item"><span class="alert-dot red"></span><span class="item-copy"><strong>Michael’s check-in is due</strong><span>Review progress and recovery today</span></span></div>
-                <div class="attention-item"><span class="alert-dot"></span><span class="item-copy"><strong>Anton’s meal target</strong><span>Nutrition target needs confirmation</span></span></div>
-              </div>
-            </section>
-          </div>
-
-          <section class="panel" style="margin-top:16px" aria-labelledby="progress-heading">
-            <div class="panel-header"><h3 id="progress-heading">Client progress</h3><span>Current coaching block</span></div>
-            <div class="table-wrap">
-              <table>
-                <thead><tr><th>Client</th><th>Goal</th><th>Plan adherence</th><th>Next check-in</th><th>Status</th></tr></thead>
-                <tbody id="overview-client-table"></tbody>
-              </table>
-            </div>
-          </section>
-        </section>
-
-        <section class="view-panel" id="view-clients" data-panel="clients" aria-labelledby="clients-heading" hidden>
-          <div class="client-toolbar">
-            <div><h2 id="clients-heading" style="margin:0;font-size:1.08rem">Client information</h2><p style="margin:3px 0 0;color:var(--muted);font-size:.78rem">Select a client to review their current coaching setup.</p></div>
-            <div class="search-box"><label for="client-search">Filter clients</label><input id="client-search" type="search" placeholder="Filter clients" autocomplete="off" /></div>
-          </div>
-          <div class="client-workspace">
-            <section class="panel" aria-label="Client list"><div class="client-list" id="client-list"></div></section>
-            <section class="panel" id="client-profile" aria-live="polite"></section>
-          </div>
-        </section>
-
-        <section class="view-panel" id="view-nutrition" data-panel="nutrition" aria-labelledby="nutrition-heading" hidden>
-          <div class="section-bar">
-            <div><h2 id="nutrition-heading">Nutrition</h2><p>Daily targets, meal structure and weekly adherence.</p></div>
-            <select class="select-control client-select" id="nutrition-client" aria-label="Choose nutrition client"></select>
-          </div>
-          <div class="nutrition-layout">
-            <section class="panel" id="nutrition-plan" aria-live="polite"></section>
-            <aside class="panel" id="nutrition-adherence" aria-live="polite"></aside>
-          </div>
-        </section>
-
-        <section class="view-panel" id="view-workouts" data-panel="workouts" aria-labelledby="workouts-heading" hidden>
-          <div class="section-bar">
-            <div><h2 id="workouts-heading">Workouts</h2><p>Weekly sessions, exercise prescription and coaching notes.</p></div>
-            <select class="select-control client-select" id="workout-client" aria-label="Choose workout client"></select>
-          </div>
-          <div class="workout-layout">
-            <section class="panel" id="workout-plan" aria-live="polite"></section>
-            <aside class="panel" id="workout-notes" aria-live="polite"></aside>
-          </div>
-        </section>
-      </main>
     </div>
-  </div>
+  </nav>
+
+  <main>
+    <header class="hero">
+      <div class="shell reveal">
+        <div class="eyebrow"><span class="dot"></span>Future personal training services</div>
+        <h1>Evidence-Based<br />Personal Training</h1>
+        <p class="hero-copy">Helping everyday people become stronger, leaner and healthier through intelligent training, sustainable nutrition and long-term habits.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#enquire">Enquire</a>
+          <a class="button secondary" href="#case-studies">View Case Studies</a>
+        </div>
+      </div>
+    </header>
+
+    <section id="case-studies">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <h2>Case Studies</h2>
+          <p>A structured record of programming decisions, shared principles and progress. Photography, verified measurements and personal statements can be added as each record is completed.</p>
+        </div>
+
+        <nav class="study-index reveal" aria-label="Case study index">
+          <a href="#my-transformation">My Transformation</a>
+          <a href="#anton">Anton</a>
+          <a href="#michael">Michael</a>
+        </nav>
+
+        <div class="case-studies">
+          <article class="study-card featured-study reveal" id="my-transformation">
+            <div class="featured-heading">
+              <div><div class="label">Featured Case Study</div><h3 class="featured-name">My Transformation</h3></div>
+              <div class="progress-status">Transformation in Progress</div>
+              <p class="featured-intro">A first-person record of the training, nutrition and long-term consistency behind my ongoing pursuit of a lean, muscular and athletic physique.</p>
+            </div>
+
+            <div class="comparison">
+              <!-- MY TRANSFORMATION BEFORE PHOTO: Replace the src below whenever you want to update the before image. -->
+              <figure class="study-media featured-media has-image">
+                <img src="assets/case-studies/my-transformation-before.webp" alt="Jaraad before his training transformation" width="1350" height="1800" loading="lazy" decoding="async">
+                <span>Before</span>
+              </figure>
+              <!-- MY TRANSFORMATION AFTER PHOTO: Replace the src below whenever you want to update the after image. -->
+              <figure class="study-media featured-media has-image">
+                <img src="assets/case-studies/my-transformation-after.webp" alt="Jaraad after his training transformation" width="1040" height="1800" loading="lazy" decoding="async">
+                <span>After</span>
+              </figure>
+            </div>
+
+            <div class="label" style="margin-top:28px">Progress Summary</div>
+            <!-- MY TRANSFORMATION MEASUREMENTS: Update these figures only when you have current, verified information. Body-fat figures are estimates, not laboratory-tested measurements. -->
+            <div class="stats featured-metrics">
+              <div class="stat"><span>Started</span><strong>August 2024</strong></div>
+              <div class="stat"><span>Starting Weight</span><strong>80 kg</strong></div>
+              <div class="stat"><span>Current Weight</span><strong>68 kg</strong></div>
+              <div class="stat"><span>Estimated Body Fat</span><strong>Approximately 22% to 16%</strong></div>
+              <div class="stat"><span>Primary Goal</span><strong>Visible six-pack and muscular physique</strong></div>
+              <div class="stat"><span>Current Phase</span><strong>Cutting · In progress</strong></div>
+            </div>
+
+            <div class="study-notes featured-sections">
+              <div class="study-note">
+                <h4>Starting Point</h4>
+                <p>I began this transformation in August 2024 at a bodyweight of 80 kg and an estimated body-fat level of approximately 22%.</p>
+                <p>My main goal was to build enough muscle to create a strong physique, then cut down until my six-pack became clearly visible.</p>
+              </div>
+              <div class="study-note">
+                <h4>Current Progress</h4>
+                <p>I currently weigh 68 kg, with an estimated body-fat level of approximately 16%.</p>
+                <p>I have made significant progress, but I do not consider the transformation finished. I am continuing to reduce body fat while maintaining as much muscle and strength as possible.</p>
+              </div>
+              <div class="study-note">
+                <h4>Goal</h4>
+                <p><strong>Build a muscular, athletic physique and become lean enough to clearly see my six-pack.</strong></p>
+                <p>My goal was not simply to lose weight. I wanted to build a solid base of muscle first, then gradually cut down to reveal the physique underneath.</p>
+              </div>
+              <div class="study-note">
+                <h4>Approach</h4>
+                <p>My approach was to spend time building muscle across my entire body, then move into a controlled calorie deficit to reduce body fat while continuing to train hard.</p>
+                <p>The process has focused on consistency rather than shortcuts: structured training, accurate calorie tracking, high effort and patience over time.</p>
+              </div>
+              <div class="study-note wide">
+                <h4>Training Split</h4>
+                <p>I use a high-frequency hybrid split that combines elements of full-body, upper/lower and push-pull training. It is not a traditional bro split or a pure full-body split.</p>
+                <div class="training-week">
+                  <div class="training-day"><strong>Monday</strong><span>Chest, back and triceps</span></div>
+                  <div class="training-day"><strong>Tuesday</strong><span>Legs, shoulders and biceps</span></div>
+                  <div class="training-day"><strong>Thursday</strong><span>Back, chest, shoulders and abs</span></div>
+                  <div class="training-day"><strong>Friday</strong><span>Legs, biceps and forearms</span></div>
+                  <div class="training-day"><strong>Saturday</strong><span>Chest, back, triceps and abs</span></div>
+                </div>
+                <p>The split is designed so that each session emphasises different muscle groups while allowing the muscles trained hardest the previous day to recover. This creates frequent exposure to each major muscle group without repeating the exact same session structure.</p>
+              </div>
+              <div class="study-note">
+                <h4>Training Philosophy</h4>
+                <p>I believe training needs to be challenging enough to create a reason for the body to adapt. Most working sets are taken very close to failure, with a strong focus on controlled technique, progressive overload and honest effort.</p>
+                <p>Progress is not always visible from one session to the next. A single rep or small strength increase may seem insignificant, but those improvements compound over months and years.</p>
+              </div>
+              <div class="study-note">
+                <h4>Strength Progression</h4>
+                <p>Strength progression was measured through improved exercise performance, including more repetitions, better control, increased resistance and stronger execution across key movements.</p>
+                <p>Over time, I became noticeably stronger in movements such as weighted pull-ups, dips, pressing exercises, leg training and isolation work.</p>
+              </div>
+              <div class="study-note">
+                <h4>Nutrition</h4>
+                <p>During the cutting phase, I used an intake of approximately 1,800 calories per day while prioritising protein, accurate food tracking and meals that supported training performance.</p>
+                <p>The goal was to create a consistent calorie deficit without relying on extreme fasting or random restriction. Food quality matters, but calorie intake, protein and consistency are the main controllable factors.</p>
+              </div>
+              <div class="study-note">
+                <h4>Progress</h4>
+                <p>The transformation remains in progress. I have moved from 80 kg to 68 kg, while my estimated body-fat level has moved from approximately 22% to approximately 16%.</p>
+                <p>These body-fat figures are estimates rather than laboratory-tested measurements. I am currently continuing the cutting phase while working to maintain muscle, strength and training performance.</p>
+              </div>
+              <div class="study-note wide">
+                <h4>Lessons Learned</h4>
+                <p>The biggest lesson has been that unnecessary dirty bulking usually creates more fat to lose later without guaranteeing better muscle gain.</p>
+                <p>A controlled approach works better: understand calorie intake, track food accurately, train consistently and minimise unplanned overeating. The aim is to stay consistent across the week and return to the plan after imperfect days.</p>
+                <p>Another major lesson is that physique development takes time. The work from a single day may not look important, but the accumulated effect of hundreds of sessions becomes visible over one or two years.</p>
+              </div>
+              <div class="study-note wide">
+                <h4>Personal Reflection</h4>
+                <blockquote class="reflection">
+                  <p>I have wanted a visible six-pack and a lean, muscular physique for a long time. I am not fully at the end goal yet, but I am much closer than when I began.</p>
+                  <p>This transformation has taught me that real progress comes from repeating the basics for long enough: training hard, tracking honestly, managing nutrition and continuing even when the visual changes feel slow.</p>
+                  <p>I am proud of the progress so far, but I also know there is more to improve. That is what keeps me motivated. I do not see fitness as a temporary challenge. I see it as a long-term process of becoming stronger, leaner and more capable.</p>
+                </blockquote>
+              </div>
+            </div>
+          </article>
+
+          <article class="study-card reveal" id="anton">
+            <div class="study-top">
+              <div><div class="label">Training Partner</div><h3 class="study-name">Anton</h3></div>
+              <p class="study-summary">Anton and I developed the original training split together and progressed using the same programming principles: consistent execution, progressive overload and adjustments informed by performance and recovery.</p>
+            </div>
+            <div class="comparison">
+              <!-- ANTON BEFORE PHOTO: Replace this div with an approved <img>. Keep the study-media class so the crop, dimensions and rounded corners remain consistent. -->
+              <div class="study-media" role="img" aria-label="Anton before image area"><span>Before</span></div>
+              <!-- ANTON AFTER PHOTO: Replace this div with an approved <img>. Match the crop and dimensions of the before image. -->
+              <div class="study-media" role="img" aria-label="Anton after image area"><span>After</span></div>
+            </div>
+            <div class="label" style="margin-top:24px">Progress Summary</div>
+            <!-- ANTON MEASUREMENTS: Replace each dash below only with Anton's verified measurements and timeframes. -->
+            <div class="stats">
+              <div class="stat"><span>Starting Weight</span><strong>—</strong></div>
+              <div class="stat"><span>Current Weight</span><strong>—</strong></div>
+              <div class="stat"><span>Time Training Together</span><strong>—</strong></div>
+              <div class="stat"><span>Strength Improvements</span><strong>—</strong></div>
+            </div>
+            <div class="study-notes">
+              <div class="study-note"><h4>Programming Approach</h4><p>The original split was developed collaboratively, with shared exercise priorities and the same underlying progression model.</p></div>
+              <div class="study-note"><h4>Lessons Learned</h4><p>Consistent principles can support different individual needs when volume, recovery and progression are managed carefully.</p></div>
+              <!-- ANTON WRITTEN STATEMENT: Paste Anton's approved personal reflection inside this blockquote. -->
+              <div class="study-note"><h4>Personal Reflection</h4><blockquote class="reflection" aria-label="Anton personal reflection area"></blockquote></div>
+              <!-- ANTON RESULTS: Replace the dash with a concise, verified results summary. -->
+              <div class="study-note"><h4>Results</h4><p>—</p></div>
+            </div>
+          </article>
+
+          <article class="study-card reveal" id="michael">
+            <div class="study-top">
+              <div><div class="label">Training Case Study</div><h3 class="study-name">Michael</h3></div>
+              <p class="study-summary">Michael followed an adapted version of the original training split and achieved strong progress while applying the same core programming principles. Exercise selection, volume and progression were adjusted to suit his experience and recovery.</p>
+            </div>
+            <div class="comparison">
+              <!-- MICHAEL BEFORE PHOTO: Replace this div with an approved <img>. Keep the study-media class so the crop, dimensions and rounded corners remain consistent. -->
+              <div class="study-media" role="img" aria-label="Michael before image area"><span>Before</span></div>
+              <!-- MICHAEL AFTER PHOTO: Replace this div with an approved <img>. Match the crop and dimensions of the before image. -->
+              <div class="study-media" role="img" aria-label="Michael after image area"><span>After</span></div>
+            </div>
+            <div class="label" style="margin-top:24px">Progress Summary</div>
+            <!-- MICHAEL MEASUREMENTS: Replace each dash below only with Michael's verified measurements and timeframes. -->
+            <div class="stats">
+              <div class="stat"><span>Starting Weight</span><strong>—</strong></div>
+              <div class="stat"><span>Current Weight</span><strong>—</strong></div>
+              <div class="stat"><span>Time Training Together</span><strong>—</strong></div>
+              <div class="stat"><span>Strength Improvements</span><strong>—</strong></div>
+            </div>
+            <div class="study-notes">
+              <div class="study-note"><h4>Programming Approach</h4><p>The original split was adapted to Michael’s starting point while retaining the same framework for progression, technique and recovery.</p></div>
+              <div class="study-note"><h4>Lessons Learned</h4><p>A strong framework remains useful when the details are adjusted to the person following it.</p></div>
+              <!-- MICHAEL WRITTEN STATEMENT: Paste Michael's approved personal reflection inside this blockquote. -->
+              <div class="study-note"><h4>Personal Reflection</h4><blockquote class="reflection" aria-label="Michael personal reflection area"></blockquote></div>
+              <!-- MICHAEL RESULTS: Replace the dash with a concise, verified results summary. -->
+              <div class="study-note"><h4>Results</h4><p>—</p></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="philosophy">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <h2>Coaching Philosophy</h2>
+          <p>A practical approach built around sound principles, clear progression and habits that can be sustained outside the gym.</p>
+        </div>
+        <div class="philosophy-grid">
+          <article class="feature-card reveal"><div class="feature-icon">01</div><h3>Science-Based Programming</h3><p>Training decisions guided by established principles, individual needs and measurable progress.</p></article>
+          <article class="feature-card reveal"><div class="feature-icon">02</div><h3>Progressive Overload</h3><p>A structured approach to gradually increasing challenge while keeping technique and recovery in balance.</p></article>
+          <article class="feature-card reveal"><div class="feature-icon">03</div><h3>Nutrition Without Restriction</h3><p>Flexible nutrition habits designed to support performance and health without unnecessary extremes.</p></article>
+          <article class="feature-card reveal"><div class="feature-icon">04</div><h3>Long-Term Sustainable Results</h3><p>Systems that fit everyday life, with an emphasis on consistency, confidence and independence.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <h2>Services</h2>
+          <p>These services are planned but not currently available. Descriptions and availability can be enabled when qualifications, delivery systems and pricing are ready.</p>
+        </div>
+        <div class="services-grid">
+          <!-- SERVICE DESCRIPTION: Replace this paragraph when Online Coaching is ready. Remove aria-disabled and change the status label to enable the card later. -->
+          <article class="service-card reveal" aria-disabled="true"><span class="service-status">Coming Soon</span><div><h3>Online Coaching</h3><p>Planned remote programming, structured check-ins and ongoing training support.</p></div></article>
+          <!-- SERVICE DESCRIPTION: Replace this paragraph when In-Person Personal Training is ready. Remove aria-disabled and change the status label to enable the card later. -->
+          <article class="service-card reveal" aria-disabled="true"><span class="service-status">Coming Soon</span><div><h3>In-Person Personal Training</h3><p>Planned face-to-face sessions focused on technique, progression and individual support.</p></div></article>
+          <!-- SERVICE DESCRIPTION: Replace this paragraph when Custom Training Programs are ready. Remove aria-disabled and change the status label to enable the card later. -->
+          <article class="service-card reveal" aria-disabled="true"><span class="service-status">Coming Soon</span><div><h3>Custom Training Programs</h3><p>Planned programs built around goals, experience, equipment and weekly availability.</p></div></article>
+          <!-- SERVICE DESCRIPTION: Replace this paragraph when Nutrition Guidance is ready. Remove aria-disabled and change the status label to enable the card later. -->
+          <article class="service-card reveal" aria-disabled="true"><span class="service-status">Coming Soon</span><div><h3>Nutrition Guidance</h3><p>Planned habit-based nutrition support delivered within professional scope of practice.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <h2>Frequently Asked Questions</h2>
+          <p>Practical answers about the planned coaching approach. Details can be refined as services become available.</p>
+        </div>
+        <div class="faq-list reveal">
+          <details><summary>Who will your coaching be designed for?</summary><p>The planned approach is intended for everyday people who want a structured, sustainable way to improve strength, fitness and training confidence.</p></details>
+          <details><summary>Will I need access to a gym?</summary><p>Program options are expected to account for available equipment, whether training takes place in a gym or with a more limited setup.</p></details>
+          <details><summary>How will progress be measured?</summary><p>Progress may be reviewed through training performance, technique, consistency, habits and appropriate body-composition measures where relevant.</p></details>
+          <details><summary>Will nutrition plans be included?</summary><p>Nutrition guidance will remain habit-based and within professional scope, with referrals used where specialised dietary support is required.</p></details>
+          <details><summary>When will coaching become available?</summary><p>Services are still being developed. Confirmed availability will be published here when qualifications and delivery systems are ready.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section id="enquire">
+      <div class="shell">
+        <div class="contact-card reveal">
+          <div class="contact-grid">
+            <div class="contact-intro"><div class="label">Future enquiries</div><h2>Start the Conversation.</h2><p>This preview form does not send or store information yet.</p></div>
+            <!-- ENQUIRY FORM: Connect this form to an approved form service or backend before accepting real enquiries. -->
+            <form id="enquiry-form" novalidate>
+              <div class="form-grid">
+                <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" placeholder="Your name" /></div>
+                <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@example.com" /></div>
+                <div class="field full"><label for="goal">Goal</label><select id="goal" name="goal"><option value="">Select a goal</option><option>Build strength</option><option>Improve fitness</option><option>Body composition</option><option>Build sustainable habits</option></select></div>
+                <div class="field full"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell me a little about your goals"></textarea></div>
+                <div class="field full"><button class="button primary" type="submit">Submit enquiry</button></div>
+              </div>
+              <p class="form-note">Demo only — this form is not connected to a backend.</p>
+              <div class="form-message" id="form-message" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="shell footer-row"><span>© 2026 Jaraad Ramsey</span><span>Personal training services are not yet available.</span></div></footer>
 
   <script>
-    const clients = [
-      {
-        id: 'jaraad',
-        name: 'Jaraad',
-        initials: 'JR',
-        label: 'Personal transformation',
-        goal: 'Cutting · visible definition',
-        status: 'On track',
-        statusClass: 'on-track',
-        adherence: 96,
-        nextCheckIn: 'Friday',
-        started: 'August 2024',
-        currentWeight: '68 kg',
-        startingWeight: '80 kg',
-        schedule: '5 days / week',
-        contact: 'Personal record',
-        phase: 'Controlled calorie deficit',
-        notes: 'Continue reducing body fat while maintaining training performance, muscle and strength.',
-        focus: 'Close-to-failure working sets, controlled technique and consistent progressive overload.',
-        macros: { calories: 1800, protein: 150, carbs: 170, fats: 55 },
-        meals: [
-          ['7:30 AM', 'Breakfast', 'High-protein yoghurt, oats and berries', 430],
-          ['12:30 PM', 'Lunch', 'Chicken, rice and mixed vegetables', 520],
-          ['4:00 PM', 'Pre-training', 'Fruit and protein shake', 250],
-          ['7:30 PM', 'Dinner', 'Lean protein, potatoes and salad', 600]
-        ],
-        week: [['Mon', 100], ['Tue', 94], ['Wed', 100], ['Thu', 92], ['Fri', 96], ['Sat', 91], ['Sun', 98]],
-        workouts: [
-          { day: 'Monday', title: 'Chest, back & triceps', duration: '75 min', exercises: [['Incline press', '3', '6–10', '2 min', 'Progress'], ['Weighted pull-up', '3', '5–8', '2–3 min', 'Progress'], ['Chest-supported row', '3', '8–12', '2 min', 'Hold'], ['Cable fly', '2', '10–15', '90 sec', 'Control'], ['Triceps pressdown', '3', '8–12', '90 sec', 'Progress']] },
-          { day: 'Tuesday', title: 'Legs, shoulders & biceps', duration: '75 min', exercises: [['Hack squat', '3', '6–10', '3 min', 'Progress'], ['Romanian deadlift', '3', '6–10', '3 min', 'Control'], ['Leg curl', '3', '8–12', '2 min', 'Progress'], ['Lateral raise', '3', '10–15', '90 sec', 'Control'], ['Incline curl', '3', '8–12', '90 sec', 'Progress']] },
-          { day: 'Thursday', title: 'Back, chest, shoulders & abs', duration: '70 min', exercises: [['Lat pulldown', '3', '8–12', '2 min', 'Progress'], ['Machine press', '3', '8–12', '2 min', 'Progress'], ['Cable row', '3', '8–12', '2 min', 'Hold'], ['Lateral raise', '3', '12–15', '90 sec', 'Control'], ['Cable crunch', '3', '10–15', '90 sec', 'Progress']] },
-          { day: 'Friday', title: 'Legs, biceps & forearms', duration: '70 min', exercises: [['Leg press', '3', '8–12', '3 min', 'Progress'], ['Leg extension', '3', '10–15', '2 min', 'Control'], ['Seated leg curl', '3', '8–12', '2 min', 'Progress'], ['Preacher curl', '3', '8–12', '90 sec', 'Progress'], ['Wrist curl', '2', '12–15', '60 sec', 'Control']] },
-          { day: 'Saturday', title: 'Chest, back, triceps & abs', duration: '75 min', exercises: [['Flat press', '3', '6–10', '2 min', 'Progress'], ['Pull-up', '3', '6–10', '2 min', 'Progress'], ['Pec deck', '2', '10–15', '90 sec', 'Control'], ['Overhead extension', '3', '8–12', '90 sec', 'Progress'], ['Hanging raise', '3', '8–15', '90 sec', 'Control']] }
-        ],
-        workoutNotes: ['Keep 0–2 reps in reserve on working sets.', 'Record repetitions and load after every set.', 'If performance drops for two sessions, review sleep and total fatigue.']
-      },
-      {
-        id: 'anton',
-        name: 'Anton',
-        initials: 'AN',
-        label: 'Training partner',
-        goal: 'Strength & muscle gain',
-        status: 'Review due',
-        statusClass: 'due',
-        adherence: 91,
-        nextCheckIn: 'Today',
-        started: 'Not recorded',
-        currentWeight: 'Not recorded',
-        startingWeight: 'Not recorded',
-        schedule: '5 days / week',
-        contact: 'Not connected',
-        phase: 'Progressive overload block',
-        notes: 'The original split was developed collaboratively using shared exercise priorities and progression principles.',
-        focus: 'Confirm verified measurements, recovery feedback and nutrition targets at the next check-in.',
-        macros: { calories: 2600, protein: 180, carbs: 310, fats: 70 },
-        meals: [
-          ['7:00 AM', 'Breakfast', 'Eggs, toast and fruit', 560],
-          ['12:00 PM', 'Lunch', 'Lean protein, rice and vegetables', 720],
-          ['3:30 PM', 'Pre-training', 'Yoghurt, cereal and banana', 420],
-          ['7:00 PM', 'Dinner', 'Protein, pasta and salad', 700],
-          ['9:00 PM', 'Snack', 'Protein shake and nuts', 200]
-        ],
-        week: [['Mon', 94], ['Tue', 90], ['Wed', 88], ['Thu', 96], ['Fri', 91], ['Sat', 89], ['Sun', 92]],
-        workouts: [
-          { day: 'Monday', title: 'Upper strength', duration: '60 min', exercises: [['Bench press', '4', '5–8', '3 min', 'Progress'], ['Weighted pull-up', '4', '5–8', '3 min', 'Progress'], ['Chest-supported row', '3', '8–10', '2 min', 'Hold'], ['Triceps pressdown', '3', '8–12', '90 sec', 'Progress']] },
-          { day: 'Tuesday', title: 'Lower strength', duration: '65 min', exercises: [['Hack squat', '4', '5–8', '3 min', 'Progress'], ['Romanian deadlift', '3', '6–10', '3 min', 'Control'], ['Leg curl', '3', '8–12', '2 min', 'Progress'], ['Standing calf raise', '3', '8–12', '90 sec', 'Hold']] },
-          { day: 'Thursday', title: 'Upper volume', duration: '65 min', exercises: [['Incline press', '3', '8–12', '2 min', 'Progress'], ['Lat pulldown', '3', '8–12', '2 min', 'Control'], ['Cable row', '3', '10–12', '2 min', 'Progress'], ['Lateral raise', '4', '12–15', '90 sec', 'Control']] },
-          { day: 'Friday', title: 'Lower volume', duration: '60 min', exercises: [['Leg press', '3', '10–12', '3 min', 'Progress'], ['Leg extension', '3', '10–15', '2 min', 'Control'], ['Seated leg curl', '3', '10–15', '2 min', 'Progress'], ['Calf raise', '3', '10–15', '90 sec', 'Hold']] },
-          { day: 'Saturday', title: 'Arms & accessories', duration: '50 min', exercises: [['Machine press', '3', '8–12', '2 min', 'Hold'], ['Preacher curl', '3', '8–12', '90 sec', 'Progress'], ['Overhead extension', '3', '8–12', '90 sec', 'Progress'], ['Lateral raise', '3', '12–15', '90 sec', 'Control']] }
-        ],
-        workoutNotes: ['Sample plan — confirm exercises and loads before use.', 'Review recovery before increasing weekly volume.', 'Use the same progression rule across primary lifts.']
-      },
-      {
-        id: 'michael',
-        name: 'Michael',
-        initials: 'MI',
-        label: 'Training case study',
-        goal: 'Body recomposition',
-        status: 'Check-in due',
-        statusClass: 'overdue',
-        adherence: 88,
-        nextCheckIn: 'Today',
-        started: 'Not recorded',
-        currentWeight: 'Not recorded',
-        startingWeight: 'Not recorded',
-        schedule: '4 days / week',
-        contact: 'Not connected',
-        phase: 'Adapted foundation block',
-        notes: 'Uses an adapted version of the shared split with exercise selection, volume and progression matched to recovery.',
-        focus: 'Complete the weekly check-in and record verified baseline measurements before the next training block.',
-        macros: { calories: 2200, protein: 165, carbs: 250, fats: 65 },
-        meals: [
-          ['7:30 AM', 'Breakfast', 'Protein oats and fruit', 500],
-          ['12:30 PM', 'Lunch', 'Turkey wrap, salad and yoghurt', 600],
-          ['4:00 PM', 'Pre-training', 'Banana and protein shake', 300],
-          ['7:30 PM', 'Dinner', 'Lean protein, rice and vegetables', 700],
-          ['9:00 PM', 'Snack', 'Fruit or yoghurt', 100]
-        ],
-        week: [['Mon', 90], ['Tue', 86], ['Wed', 93], ['Thu', 84], ['Fri', 89], ['Sat', 87], ['Sun', 88]],
-        workouts: [
-          { day: 'Monday', title: 'Upper A', duration: '55 min', exercises: [['Machine chest press', '3', '8–12', '2 min', 'Progress'], ['Lat pulldown', '3', '8–12', '2 min', 'Control'], ['Seated row', '3', '8–12', '2 min', 'Progress'], ['Lateral raise', '3', '12–15', '90 sec', 'Control']] },
-          { day: 'Tuesday', title: 'Lower A', duration: '55 min', exercises: [['Leg press', '3', '8–12', '3 min', 'Progress'], ['Romanian deadlift', '3', '8–10', '3 min', 'Control'], ['Leg curl', '3', '10–12', '2 min', 'Progress'], ['Calf raise', '3', '10–15', '90 sec', 'Hold']] },
-          { day: 'Thursday', title: 'Upper B', duration: '55 min', exercises: [['Incline dumbbell press', '3', '8–12', '2 min', 'Progress'], ['Cable row', '3', '8–12', '2 min', 'Control'], ['Pulldown', '3', '10–12', '2 min', 'Progress'], ['Cable curl', '3', '10–15', '90 sec', 'Control']] },
-          { day: 'Saturday', title: 'Lower B', duration: '55 min', exercises: [['Hack squat', '3', '8–12', '3 min', 'Progress'], ['Leg extension', '3', '10–15', '2 min', 'Control'], ['Seated leg curl', '3', '10–15', '2 min', 'Progress'], ['Cable crunch', '3', '10–15', '90 sec', 'Control']] }
-        ],
-        workoutNotes: ['Sample plan — confirm exercise tolerance before use.', 'Prioritise repeatable technique before load increases.', 'Check recovery and soreness during the weekly review.']
-      }
-    ];
-
-    const viewTitles = {
-      overview: 'Good morning, Jaraad',
-      clients: 'Client information',
-      nutrition: 'Nutrition dashboard',
-      workouts: 'Workout programming'
-    };
-
-    let selectedClientId = 'jaraad';
-    let selectedWorkoutDay = 'Monday';
-
-    const escapeHTML = (value) => String(value).replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[character]);
-    const getClient = () => clients.find((client) => client.id === selectedClientId) || clients[0];
-
-    function setView(view) {
-      document.querySelectorAll('[data-panel]').forEach((panel) => { panel.hidden = panel.dataset.panel !== view; });
-      document.querySelectorAll('[data-view]').forEach((button) => { button.setAttribute('aria-selected', String(button.dataset.view === view)); });
-      document.getElementById('page-title').textContent = viewTitles[view];
-      window.scrollTo(0, 0);
-    }
-
-    function renderClientOptions() {
-      const options = clients.map((client) => `<option value="${client.id}">${escapeHTML(client.name)}</option>`).join('');
-      document.querySelectorAll('.client-select').forEach((select) => {
-        select.innerHTML = options;
-        select.value = selectedClientId;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
       });
-    }
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
 
-    function renderOverviewTable(filter = '') {
-      const query = filter.trim().toLowerCase();
-      const matches = clients.filter((client) => client.name.toLowerCase().includes(query) || client.goal.toLowerCase().includes(query));
-      document.getElementById('overview-client-table').innerHTML = matches.length ? matches.map((client) => `
-        <tr>
-          <td><div class="client-cell"><span class="person-initial">${client.initials}</span><button type="button" data-client-open="${client.id}"><strong>${escapeHTML(client.name)}</strong><small>${escapeHTML(client.label)}</small></button></div></td>
-          <td>${escapeHTML(client.goal)}</td>
-          <td><div class="bar-value"><div class="bar" aria-label="${client.adherence}% adherence"><span style="width:${client.adherence}%"></span></div><span>${client.adherence}%</span></div></td>
-          <td>${escapeHTML(client.nextCheckIn)}</td>
-          <td><span class="status ${client.statusClass}">${escapeHTML(client.status)}</span></td>
-        </tr>`).join('') : '<tr><td colspan="5" class="empty-state">No clients match your search.</td></tr>';
-    }
-
-    function renderClientList(filter = '') {
-      const query = filter.trim().toLowerCase();
-      const matches = clients.filter((client) => client.name.toLowerCase().includes(query) || client.goal.toLowerCase().includes(query));
-      document.getElementById('client-list').innerHTML = matches.length ? matches.map((client) => `
-        <button class="client-card" type="button" data-client="${client.id}" aria-selected="${client.id === selectedClientId}">
-          <span class="person-initial">${client.initials}</span>
-          <span><strong>${escapeHTML(client.name)}</strong><small>${escapeHTML(client.goal)}</small></span>
-          <span class="client-chevron" aria-hidden="true">›</span>
-        </button>`).join('') : '<div class="empty-state">No clients match your search.</div>';
-    }
-
-    function renderClientProfile() {
-      const client = getClient();
-      document.getElementById('client-profile').innerHTML = `
-        <div class="profile-header">
-          <div class="profile-title"><span class="person-initial">${client.initials}</span><div><h2>${escapeHTML(client.name)}</h2><p>${escapeHTML(client.label)}</p></div></div>
-          <span class="status ${client.statusClass}">${escapeHTML(client.status)}</span>
-        </div>
-        <div class="profile-grid">
-          <div class="profile-field"><span>Primary goal</span><strong>${escapeHTML(client.goal)}</strong></div>
-          <div class="profile-field"><span>Current phase</span><strong>${escapeHTML(client.phase)}</strong></div>
-          <div class="profile-field"><span>Schedule</span><strong>${escapeHTML(client.schedule)}</strong></div>
-          <div class="profile-field"><span>Next check-in</span><strong>${escapeHTML(client.nextCheckIn)}</strong></div>
-          <div class="profile-field"><span>Started</span><strong>${escapeHTML(client.started)}</strong></div>
-          <div class="profile-field"><span>Starting weight</span><strong>${escapeHTML(client.startingWeight)}</strong></div>
-          <div class="profile-field"><span>Current weight</span><strong>${escapeHTML(client.currentWeight)}</strong></div>
-          <div class="profile-field"><span>Contact</span><strong>${escapeHTML(client.contact)}</strong></div>
-        </div>
-        <div class="profile-notes">
-          <article class="note-card"><h3>Coaching summary</h3><p>${escapeHTML(client.notes)}</p></article>
-          <article class="note-card"><h3>Next focus</h3><p>${escapeHTML(client.focus)}</p></article>
-        </div>`;
-    }
-
-    function renderNutrition() {
-      const client = getClient();
-      const totalMacros = client.macros.protein * 4 + client.macros.carbs * 4 + client.macros.fats * 9;
-      document.getElementById('nutrition-plan').innerHTML = `
-        <div class="panel-header"><h3>${escapeHTML(client.name)} · daily targets</h3><span>Sample coaching plan</span></div>
-        <div class="macro-grid">
-          <div class="macro-card"><span>Calories</span><strong>${client.macros.calories}</strong><small>kcal / day</small></div>
-          <div class="macro-card"><span>Protein</span><strong>${client.macros.protein}g</strong><small>daily target</small></div>
-          <div class="macro-card"><span>Carbohydrates</span><strong>${client.macros.carbs}g</strong><small>daily target</small></div>
-          <div class="macro-card"><span>Fats</span><strong>${client.macros.fats}g</strong><small>daily target</small></div>
-        </div>
-        <div class="panel-header"><h3>Meal structure</h3><span>${totalMacros} kcal from target macros</span></div>
-        <div class="meal-list">${client.meals.map((meal) => `<div class="meal-row"><span class="meal-time">${meal[0]}</span><span class="meal-copy"><strong>${escapeHTML(meal[1])}</strong><span>${escapeHTML(meal[2])}</span></span><span class="meal-calories">${meal[3]} kcal</span></div>`).join('')}</div>`;
-
-      const weeklyAverage = Math.round(client.week.reduce((sum, day) => sum + day[1], 0) / client.week.length);
-      document.getElementById('nutrition-adherence').innerHTML = `
-        <div class="panel-header"><h3>Weekly adherence</h3><span>Last 7 days</span></div>
-        <div class="adherence"><strong class="adherence-score">${weeklyAverage}%</strong><p>Average completion against the sample nutrition target.</p>${client.week.map((day) => `<div class="day-row"><span>${day[0]}</span><div class="bar"><span style="width:${day[1]}%"></span></div><strong>${day[1]}%</strong></div>`).join('')}</div>`;
-    }
-
-    function renderWorkout() {
-      const client = getClient();
-      if (!client.workouts.some((workout) => workout.day === selectedWorkoutDay)) selectedWorkoutDay = client.workouts[0].day;
-      const workout = client.workouts.find((item) => item.day === selectedWorkoutDay);
-      document.getElementById('workout-plan').innerHTML = `
-        <div class="day-tabs" role="tablist" aria-label="Workout days">${client.workouts.map((item) => `<button class="day-tab" type="button" data-workout-day="${item.day}" role="tab" aria-selected="${item.day === selectedWorkoutDay}">${item.day}</button>`).join('')}</div>
-        <div class="workout-summary"><h3>${escapeHTML(workout.title)}</h3><p>${escapeHTML(workout.duration)} · ${workout.exercises.length} exercises</p></div>
-        <div class="table-wrap"><table><thead><tr><th>Exercise</th><th>Sets</th><th>Reps</th><th>Rest</th><th>Intent</th></tr></thead><tbody>${workout.exercises.map((exercise) => `<tr><td class="exercise-name">${escapeHTML(exercise[0])}</td><td>${exercise[1]}</td><td>${exercise[2]}</td><td>${exercise[3]}</td><td><span class="status on-track">${escapeHTML(exercise[4])}</span></td></tr>`).join('')}</tbody></table></div>`;
-      document.getElementById('workout-notes').innerHTML = `<div class="panel-header"><h3>${escapeHTML(client.name)} · coaching notes</h3><span>${client.workouts.length} days</span></div><ul class="workout-note-list">${client.workoutNotes.map((note) => `<li>${escapeHTML(note)}</li>`).join('')}</ul>`;
-    }
-
-    function selectClient(clientId, destination) {
-      selectedClientId = clientId;
-      selectedWorkoutDay = getClient().workouts[0].day;
-      renderClientOptions();
-      renderClientList(document.getElementById('client-search').value);
-      renderClientProfile();
-      renderNutrition();
-      renderWorkout();
-      if (destination) setView(destination);
-    }
-
-    document.querySelectorAll('[data-view]').forEach((button) => button.addEventListener('click', () => setView(button.dataset.view)));
-    document.querySelectorAll('[data-open-view]').forEach((button) => button.addEventListener('click', () => setView(button.dataset.openView)));
-    document.getElementById('overview-client-table').addEventListener('click', (event) => {
-      const button = event.target.closest('[data-client-open]');
-      if (button) selectClient(button.dataset.clientOpen, 'clients');
+    document.getElementById('enquiry-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      document.getElementById('form-message').textContent = 'Demo form only — connect a backend before accepting enquiries.';
     });
-    document.getElementById('client-list').addEventListener('click', (event) => {
-      const button = event.target.closest('[data-client]');
-      if (button) selectClient(button.dataset.client);
-    });
-    document.getElementById('client-search').addEventListener('input', (event) => renderClientList(event.target.value));
-    document.getElementById('global-search').addEventListener('input', (event) => renderOverviewTable(event.target.value));
-    document.getElementById('global-search').addEventListener('keydown', (event) => {
-      if (event.key === 'Enter') {
-        document.getElementById('client-search').value = event.target.value;
-        renderClientList(event.target.value);
-        setView('clients');
-      }
-    });
-    document.querySelectorAll('.client-select').forEach((select) => select.addEventListener('change', (event) => selectClient(event.target.value)));
-    document.getElementById('workout-plan').addEventListener('click', (event) => {
-      const button = event.target.closest('[data-workout-day]');
-      if (button) { selectedWorkoutDay = button.dataset.workoutDay; renderWorkout(); }
-    });
-
-    const dateFormatter = new Intl.DateTimeFormat('en-AU', { weekday: 'long', day: 'numeric', month: 'long' });
-    document.getElementById('current-date').textContent = `${dateFormatter.format(new Date())} · Trainer dashboard`;
-    renderClientOptions();
-    renderOverviewTable();
-    renderClientList();
-    renderClientProfile();
-    renderNutrition();
-    renderWorkout();
   </script>
 </body>
 </html>
