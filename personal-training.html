@@ -234,6 +234,10 @@
     input::placeholder, textarea::placeholder { color: #666; }
     .form-note { margin: 12px 0 0; color: #777; font-size: .8rem; }
     .form-message { min-height: 1.4em; margin-top: 12px; color: #cfcfcf; font-size: .88rem; }
+    .form-message.success { color: #ffe46b; }
+    .form-message.error { color: #ff9c9c; }
+    .enquiry-trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+    #enquiry-form button[disabled] { cursor: wait; opacity: .72; }
 
     footer { padding: 28px 0 44px; border-top: 1px solid var(--line-soft); color: #858585; font-size: .88rem; }
     .footer-row { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
@@ -957,18 +961,18 @@
       <div class="shell">
         <div class="contact-card reveal">
           <div class="contact-grid">
-            <div class="contact-intro"><div class="label">Future enquiries</div><h2>Start the Conversation.</h2><p>This preview form does not send or store information yet.</p></div>
-            <!-- ENQUIRY FORM: Connect this form to an approved form service or backend before accepting real enquiries. -->
+            <div class="contact-intro"><div class="label">Future enquiries</div><h2>Start the Conversation.</h2><p>Tell me what you are working toward and I will reply to the email you provide.</p></div>
             <form id="enquiry-form" novalidate>
               <div class="form-grid">
-                <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" placeholder="Your name" /></div>
-                <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@example.com" /></div>
-                <div class="field full"><label for="goal">Goal</label><select id="goal" name="goal"><option value="">Select a goal</option><option>Build strength</option><option>Improve fitness</option><option>Body composition</option><option>Build sustainable habits</option></select></div>
-                <div class="field full"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell me a little about your goals"></textarea></div>
+                <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" placeholder="Your name" autocomplete="name" maxlength="80" required /></div>
+                <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" maxlength="160" required /></div>
+                <div class="field full"><label for="goal">Goal</label><select id="goal" name="goal" required><option value="">Select a goal</option><option>Build strength</option><option>Improve fitness</option><option>Body composition</option><option>Build sustainable habits</option></select></div>
+                <div class="field full"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell me a little about your goals" maxlength="2000" required></textarea></div>
+                <div class="enquiry-trap"><label for="company">Company</label><input id="company" name="company" type="text" tabindex="-1" autocomplete="off" /></div>
                 <div class="field full"><button class="button primary" type="submit">Submit enquiry</button></div>
               </div>
-              <p class="form-note">Demo only — this form is not connected to a backend.</p>
-              <div class="form-message" id="form-message" aria-live="polite"></div>
+              <p class="form-note">Your enquiry will be sent securely to Jaraad Ramsey PT.</p>
+              <div class="form-message" id="form-message" role="status" aria-live="polite"></div>
             </form>
           </div>
         </div>
@@ -1034,9 +1038,41 @@
     }));
     updateCaseRail();
 
-    document.getElementById('enquiry-form').addEventListener('submit', (event) => {
+    const enquiryForm = document.getElementById('enquiry-form');
+    const enquiryMessage = document.getElementById('form-message');
+    const enquiryButton = enquiryForm.querySelector('button[type="submit"]');
+    let enquiryStartedAt = Date.now();
+
+    enquiryForm.addEventListener('submit', async (event) => {
       event.preventDefault();
-      document.getElementById('form-message').textContent = 'Demo form only — connect a backend before accepting enquiries.';
+      enquiryMessage.className = 'form-message';
+      if (!enquiryForm.reportValidity()) return;
+
+      const fields = Object.fromEntries(new FormData(enquiryForm).entries());
+      enquiryButton.disabled = true;
+      enquiryButton.textContent = 'Sending…';
+      enquiryMessage.textContent = 'Sending your enquiry…';
+
+      try {
+        const response = await fetch('/api/enquiry', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ ...fields, startedAt: enquiryStartedAt }),
+        });
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.error || 'Your enquiry could not be sent.');
+
+        enquiryForm.reset();
+        enquiryStartedAt = Date.now();
+        enquiryMessage.className = 'form-message success';
+        enquiryMessage.textContent = 'Thanks — your enquiry has been sent to Jaraad Ramsey PT.';
+      } catch (error) {
+        enquiryMessage.className = 'form-message error';
+        enquiryMessage.textContent = error.message || 'Your enquiry could not be sent. Please try again.';
+      } finally {
+        enquiryButton.disabled = false;
+        enquiryButton.textContent = 'Submit enquiry';
+      }
     });
   </script>
 </body>
