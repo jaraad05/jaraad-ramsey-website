@@ -108,6 +108,7 @@
 
     .case-studies { display: grid; gap: 28px; }
     .study-card { overflow: hidden; padding: 34px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: radial-gradient(circle at 85% 10%, rgba(255,255,255,.08), transparent 22rem), linear-gradient(145deg, #101010, #080808); box-shadow: var(--shadow); scroll-margin-top: 92px; }
+    .case-study { padding: 46px; }
     #case-studies { padding-top: 124px; }
     #case-studies .section-heading { margin-bottom: 24px; }
     .study-index { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 34px; }
@@ -153,22 +154,23 @@
     .anton-study .study-top { align-items: start; margin-bottom: 32px; }
     .anton-kicker { display: inline-flex; align-items: center; gap: 9px; margin-top: 18px; color: var(--muted); font-size: .82rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
     .anton-kicker::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent, #fff); box-shadow: 0 0 14px rgba(255,216,26,.55); }
-    .anton-photo-comparison { margin-bottom: 18px; }
+    .case-photo-comparison { margin-bottom: 18px; }
     .case-photo-placeholder { display: grid; place-items: center; border-color: rgba(255,216,26,.2); background: radial-gradient(circle at 50% 42%, rgba(255,216,26,.12), transparent 11rem), linear-gradient(145deg, #14130a, #080800); }
     .case-photo-status { position: relative; z-index: 2; display: grid; justify-items: center; gap: 8px; padding: 24px; text-align: center; }
     .case-photo-status small { color: var(--muted); font-size: .7rem; font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
     .case-photo-status strong { font-size: clamp(2.2rem, 5vw, 4.1rem); line-height: 1; letter-spacing: -.05em; }
     .case-photo-status span { position: static; color: var(--accent, #ffd91a); font-size: .82rem; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
-    .anton-journey { display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch; gap: 16px; padding: 18px; border: 1px solid var(--line); border-radius: 24px; background: linear-gradient(135deg, rgba(255,216,26,.07), rgba(255,255,255,.015)); }
-    .anton-weight { display: flex; flex-direction: column; justify-content: space-between; min-height: 190px; padding: 22px; border: 1px solid var(--line-soft); border-radius: 18px; background: rgba(0,0,0,.28); }
-    .anton-weight span { color: var(--muted); font-size: .72rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
-    .anton-weight strong { display: block; margin-top: 18px; font-size: clamp(3.1rem, 7vw, 5.8rem); line-height: .86; letter-spacing: -.07em; }
-    .anton-weight small { display: block; margin-top: 12px; color: var(--muted); font-size: .82rem; }
-    .anton-journey-mark { align-self: center; display: grid; justify-items: center; gap: 10px; min-width: 122px; color: var(--muted); text-align: center; }
-    .anton-journey-mark::before { content: "→"; color: var(--accent, #fff); font-size: 2rem; line-height: 1; text-shadow: 0 0 24px rgba(255,216,26,.38); }
-    .anton-journey-mark strong { color: var(--text); font-size: .82rem; line-height: 1.35; }
-    .anton-metrics { margin-top: 14px; }
-    .anton-metrics .stat strong { color: var(--text); font-size: 1rem; }
+    .case-journey { display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch; gap: 16px; padding: 18px; border: 1px solid var(--line); border-radius: 24px; background: linear-gradient(135deg, rgba(255,216,26,.07), rgba(255,255,255,.015)); }
+    .case-weight { display: flex; flex-direction: column; justify-content: space-between; min-height: 190px; padding: 22px; border: 1px solid var(--line-soft); border-radius: 18px; background: rgba(0,0,0,.28); }
+    .case-weight span { color: var(--muted); font-size: .72rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+    .case-weight strong { display: block; margin-top: 18px; font-size: clamp(3.1rem, 7vw, 5.8rem); line-height: .86; letter-spacing: -.07em; }
+    .case-weight strong.pending { max-width: 8ch; font-size: clamp(2.3rem, 5vw, 4rem); line-height: .92; }
+    .case-weight small { display: block; margin-top: 12px; color: var(--muted); font-size: .82rem; }
+    .case-journey-mark { align-self: center; display: grid; justify-items: center; gap: 10px; min-width: 122px; color: var(--muted); text-align: center; }
+    .case-journey-mark::before { content: "→"; color: var(--accent, #fff); font-size: 2rem; line-height: 1; text-shadow: 0 0 24px rgba(255,216,26,.38); }
+    .case-journey-mark strong { color: var(--text); font-size: .82rem; line-height: 1.35; }
+    .case-metrics { margin-top: 14px; }
+    .case-metrics .stat strong { color: var(--text); font-size: 1rem; }
     .anton-story { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 14px; }
     .anton-story .study-note { min-height: 0; padding: 24px; }
     .anton-story .wide { grid-column: 1 / -1; }
@@ -236,6 +238,7 @@
       section { padding: 78px 0; }
       .section-heading { margin-bottom: 28px; }
       .study-card { padding: 18px; }
+      .case-study { padding: 22px; }
       .featured-study { padding: 22px; }
       .featured-name { font-size: clamp(2.35rem, 9.8vw, 3rem); line-height: .92; }
       .study-top { grid-template-columns: 1fr; align-items: start; gap: 14px; }
@@ -245,10 +248,10 @@
       .stats, .study-notes, .philosophy-grid, .services-grid, .form-grid { grid-template-columns: 1fr; }
       .featured-sections .wide { grid-column: auto; }
       .anton-study { padding: 22px; }
-      .anton-journey { grid-template-columns: 1fr; padding: 12px; }
-      .anton-weight { min-height: 155px; padding: 18px; }
-      .anton-journey-mark { min-width: 0; padding: 4px 0; }
-      .anton-journey-mark::before { content: "↓"; }
+      .case-journey { grid-template-columns: 1fr; padding: 12px; }
+      .case-weight { min-height: 155px; padding: 18px; }
+      .case-journey-mark { min-width: 0; padding: 4px 0; }
+      .case-journey-mark::before { content: "↓"; }
       .anton-story { grid-template-columns: 1fr; }
       .anton-story .wide { grid-column: auto; }
       .anton-story .study-note { padding: 20px; }
@@ -379,14 +382,17 @@
       border-color: rgba(255, 216, 26, .22);
       background:
         radial-gradient(circle at 88% 4%, rgba(255, 216, 26, .115), transparent 24rem),
+        repeating-linear-gradient(118deg, transparent 0 42px, rgba(255, 216, 26, .018) 43px, transparent 44px 86px),
         linear-gradient(145deg, rgba(255, 216, 26, .045), rgba(255, 255, 255, .012));
       box-shadow: var(--shadow);
     }
 
+    .case-study,
     .featured-study {
       border-color: rgba(255, 226, 82, .42);
       background:
         radial-gradient(circle at 78% 8%, rgba(255, 216, 26, .2), transparent 28rem),
+        repeating-linear-gradient(118deg, transparent 0 42px, rgba(255, 216, 26, .022) 43px, transparent 44px 86px),
         linear-gradient(145deg, #111004, #070700);
     }
 
@@ -397,7 +403,36 @@
     .study-index a,
     .service-status {
       border-color: rgba(255, 216, 26, .17);
-      background: rgba(255, 216, 26, .035);
+      background:
+        linear-gradient(145deg, rgba(255, 216, 26, .045), rgba(255, 255, 255, .008)),
+        #090901;
+    }
+
+    .case-photo-placeholder,
+    .case-journey {
+      border-color: rgba(255, 216, 26, .35);
+      background:
+        radial-gradient(circle at 50% 35%, rgba(255, 216, 26, .12), transparent 14rem),
+        repeating-linear-gradient(118deg, transparent 0 34px, rgba(255, 216, 26, .022) 35px, transparent 36px 70px),
+        linear-gradient(145deg, #111004, #080800);
+      box-shadow: inset 0 1px 0 rgba(255, 236, 145, .035), 0 0 34px rgba(255, 216, 26, .045);
+    }
+
+    .case-weight {
+      border-color: rgba(255, 216, 26, .22);
+      background:
+        radial-gradient(circle at 0 0, rgba(255, 216, 26, .05), transparent 13rem),
+        rgba(4, 4, 0, .72);
+    }
+
+    .case-weight strong {
+      color: #fff;
+      text-shadow: 0 0 28px rgba(255, 216, 26, .08);
+    }
+
+    .stat,
+    .study-note {
+      box-shadow: inset 0 1px 0 rgba(255, 242, 180, .018);
     }
 
     .progress-status {
@@ -586,14 +621,14 @@
         </nav>
 
         <div class="case-studies">
-          <article class="study-card featured-study reveal" id="my-transformation">
+          <article class="study-card case-study featured-study reveal" id="my-transformation">
             <div class="featured-heading">
               <div><div class="label">Featured Case Study</div><h3 class="featured-name">My Transformation</h3></div>
               <div class="progress-status">Transformation in Progress</div>
               <p class="featured-intro">A first-person record of the training, nutrition and long-term consistency behind my ongoing pursuit of a lean, muscular and athletic physique.</p>
             </div>
 
-            <div class="comparison">
+            <div class="comparison case-photo-comparison">
               <!-- MY TRANSFORMATION BEFORE PHOTO: Replace the src below whenever you want to update the before image. -->
               <figure class="study-media featured-media has-image">
                 <img src="assets/case-studies/my-transformation-before.webp" alt="Jaraad before his training transformation" width="1350" height="1800" loading="lazy" decoding="async">
@@ -606,9 +641,23 @@
               </figure>
             </div>
 
+            <div class="case-journey" aria-label="Jaraad weight transformation from 80 kilograms to 68 kilograms">
+              <div class="case-weight">
+                <span>Starting Point</span>
+                <strong>80 kg</strong>
+                <small>August 2024, beginning the long-term goal of building a leaner, stronger and more athletic physique.</small>
+              </div>
+              <div class="case-journey-mark"><strong>12 kg lost<br>to date</strong></div>
+              <div class="case-weight">
+                <span>Current Weight</span>
+                <strong>68 kg</strong>
+                <small>Continuing the cutting phase while prioritising muscle, strength and training performance.</small>
+              </div>
+            </div>
+
             <div class="label" style="margin-top:28px">Progress Summary</div>
             <!-- MY TRANSFORMATION MEASUREMENTS: Update these figures only when you have current, verified information. Body-fat figures are estimates, not laboratory-tested measurements. -->
-            <div class="stats featured-metrics">
+            <div class="stats featured-metrics case-metrics">
               <div class="stat"><span>Started</span><strong>August 2024</strong></div>
               <div class="stat"><span>Starting Weight</span><strong>80 kg</strong></div>
               <div class="stat"><span>Current Weight</span><strong>68 kg</strong></div>
@@ -687,7 +736,7 @@
             </div>
           </article>
 
-          <article class="study-card anton-study reveal" id="anton">
+          <article class="study-card case-study anton-study reveal" id="anton">
             <div class="study-top">
               <div>
                 <div class="label">Client Transformation</div>
@@ -697,7 +746,7 @@
               <p class="study-summary">Anton began at approximately 105 kg with little experience in training, nutrition or body recomposition. He now weighs approximately 80 kg. His progress accelerated during a focused year in which calorie deficits, efficient training and sustainable eating finally became simple and practical.</p>
             </div>
 
-            <div class="comparison anton-photo-comparison" aria-label="Anton progress photos">
+            <div class="comparison case-photo-comparison" aria-label="Anton progress photos">
               <!-- Replace these placeholders with Anton's approved progress photos when they are available. -->
               <div class="study-media case-photo-placeholder" role="img" aria-label="Anton before progress photo coming soon">
                 <div class="case-photo-status">
@@ -715,14 +764,14 @@
               </div>
             </div>
 
-            <div class="anton-journey" aria-label="Anton weight transformation from approximately 105 kilograms to approximately 80 kilograms">
-              <div class="anton-weight">
+            <div class="case-journey" aria-label="Anton weight transformation from approximately 105 kilograms to approximately 80 kilograms">
+              <div class="case-weight">
                 <span>Starting Point</span>
                 <strong>≈105 kg</strong>
                 <small>Heavier, new to structured training and mainly wanting to become slimmer.</small>
               </div>
-              <div class="anton-journey-mark"><strong>Approximately<br>25 kg lost</strong></div>
-              <div class="anton-weight">
+              <div class="case-journey-mark"><strong>Approximately<br>25 kg lost</strong></div>
+              <div class="case-weight">
                 <span>Current Weight</span>
                 <strong>≈80 kg</strong>
                 <small>Training efficiently and eating with far more confidence and independence.</small>
@@ -730,7 +779,7 @@
             </div>
 
             <div class="label" style="margin-top:26px">Progress Summary</div>
-            <div class="stats anton-metrics">
+            <div class="stats case-metrics">
               <div class="stat"><span>Weight Change</span><strong>Approximately 25 kg lost</strong></div>
               <div class="stat"><span>Focused Progress</span><strong>Approximately one year using a calorie deficit intentionally</strong></div>
               <div class="stat"><span>Nutrition</span><strong>Sustainable, flexible and increasingly intuitive</strong></div>
@@ -772,12 +821,12 @@
             </div>
           </article>
 
-          <article class="study-card reveal" id="michael">
+          <article class="study-card case-study reveal" id="michael">
             <div class="study-top">
               <div><div class="label">Training Case Study</div><h3 class="study-name">Michael</h3></div>
               <p class="study-summary">Michael followed an adapted version of the original training split and achieved strong progress while applying the same core programming principles. Exercise selection, volume and progression were adjusted to suit his experience and recovery.</p>
             </div>
-            <div class="comparison anton-photo-comparison" aria-label="Michael progress photos">
+            <div class="comparison case-photo-comparison" aria-label="Michael progress photos">
               <!-- Replace these placeholders with Michael's approved progress photos when they are available. -->
               <div class="study-media case-photo-placeholder" role="img" aria-label="Michael before progress photo coming soon">
                 <div class="case-photo-status">
@@ -794,9 +843,24 @@
                 </div>
               </div>
             </div>
+
+            <div class="case-journey" aria-label="Michael weight transformation measurements coming soon">
+              <div class="case-weight">
+                <span>Starting Point</span>
+                <strong class="pending">Coming soon</strong>
+                <small>Michael’s verified starting measurement will be added when his case-study record is complete.</small>
+              </div>
+              <div class="case-journey-mark"><strong>Progress data<br>pending</strong></div>
+              <div class="case-weight">
+                <span>Current Weight</span>
+                <strong class="pending">Coming soon</strong>
+                <small>His verified current measurement will be added without estimating or inventing results.</small>
+              </div>
+            </div>
+
             <div class="label" style="margin-top:24px">Progress Summary</div>
             <!-- MICHAEL MEASUREMENTS: Replace each dash below only with Michael's verified measurements and timeframes. -->
-            <div class="stats">
+            <div class="stats case-metrics">
               <div class="stat"><span>Starting Weight</span><strong>—</strong></div>
               <div class="stat"><span>Current Weight</span><strong>—</strong></div>
               <div class="stat"><span>Time Training Together</span><strong>—</strong></div>
