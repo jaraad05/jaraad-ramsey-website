@@ -394,6 +394,107 @@
     .form-note {
       color: #aaa89d;
     }
+
+    .case-rail {
+      position: fixed;
+      top: 50%;
+      right: clamp(10px, 1.4vw, 24px);
+      z-index: 90;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      padding-block: 18px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(18px, -50%);
+      transition: opacity .24s ease, transform .24s ease;
+    }
+
+    .case-rail::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      bottom: 0;
+      right: 50%;
+      width: 1px;
+      background: linear-gradient(180deg, transparent, rgba(255, 216, 26, .5) 18%, rgba(255, 216, 26, .5) 82%, transparent);
+      box-shadow: 0 0 14px rgba(255, 216, 26, .28);
+    }
+
+    body.case-rail-visible .case-rail {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(0, -50%);
+    }
+
+    .case-rail a {
+      min-width: 76px;
+      padding: 9px 13px;
+      border: 1px solid rgba(255, 216, 26, .26);
+      border-radius: 999px;
+      background: rgba(7, 7, 0, .9);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .38);
+      color: #d2d0c5;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: color .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+    }
+
+    .case-rail a:hover {
+      color: #fff;
+      border-color: rgba(255, 226, 82, .72);
+      transform: translateX(-3px);
+    }
+
+    .case-rail a.active,
+    .case-rail a[aria-current="true"] {
+      color: #080700;
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 0 26px rgba(255, 216, 26, .34);
+    }
+
+    @media (max-width: 760px) {
+      .case-rail {
+        top: auto;
+        right: auto;
+        bottom: max(14px, env(safe-area-inset-bottom));
+        left: 50%;
+        flex-direction: row;
+        gap: 7px;
+        padding: 7px;
+        border: 1px solid rgba(255, 216, 26, .18);
+        border-radius: 999px;
+        background: rgba(5, 5, 0, .86);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, .55), 0 0 24px rgba(255, 216, 26, .08);
+        transform: translate(-50%, 18px);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+      }
+
+      .case-rail::before { display: none; }
+
+      body.case-rail-visible .case-rail {
+        transform: translate(-50%, 0);
+      }
+
+      .case-rail a {
+        min-width: 62px;
+        padding: 8px 11px;
+        box-shadow: none;
+      }
+
+      .case-rail a:hover {
+        transform: none;
+      }
+    }
   </style>
 </head>
 
@@ -412,6 +513,12 @@
         <a class="button primary" href="index.html">Employment</a>
       </div>
     </div>
+  </nav>
+
+  <nav class="case-rail" aria-label="Case study shortcuts">
+    <a href="#my-transformation" data-case-target="my-transformation">Me</a>
+    <a href="#anton" data-case-target="anton">Anton</a>
+    <a href="#michael" data-case-target="michael">Michael</a>
   </nav>
 
   <main>
@@ -688,6 +795,51 @@
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+
+    const caseStudySection = document.getElementById('case-studies');
+    const caseRailLinks = [...document.querySelectorAll('[data-case-target]')];
+    const caseStudyCards = caseRailLinks
+      .map((link) => document.getElementById(link.dataset.caseTarget))
+      .filter(Boolean);
+    let caseRailFrame = null;
+
+    const updateCaseRail = () => {
+      caseRailFrame = null;
+      const sectionRect = caseStudySection.getBoundingClientRect();
+      const railIsVisible = sectionRect.top < window.innerHeight - 96 && sectionRect.bottom > 112;
+      document.body.classList.toggle('case-rail-visible', railIsVisible);
+      if (!railIsVisible) return;
+
+      const readingLine = Math.min(window.innerHeight * .38, 360);
+      let activeCard = caseStudyCards[0];
+      caseStudyCards.forEach((card) => {
+        if (card.getBoundingClientRect().top <= readingLine) activeCard = card;
+      });
+
+      caseRailLinks.forEach((link) => {
+        const active = link.dataset.caseTarget === activeCard.id;
+        link.classList.toggle('active', active);
+        if (active) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
+      });
+    };
+
+    const queueCaseRailUpdate = () => {
+      if (caseRailFrame !== null) return;
+      caseRailFrame = requestAnimationFrame(updateCaseRail);
+    };
+
+    window.addEventListener('scroll', queueCaseRailUpdate, { passive: true });
+    window.addEventListener('resize', queueCaseRailUpdate);
+    caseRailLinks.forEach((link) => link.addEventListener('click', () => {
+      caseRailLinks.forEach((item) => {
+        const active = item === link;
+        item.classList.toggle('active', active);
+        if (active) item.setAttribute('aria-current', 'true');
+        else item.removeAttribute('aria-current');
+      });
+    }));
+    updateCaseRail();
 
     document.getElementById('enquiry-form').addEventListener('submit', (event) => {
       event.preventDefault();
