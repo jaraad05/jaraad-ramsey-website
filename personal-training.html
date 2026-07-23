@@ -154,11 +154,11 @@
     .anton-kicker { display: inline-flex; align-items: center; gap: 9px; margin-top: 18px; color: var(--muted); font-size: .82rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
     .anton-kicker::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent, #fff); box-shadow: 0 0 14px rgba(255,216,26,.55); }
     .anton-photo-comparison { margin-bottom: 18px; }
-    .anton-photo-placeholder { display: grid; place-items: center; border-color: rgba(255,216,26,.2); background: radial-gradient(circle at 50% 42%, rgba(255,216,26,.12), transparent 11rem), linear-gradient(145deg, #14130a, #080800); }
-    .anton-photo-status { position: relative; z-index: 2; display: grid; justify-items: center; gap: 8px; padding: 24px; text-align: center; }
-    .anton-photo-status small { color: var(--muted); font-size: .7rem; font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
-    .anton-photo-status strong { font-size: clamp(2.2rem, 5vw, 4.1rem); line-height: 1; letter-spacing: -.05em; }
-    .anton-photo-status span { position: static; color: var(--accent, #ffd91a); font-size: .82rem; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
+    .case-photo-placeholder { display: grid; place-items: center; border-color: rgba(255,216,26,.2); background: radial-gradient(circle at 50% 42%, rgba(255,216,26,.12), transparent 11rem), linear-gradient(145deg, #14130a, #080800); }
+    .case-photo-status { position: relative; z-index: 2; display: grid; justify-items: center; gap: 8px; padding: 24px; text-align: center; }
+    .case-photo-status small { color: var(--muted); font-size: .7rem; font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
+    .case-photo-status strong { font-size: clamp(2.2rem, 5vw, 4.1rem); line-height: 1; letter-spacing: -.05em; }
+    .case-photo-status span { position: static; color: var(--accent, #ffd91a); font-size: .82rem; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
     .anton-journey { display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch; gap: 16px; padding: 18px; border: 1px solid var(--line); border-radius: 24px; background: linear-gradient(135deg, rgba(255,216,26,.07), rgba(255,255,255,.015)); }
     .anton-weight { display: flex; flex-direction: column; justify-content: space-between; min-height: 190px; padding: 22px; border: 1px solid var(--line-soft); border-radius: 18px; background: rgba(0,0,0,.28); }
     .anton-weight span { color: var(--muted); font-size: .72rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
@@ -699,15 +699,15 @@
 
             <div class="comparison anton-photo-comparison" aria-label="Anton progress photos">
               <!-- Replace these placeholders with Anton's approved progress photos when they are available. -->
-              <div class="study-media anton-photo-placeholder" role="img" aria-label="Anton before progress photo coming soon">
-                <div class="anton-photo-status">
+              <div class="study-media case-photo-placeholder" role="img" aria-label="Anton before progress photo coming soon">
+                <div class="case-photo-status">
                   <small>Anton · Progress Photo</small>
                   <strong>Before</strong>
                   <span>Coming soon...</span>
                 </div>
               </div>
-              <div class="study-media anton-photo-placeholder" role="img" aria-label="Anton after progress photo coming soon">
-                <div class="anton-photo-status">
+              <div class="study-media case-photo-placeholder" role="img" aria-label="Anton after progress photo coming soon">
+                <div class="case-photo-status">
                   <small>Anton · Progress Photo</small>
                   <strong>After</strong>
                   <span>Coming soon...</span>
@@ -777,11 +777,22 @@
               <div><div class="label">Training Case Study</div><h3 class="study-name">Michael</h3></div>
               <p class="study-summary">Michael followed an adapted version of the original training split and achieved strong progress while applying the same core programming principles. Exercise selection, volume and progression were adjusted to suit his experience and recovery.</p>
             </div>
-            <div class="comparison">
-              <!-- MICHAEL BEFORE PHOTO: Replace this div with an approved <img>. Keep the study-media class so the crop, dimensions and rounded corners remain consistent. -->
-              <div class="study-media" role="img" aria-label="Michael before image area"><span>Before</span></div>
-              <!-- MICHAEL AFTER PHOTO: Replace this div with an approved <img>. Match the crop and dimensions of the before image. -->
-              <div class="study-media" role="img" aria-label="Michael after image area"><span>After</span></div>
+            <div class="comparison anton-photo-comparison" aria-label="Michael progress photos">
+              <!-- Replace these placeholders with Michael's approved progress photos when they are available. -->
+              <div class="study-media case-photo-placeholder" role="img" aria-label="Michael before progress photo coming soon">
+                <div class="case-photo-status">
+                  <small>Michael · Progress Photo</small>
+                  <strong>Before</strong>
+                  <span>Coming soon...</span>
+                </div>
+              </div>
+              <div class="study-media case-photo-placeholder" role="img" aria-label="Michael after progress photo coming soon">
+                <div class="case-photo-status">
+                  <small>Michael · Progress Photo</small>
+                  <strong>After</strong>
+                  <span>Coming soon...</span>
+                </div>
+              </div>
             </div>
             <div class="label" style="margin-top:24px">Progress Summary</div>
             <!-- MICHAEL MEASUREMENTS: Replace each dash below only with Michael's verified measurements and timeframes. -->
