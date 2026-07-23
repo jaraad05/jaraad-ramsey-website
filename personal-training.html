@@ -112,8 +112,29 @@
     #case-studies { padding-top: 124px; }
     #case-studies .section-heading { margin-bottom: 24px; }
     .study-index { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 34px; }
-    .study-index a { padding: 9px 13px; border: 1px solid var(--line-soft); border-radius: 999px; color: #aaa; background: rgba(255,255,255,.02); text-decoration: none; font-size: .8rem; transition: color .2s ease, border-color .2s ease, background .2s ease; }
-    .study-index a:hover { color: #fff; border-color: var(--line); background: rgba(255,255,255,.045); }
+    .study-index a {
+      min-width: 76px;
+      padding: 9px 13px;
+      border: 1px solid rgba(255, 216, 26, .26);
+      border-radius: 999px;
+      color: #d2d0c5;
+      background: rgba(7, 7, 0, .9);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, .38);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+    }
+    .study-index a:hover {
+      color: #fff;
+      border-color: rgba(255, 226, 82, .72);
+      background: rgba(255, 216, 26, .06);
+      box-shadow: 0 0 20px rgba(255, 216, 26, .11);
+      transform: translateY(-1px);
+    }
     .featured-study { padding: 46px; border-color: rgba(255,255,255,.2); background: radial-gradient(circle at 78% 8%, rgba(255,255,255,.14), transparent 27rem), linear-gradient(145deg, #141414, #080808); }
     .featured-heading { margin-bottom: 32px; }
     .featured-name { margin: 0; max-width: 1020px; font-size: clamp(3.4rem, 7vw, 6.8rem); line-height: .88; letter-spacing: -.065em; text-transform: uppercase; }
@@ -615,7 +636,7 @@
         </div>
 
         <nav class="study-index reveal" aria-label="Case study index">
-          <a href="#my-transformation">My Transformation</a>
+          <a href="#my-transformation">Me</a>
           <a href="#anton">Anton</a>
           <a href="#michael">Michael</a>
         </nav>
