@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Jaraad Ramsey personal training — evidence-based coaching, sustainable nutrition and long-term habits." />
   <meta name="theme-color" content="#050505" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Evidence-Based Personal Training — Jaraad Ramsey" />
+  <meta property="og:description" content="Intelligent training, sustainable nutrition and long-term habits." />
+  <meta property="og:url" content="https://jaraadramsey.com/personal-training" />
+  <meta property="og:image" content="https://jaraadramsey.com/og-training.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Evidence-Based Personal Training — Jaraad Ramsey" />
+  <meta name="twitter:description" content="Intelligent training, sustainable nutrition and long-term habits." />
+  <meta name="twitter:image" content="https://jaraadramsey.com/og-training.png" />
   <title>Personal Training — Jaraad Ramsey</title>
 
   <style>
@@ -212,6 +223,176 @@
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
       .reveal { opacity: 1; transform: none; }
+    }
+
+    /* Electric yellow brand system */
+    :root {
+      --bg: #050500;
+      --panel: rgba(255, 216, 26, .055);
+      --panel-strong: rgba(255, 216, 26, .105);
+      --text: #ffffff;
+      --muted: #c8c6bb;
+      --line: rgba(255, 216, 26, .28);
+      --line-soft: rgba(255, 216, 26, .14);
+      --accent: #ffd91a;
+      --shadow: 0 30px 100px rgba(0, 0, 0, .58), 0 0 60px rgba(255, 216, 26, .055);
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 82% 7%, rgba(255, 216, 26, .2), transparent 28rem),
+        radial-gradient(circle at 7% 48%, rgba(255, 216, 26, .085), transparent 31rem),
+        repeating-linear-gradient(118deg, transparent 0 34px, rgba(255, 216, 26, .018) 35px, transparent 36px 72px),
+        linear-gradient(180deg, #050500 0%, #0a0901 56%, #050500 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      pointer-events: none;
+      opacity: .16;
+      background-image:
+        radial-gradient(circle, rgba(255, 228, 89, .5) 0 1px, transparent 1.5px),
+        linear-gradient(108deg, transparent 48%, rgba(255, 216, 26, .1) 50%, transparent 52%);
+      background-size: 31px 31px, 190px 190px;
+      mask-image: linear-gradient(to bottom, black, transparent 82%);
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible {
+      outline-color: var(--accent);
+    }
+
+    .nav {
+      border-bottom-color: rgba(255, 216, 26, .18);
+      background: rgba(5, 5, 0, .82);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, .28);
+    }
+
+    .brand-mark {
+      border-color: rgba(255, 216, 26, .62);
+      background: var(--accent);
+      color: #080700;
+      box-shadow: 0 0 24px rgba(255, 216, 26, .34), inset 0 1px 0 rgba(255, 255, 255, .5);
+    }
+
+    .nav-links a:hover { color: #fff5b7; }
+
+    .button {
+      border-color: rgba(255, 216, 26, .3);
+    }
+
+    .button:hover {
+      border-color: rgba(255, 226, 82, .75);
+      box-shadow: 0 0 28px rgba(255, 216, 26, .14);
+    }
+
+    .button.primary {
+      color: #080700;
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 0 28px rgba(255, 216, 26, .22);
+    }
+
+    .button.secondary {
+      color: #fff;
+      background: rgba(9, 9, 2, .72);
+    }
+
+    .hero::after {
+      background: linear-gradient(90deg, transparent, rgba(255, 222, 63, .82), transparent);
+      box-shadow: 0 0 24px rgba(255, 216, 26, .32);
+    }
+
+    .eyebrow {
+      color: #fff4aa;
+      border-color: rgba(255, 216, 26, .28);
+      background: rgba(255, 216, 26, .045);
+    }
+
+    .dot {
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(255, 216, 26, .95);
+    }
+
+    h1,
+    .featured-name {
+      text-shadow: 0 0 60px rgba(255, 216, 26, .075);
+    }
+
+    .label,
+    .feature-icon,
+    .study-media span {
+      color: #ffe35c;
+    }
+
+    .study-card,
+    .feature-card,
+    .service-card,
+    .contact-card,
+    details {
+      border-color: rgba(255, 216, 26, .22);
+      background:
+        radial-gradient(circle at 88% 4%, rgba(255, 216, 26, .115), transparent 24rem),
+        linear-gradient(145deg, rgba(255, 216, 26, .045), rgba(255, 255, 255, .012));
+      box-shadow: var(--shadow);
+    }
+
+    .featured-study {
+      border-color: rgba(255, 226, 82, .42);
+      background:
+        radial-gradient(circle at 78% 8%, rgba(255, 216, 26, .2), transparent 28rem),
+        linear-gradient(145deg, #111004, #070700);
+    }
+
+    .study-media,
+    .stat,
+    .study-note,
+    .training-day,
+    .study-index a,
+    .service-status {
+      border-color: rgba(255, 216, 26, .17);
+      background: rgba(255, 216, 26, .035);
+    }
+
+    .progress-status {
+      color: #fff5b7;
+      border-color: rgba(255, 216, 26, .34);
+      background: rgba(255, 216, 26, .055);
+    }
+
+    .progress-status::before {
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(255, 216, 26, .1), 0 0 18px rgba(255, 216, 26, .75);
+    }
+
+    .feature-icon {
+      border-color: rgba(255, 216, 26, .32);
+      background: rgba(255, 216, 26, .08);
+    }
+
+    input,
+    select,
+    textarea {
+      border-color: rgba(255, 216, 26, .24);
+      background: rgba(5, 5, 0, .78);
+      color: #fff;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #888678;
+    }
+
+    footer,
+    .form-note {
+      color: #aaa89d;
     }
   </style>
 </head>

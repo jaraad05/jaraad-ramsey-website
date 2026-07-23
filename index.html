@@ -688,6 +688,150 @@
       }
       .reveal { opacity: 1; transform: none; }
     }
+
+    /* Electric yellow brand system */
+    :root {
+      --bg: #050500;
+      --bg-soft: #0b0a02;
+      --panel: rgba(255, 216, 26, .055);
+      --panel-strong: rgba(255, 216, 26, .105);
+      --text: #ffffff;
+      --muted: #c8c6bb;
+      --line: rgba(255, 216, 26, .28);
+      --line-soft: rgba(255, 216, 26, .14);
+      --accent: #ffd91a;
+      --shadow: 0 30px 100px rgba(0, 0, 0, .58), 0 0 60px rgba(255, 216, 26, .055);
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 82% 7%, rgba(255, 216, 26, .18), transparent 26rem),
+        radial-gradient(circle at 8% 42%, rgba(255, 216, 26, .09), transparent 30rem),
+        repeating-linear-gradient(118deg, transparent 0 34px, rgba(255, 216, 26, .018) 35px, transparent 36px 72px),
+        linear-gradient(180deg, #050500 0%, #0a0901 54%, #050500 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      pointer-events: none;
+      opacity: .16;
+      background-image:
+        radial-gradient(circle, rgba(255, 228, 89, .5) 0 1px, transparent 1.5px),
+        linear-gradient(108deg, transparent 48%, rgba(255, 216, 26, .1) 50%, transparent 52%);
+      background-size: 31px 31px, 190px 190px;
+      mask-image: linear-gradient(to bottom, black, transparent 82%);
+    }
+
+    a:focus-visible { outline-color: var(--accent); }
+
+    .nav {
+      border-bottom-color: rgba(255, 216, 26, .18);
+      background: rgba(5, 5, 0, .82);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, .28);
+    }
+
+    .brand-mark {
+      border-color: rgba(255, 216, 26, .62);
+      background: var(--accent);
+      color: #080700;
+      box-shadow: 0 0 24px rgba(255, 216, 26, .34), inset 0 1px 0 rgba(255, 255, 255, .5);
+    }
+
+    .nav-links a:hover { color: #fff5b7; }
+
+    .button {
+      border-color: rgba(255, 216, 26, .3);
+    }
+
+    .button:hover {
+      border-color: rgba(255, 226, 82, .75);
+      box-shadow: 0 0 28px rgba(255, 216, 26, .14);
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: #080700;
+      border-color: var(--accent);
+      box-shadow: 0 0 28px rgba(255, 216, 26, .22);
+    }
+
+    .button.secondary {
+      background: rgba(9, 9, 2, .72);
+      color: #fff;
+    }
+
+    .hero::after {
+      background: linear-gradient(90deg, transparent, rgba(255, 222, 63, .82), transparent);
+      box-shadow: 0 0 24px rgba(255, 216, 26, .32);
+    }
+
+    .kicker {
+      color: #fff4aa;
+      border-color: rgba(255, 216, 26, .28);
+      background: rgba(255, 216, 26, .045);
+    }
+
+    .status-dot {
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(255, 216, 26, .95);
+    }
+
+    h1 {
+      text-shadow: 0 0 60px rgba(255, 216, 26, .075);
+    }
+
+    .hero-card {
+      border-color: rgba(255, 216, 26, .32);
+      background: #0b0a02;
+      box-shadow: 0 34px 110px rgba(0, 0, 0, .68), 0 0 70px rgba(255, 216, 26, .08);
+    }
+
+    .hero-card:hover {
+      border-color: rgba(255, 226, 82, .62);
+      box-shadow: 0 42px 125px rgba(0, 0, 0, .7), 0 0 90px rgba(255, 216, 26, .13);
+    }
+
+    .label,
+    .skill-number,
+    .timeline-year {
+      color: #ffe35c;
+    }
+
+    .experience-card,
+    .skill-card,
+    .availability-card,
+    .education-card,
+    .contact-card {
+      border-color: rgba(255, 216, 26, .22);
+      background:
+        radial-gradient(circle at 88% 4%, rgba(255, 216, 26, .12), transparent 22rem),
+        linear-gradient(145deg, rgba(255, 216, 26, .045), rgba(255, 255, 255, .012));
+      box-shadow: var(--shadow);
+    }
+
+    .chip,
+    .expectation,
+    .availability-row {
+      border-color: rgba(255, 216, 26, .17);
+      background: rgba(255, 216, 26, .035);
+    }
+
+    .check {
+      color: var(--accent);
+      text-shadow: 0 0 14px rgba(255, 216, 26, .6);
+    }
+
+    .experience-glow {
+      background: radial-gradient(circle, rgba(255, 216, 26, .2), transparent 66%);
+    }
+
+    footer,
+    .contact-meta {
+      color: #aaa89d;
+    }
   </style>
 </head>
 
