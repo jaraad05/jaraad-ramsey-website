@@ -38,6 +38,38 @@ function validEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
+async function sendClientAutoReply(env, enquiry) {
+  if (!env.AUTO_REPLY_URL || !env.AUTO_REPLY_SECRET) {
+    console.error("Client auto reply is not configured");
+    return false;
+  }
+
+  try {
+    const response = await fetch(env.AUTO_REPLY_URL, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        secret: env.AUTO_REPLY_SECRET,
+        name: enquiry.name,
+        email: enquiry.email,
+        goal: enquiry.goal,
+      }),
+      signal: AbortSignal.timeout(8_000),
+    });
+    const result = await response.json().catch(() => null);
+
+    if (!response.ok || result?.ok !== true) {
+      console.error("Client auto reply was rejected", response.status);
+      return false;
+    }
+
+    return true;
+  } catch (error) {
+    console.error("Client auto reply failed", error);
+    return false;
+  }
+}
+
 async function handleEnquiry(request, env) {
   const origin = request.headers.get("origin");
   if (!origin || !ALLOWED_ORIGINS.has(origin)) {
@@ -90,7 +122,9 @@ async function handleEnquiry(request, env) {
       text: `New personal training enquiry\n\nName: ${name}\nEmail: ${email}\nGoal: ${goal}\n\nMessage:\n${message}`,
       html: `<h1>New personal training enquiry</h1><p><strong>Name:</strong> ${safeName}</p><p><strong>Email:</strong> ${safeEmail}</p><p><strong>Goal:</strong> ${safeGoal}</p><p><strong>Message:</strong><br>${safeMessage}</p>`,
     });
-    return json({ ok: true });
+
+    const autoReplySent = await sendClientAutoReply(env, { name, email, goal });
+    return json({ ok: true, autoReplySent });
   } catch (error) {
     console.error("Enquiry email failed", error);
     return json({ error: "Email delivery is being configured. Please try again shortly." }, 503);
