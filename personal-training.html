@@ -149,6 +149,30 @@
     .study-note p { margin: 0; color: var(--muted); }
     .reflection { min-height: 112px; margin: 0; position: relative; }
     .reflection::before { content: "“"; color: rgba(255,255,255,.14); font-size: 4rem; line-height: .8; }
+    .anton-study { padding: 46px; border-color: rgba(255,255,255,.2); }
+    .anton-study .study-top { align-items: start; margin-bottom: 32px; }
+    .anton-kicker { display: inline-flex; align-items: center; gap: 9px; margin-top: 18px; color: var(--muted); font-size: .82rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+    .anton-kicker::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent, #fff); box-shadow: 0 0 14px rgba(255,216,26,.55); }
+    .anton-journey { display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch; gap: 16px; padding: 18px; border: 1px solid var(--line); border-radius: 24px; background: linear-gradient(135deg, rgba(255,216,26,.07), rgba(255,255,255,.015)); }
+    .anton-weight { display: flex; flex-direction: column; justify-content: space-between; min-height: 190px; padding: 22px; border: 1px solid var(--line-soft); border-radius: 18px; background: rgba(0,0,0,.28); }
+    .anton-weight span { color: var(--muted); font-size: .72rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+    .anton-weight strong { display: block; margin-top: 18px; font-size: clamp(3.1rem, 7vw, 5.8rem); line-height: .86; letter-spacing: -.07em; }
+    .anton-weight small { display: block; margin-top: 12px; color: var(--muted); font-size: .82rem; }
+    .anton-journey-mark { align-self: center; display: grid; justify-items: center; gap: 10px; min-width: 122px; color: var(--muted); text-align: center; }
+    .anton-journey-mark::before { content: "→"; color: var(--accent, #fff); font-size: 2rem; line-height: 1; text-shadow: 0 0 24px rgba(255,216,26,.38); }
+    .anton-journey-mark strong { color: var(--text); font-size: .82rem; line-height: 1.35; }
+    .anton-metrics { margin-top: 14px; }
+    .anton-metrics .stat strong { color: var(--text); font-size: 1rem; }
+    .anton-story { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 14px; }
+    .anton-story .study-note { min-height: 0; padding: 24px; }
+    .anton-story .wide { grid-column: 1 / -1; }
+    .anton-story .study-note p { line-height: 1.68; }
+    .anton-quote { position: relative; overflow: hidden; padding: 30px !important; border-color: rgba(255,216,26,.35); background: radial-gradient(circle at 90% 0%, rgba(255,216,26,.13), transparent 22rem), rgba(255,216,26,.045); }
+    .anton-quote::after { content: "ANTON"; position: absolute; right: 20px; bottom: -18px; color: rgba(255,216,26,.045); font-size: clamp(4rem, 11vw, 8rem); font-weight: 900; letter-spacing: -.06em; pointer-events: none; }
+    .anton-quote .reflection { min-height: 0; max-width: 920px; z-index: 1; }
+    .anton-quote .reflection::before { color: rgba(255,216,26,.34); }
+    .anton-quote .reflection p { color: var(--text); font-size: clamp(1.25rem, 2.5vw, 1.75rem); font-weight: 650; line-height: 1.42; letter-spacing: -.025em; }
+    .anton-quote footer { padding: 18px 0 0; border: 0; color: var(--muted); font-size: .78rem; font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
 
     .philosophy-grid, .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
     .feature-card, .service-card { min-height: 235px; padding: 28px; position: relative; overflow: hidden; border: 1px solid var(--line-soft); border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018)); }
@@ -214,6 +238,15 @@
       .study-media.featured-media { min-height: 310px; }
       .stats, .study-notes, .philosophy-grid, .services-grid, .form-grid { grid-template-columns: 1fr; }
       .featured-sections .wide { grid-column: auto; }
+      .anton-study { padding: 22px; }
+      .anton-journey { grid-template-columns: 1fr; padding: 12px; }
+      .anton-weight { min-height: 155px; padding: 18px; }
+      .anton-journey-mark { min-width: 0; padding: 4px 0; }
+      .anton-journey-mark::before { content: "↓"; }
+      .anton-story { grid-template-columns: 1fr; }
+      .anton-story .wide { grid-column: auto; }
+      .anton-story .study-note { padding: 20px; }
+      .anton-quote { padding: 24px 20px !important; }
       .training-week { grid-template-columns: 1fr; }
       .feature-card { min-height: 210px; }
       .field.full { grid-column: auto; }
@@ -648,32 +681,70 @@
             </div>
           </article>
 
-          <article class="study-card reveal" id="anton">
+          <article class="study-card anton-study reveal" id="anton">
             <div class="study-top">
-              <div><div class="label">Training Partner</div><h3 class="study-name">Anton</h3></div>
-              <p class="study-summary">Anton and I developed the original training split together and progressed using the same programming principles: consistent execution, progressive overload and adjustments informed by performance and recovery.</p>
+              <div>
+                <div class="label">Client Transformation</div>
+                <h3 class="study-name">Anton</h3>
+                <div class="anton-kicker">Foundations over gimmicks</div>
+              </div>
+              <p class="study-summary">Anton began at approximately 105 kg with little experience in training, nutrition or body recomposition. He now weighs approximately 80 kg. His progress accelerated during a focused year in which calorie deficits, efficient training and sustainable eating finally became simple and practical.</p>
             </div>
-            <div class="comparison">
-              <!-- ANTON BEFORE PHOTO: Replace this div with an approved <img>. Keep the study-media class so the crop, dimensions and rounded corners remain consistent. -->
-              <div class="study-media" role="img" aria-label="Anton before image area"><span>Before</span></div>
-              <!-- ANTON AFTER PHOTO: Replace this div with an approved <img>. Match the crop and dimensions of the before image. -->
-              <div class="study-media" role="img" aria-label="Anton after image area"><span>After</span></div>
+
+            <div class="anton-journey" aria-label="Anton weight transformation from approximately 105 kilograms to approximately 80 kilograms">
+              <div class="anton-weight">
+                <span>Starting Point</span>
+                <strong>≈105 kg</strong>
+                <small>Heavier, new to structured training and mainly wanting to become slimmer.</small>
+              </div>
+              <div class="anton-journey-mark"><strong>Approximately<br>25 kg lost</strong></div>
+              <div class="anton-weight">
+                <span>Current Weight</span>
+                <strong>≈80 kg</strong>
+                <small>Training efficiently and eating with far more confidence and independence.</small>
+              </div>
             </div>
-            <div class="label" style="margin-top:24px">Progress Summary</div>
-            <!-- ANTON MEASUREMENTS: Replace each dash below only with Anton's verified measurements and timeframes. -->
-            <div class="stats">
-              <div class="stat"><span>Starting Weight</span><strong>—</strong></div>
-              <div class="stat"><span>Current Weight</span><strong>—</strong></div>
-              <div class="stat"><span>Time Training Together</span><strong>—</strong></div>
-              <div class="stat"><span>Strength Improvements</span><strong>—</strong></div>
+
+            <div class="label" style="margin-top:26px">Progress Summary</div>
+            <div class="stats anton-metrics">
+              <div class="stat"><span>Weight Change</span><strong>Approximately 25 kg lost</strong></div>
+              <div class="stat"><span>Focused Progress</span><strong>Approximately one year using a calorie deficit intentionally</strong></div>
+              <div class="stat"><span>Nutrition</span><strong>Sustainable, flexible and increasingly intuitive</strong></div>
+              <div class="stat"><span>Training</span><strong>Science-based principles made simple</strong></div>
             </div>
-            <div class="study-notes">
-              <div class="study-note"><h4>Programming Approach</h4><p>The original split was developed collaboratively, with shared exercise priorities and the same underlying progression model.</p></div>
-              <div class="study-note"><h4>Lessons Learned</h4><p>Consistent principles can support different individual needs when volume, recovery and progression are managed carefully.</p></div>
-              <!-- ANTON WRITTEN STATEMENT: Paste Anton's approved personal reflection inside this blockquote. -->
-              <div class="study-note"><h4>Personal Reflection</h4><blockquote class="reflection" aria-label="Anton personal reflection area"></blockquote></div>
-              <!-- ANTON RESULTS: Replace the dash with a concise, verified results summary. -->
-              <div class="study-note"><h4>Results</h4><p>—</p></div>
+
+            <div class="anton-story">
+              <div class="study-note">
+                <h4>Starting From the Basics</h4>
+                <p>“When I started, I did not really know much about training, nutrition or changing my body composition. I was heavier and mainly wanted to look slimmer. Jaraad explained things properly in simple terms, so I could understand what to do without having to research every little detail myself.”</p>
+              </div>
+              <div class="study-note">
+                <h4>Training Made More Efficient</h4>
+                <p>“The lifting advice was science-based, but it was practical. I learned which exercises to use, how to perform them and why they were in the workout. Using focused, lower-volume training—often around two productive working sets where appropriate—made sessions quicker, easier to follow and more enjoyable.”</p>
+              </div>
+              <div class="study-note">
+                <h4>Foundations, Not Fitness Trends</h4>
+                <p>“The biggest thing I learned from Jaraad was the foundations: body recomposition, calorie deficits, calories in versus calories out, exercise selection and sustainable nutrition. The advice never felt gimmicky. Now, when I see fitness content on social media, I can work out what is useful, what is misleading and what is just redundant.”</p>
+              </div>
+              <div class="study-note">
+                <h4>Food Freedom and Intuitive Eating</h4>
+                <p>“I learned that foods are not the enemy and they are not automatically good or bad. Most foods can fit; it comes back to overall energy intake and expenditure. Through repetition, I know the meals I normally eat, roughly what the portions contain and how they fit my goals. I do not need to track every calorie all the time because the principles now feel intuitive.”</p>
+              </div>
+              <div class="study-note">
+                <h4>One Focused Year</h4>
+                <p>“Once I properly understood how a calorie deficit worked—and how simple it could be to implement—my progress sped up by a lot. During approximately one year of using a calorie deficit intentionally, I became much more consistent without making nutrition feel restrictive or complicated.”</p>
+              </div>
+              <div class="study-note">
+                <h4>Ongoing Nutrition Support</h4>
+                <p>“I still bring Jaraad foods, meals or claims from social media when I am unsure. He helps me estimate the calories and portions, explains whether something actually matters for my goals and acts as a fact-checker. That means I can make a decision with discretion instead of feeling misled.”</p>
+              </div>
+              <div class="study-note anton-quote wide">
+                <h4>Anton’s Reflection</h4>
+                <blockquote class="reflection">
+                  <p>Jaraad taught me the foundations. Once I understood those, fitness and nutrition stopped feeling complicated. I could train efficiently, eat without fearing food and make progress without constantly researching everything myself. It felt like fitness on easy mode.</p>
+                  <footer>Anton · Personal reflection</footer>
+                </blockquote>
+              </div>
             </div>
           </article>
 
