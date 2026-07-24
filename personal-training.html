@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Jaraad Ramsey personal training — evidence-based coaching, sustainable nutrition and long-term habits." />
+  <meta name="description" content="Jaraad Ramsey personal training: evidence-based coaching, sustainable nutrition and long-term habits." />
   <meta name="theme-color" content="#050505" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Evidence-Based Personal Training — Jaraad Ramsey" />
+  <meta property="og:title" content="Evidence-Based Personal Training | Jaraad Ramsey" />
   <meta property="og:description" content="Intelligent training, sustainable nutrition and long-term habits." />
   <meta property="og:url" content="https://jaraadramsey.com/personal-training" />
   <meta property="og:image" content="https://jaraadramsey.com/og-training.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Evidence-Based Personal Training — Jaraad Ramsey" />
+  <meta name="twitter:title" content="Evidence-Based Personal Training | Jaraad Ramsey" />
   <meta name="twitter:description" content="Intelligent training, sustainable nutrition and long-term habits." />
   <meta name="twitter:image" content="https://jaraadramsey.com/og-training.png" />
-  <title>Personal Training — Jaraad Ramsey</title>
+  <title>Personal Training | Jaraad Ramsey</title>
 
   <style>
     :root {
@@ -215,6 +215,278 @@
     .anton-quote footer,
     .michael-quote footer { padding: 18px 0 0; border: 0; color: var(--muted); font-size: .78rem; font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
 
+    .recipe-section { position: relative; }
+    .recipe-showcase {
+      overflow: hidden;
+      padding: clamp(28px, 5vw, 58px);
+      border: 1px solid rgba(255,216,26,.38);
+      border-radius: 38px;
+      background:
+        radial-gradient(circle at 92% 4%, rgba(255,216,26,.18), transparent 27rem),
+        repeating-linear-gradient(118deg, transparent 0 42px, rgba(255,216,26,.022) 43px, transparent 44px 86px),
+        linear-gradient(145deg, #111004, #070700);
+      box-shadow: var(--shadow);
+    }
+    .recipe-heading { max-width: 960px; }
+    .recipe-heading h2 { max-width: 880px; }
+    .recipe-supporting {
+      max-width: 790px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.08rem, 2vw, 1.38rem);
+      letter-spacing: -.018em;
+    }
+    .recipe-included {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 18px;
+      margin-top: 34px;
+      padding: 20px 22px;
+      border: 1px solid rgba(255,216,26,.45);
+      border-radius: 18px;
+      background: rgba(255,216,26,.075);
+      box-shadow: inset 0 1px 0 rgba(255,245,186,.07), 0 0 34px rgba(255,216,26,.055);
+    }
+    .recipe-included-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 13px;
+      border-radius: 999px;
+      color: #080700;
+      background: var(--accent);
+      font-size: .7rem;
+      font-weight: 850;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .recipe-included p { margin: 0; color: #fff8c8; font-weight: 650; }
+    .recipe-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .recipe-copy-card,
+    .recipe-panel,
+    .recipe-step,
+    .recipe-example,
+    .recipe-compare-card {
+      border: 1px solid rgba(255,216,26,.18);
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(255,216,26,.045), rgba(255,255,255,.008)), #090901;
+    }
+    .recipe-copy-card { padding: 26px; }
+    .recipe-copy-card p { margin: 0; color: var(--muted); line-height: 1.72; }
+    .recipe-copy-card p + p { margin-top: 14px; }
+    .recipe-copy-card strong { color: var(--text); }
+    .recipe-block { margin-top: 54px; }
+    .recipe-block-heading {
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      align-items: end;
+      gap: 34px;
+      margin-bottom: 20px;
+    }
+    .recipe-block-heading h3 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: .98;
+      letter-spacing: -.05em;
+      text-transform: uppercase;
+    }
+    .recipe-block-heading p { max-width: 680px; margin: 0; color: var(--muted); }
+    .recipe-process {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .recipe-step {
+      min-height: 220px;
+      padding: 24px;
+      position: relative;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .recipe-step:hover {
+      border-color: rgba(255,216,26,.4);
+      background: linear-gradient(145deg, rgba(255,216,26,.075), rgba(255,255,255,.012)), #090901;
+      transform: translateY(-3px);
+    }
+    .recipe-step-number {
+      display: grid;
+      width: 40px;
+      height: 40px;
+      place-items: center;
+      margin-bottom: 52px;
+      border: 1px solid rgba(255,216,26,.38);
+      border-radius: 12px;
+      color: var(--accent);
+      font-size: .76rem;
+      font-weight: 850;
+      letter-spacing: .08em;
+    }
+    .recipe-step h4,
+    .recipe-example h4,
+    .recipe-compare-card h4 {
+      margin: 0 0 9px;
+      font-size: 1.18rem;
+      letter-spacing: -.02em;
+    }
+    .recipe-step p,
+    .recipe-example p { margin: 0; color: var(--muted); }
+    .recipe-step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      right: -22px;
+      display: grid;
+      width: 30px;
+      height: 30px;
+      place-items: center;
+      border: 1px solid rgba(255,216,26,.35);
+      border-radius: 50%;
+      color: var(--accent);
+      background: #090901;
+      box-shadow: 0 0 20px rgba(255,216,26,.14);
+      transform: translateY(-50%);
+    }
+    .recipe-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .recipe-compare-card { padding: 28px; }
+    .recipe-compare-card.generic { opacity: .82; }
+    .recipe-compare-card.approach {
+      border-color: rgba(255,216,26,.42);
+      background: radial-gradient(circle at 100% 0%, rgba(255,216,26,.13), transparent 18rem), rgba(255,216,26,.04);
+    }
+    .recipe-compare-card .label { margin-bottom: 20px; }
+    .recipe-compare-list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+    .recipe-compare-list li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .recipe-compare-list li::before { color: #8f8c7f; font-weight: 900; content: "×"; }
+    .recipe-compare-card.approach .recipe-compare-list li { color: #fff8ce; }
+    .recipe-compare-card.approach .recipe-compare-list li::before { color: var(--accent); content: "✓"; }
+    .recipe-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .recipe-panel { padding: 28px; }
+    .recipe-panel h3 { margin: 0 0 12px; font-size: 1.5rem; letter-spacing: -.025em; }
+    .recipe-panel > p { margin: 0; color: var(--muted); line-height: 1.68; }
+    .recipe-checklist {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 18px;
+      margin: 22px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .recipe-checklist li {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      color: var(--muted);
+      font-size: .94rem;
+      line-height: 1.5;
+    }
+    .recipe-checklist li::before { color: var(--accent); font-weight: 900; content: "✓"; }
+    .recipe-balance {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 22px;
+    }
+    .recipe-balance span {
+      padding: 8px 11px;
+      border: 1px solid rgba(255,216,26,.22);
+      border-radius: 999px;
+      color: #fff5b7;
+      background: rgba(255,216,26,.045);
+      font-size: .78rem;
+      font-weight: 750;
+    }
+    .recipe-examples {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .recipe-example { min-height: 270px; padding: 25px; }
+    .recipe-example-tag {
+      display: inline-flex;
+      margin-bottom: 58px;
+      color: var(--accent);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .recipe-example strong { color: #fff; }
+    .recipe-family {
+      display: grid;
+      grid-template-columns: .65fr 1.35fr;
+      gap: 28px;
+      margin-top: 14px;
+      padding: 28px;
+      border: 1px solid rgba(255,216,26,.26);
+      border-radius: 20px;
+      background: rgba(255,216,26,.045);
+    }
+    .recipe-family h4 { margin: 0; font-size: 1.35rem; }
+    .recipe-family p { margin: 0; color: var(--muted); line-height: 1.68; }
+    .recipe-outcomes {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 14px;
+      margin-top: 54px;
+    }
+    .recipe-outcomes .recipe-panel:first-child {
+      border-color: rgba(255,216,26,.35);
+      background: rgba(255,216,26,.055);
+    }
+    .recipe-closing {
+      margin-top: 18px;
+      padding: 34px;
+      border: 1px solid rgba(255,216,26,.4);
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 90% 0%, rgba(255,216,26,.16), transparent 22rem),
+        rgba(4,4,0,.72);
+    }
+    .recipe-closing h3 {
+      max-width: 800px;
+      margin: 0;
+      font-size: clamp(2rem, 4.5vw, 4rem);
+      line-height: .98;
+      letter-spacing: -.055em;
+      text-transform: uppercase;
+    }
+    .recipe-closing p { max-width: 760px; margin: 18px 0 24px; color: var(--muted); font-size: 1.02rem; }
+    .recipe-closing-lines {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .recipe-closing-lines strong {
+      padding: 8px 11px;
+      border-left: 2px solid var(--accent);
+      color: #fff6bd;
+      background: rgba(255,216,26,.035);
+      font-size: .82rem;
+      letter-spacing: .02em;
+    }
+
     .philosophy-grid, .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
     .feature-card, .service-card { min-height: 235px; padding: 28px; position: relative; overflow: hidden; border: 1px solid var(--line-soft); border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018)); }
     .feature-icon { width: 42px; height: 42px; display: grid; place-items: center; margin-bottom: 52px; border: 1px solid var(--line); border-radius: 13px; background: rgba(255,255,255,.04); color: #d8d8d8; font-size: .76rem; letter-spacing: .08em; }
@@ -263,6 +535,22 @@
       .contact-grid { gap: 38px; }
       .nav-links a:not(.button) { display: none; }
       .featured-metrics { grid-template-columns: repeat(2, 1fr); }
+      .recipe-intro,
+      .recipe-block-heading,
+      .recipe-process,
+      .recipe-examples,
+      .recipe-family,
+      .recipe-outcomes { grid-template-columns: 1fr; }
+      .recipe-block-heading { align-items: start; gap: 14px; }
+      .recipe-step { min-height: 0; }
+      .recipe-step-number { margin-bottom: 32px; }
+      .recipe-step:not(:last-child)::after {
+        top: auto;
+        right: 50%;
+        bottom: -23px;
+        content: "↓";
+        transform: translateX(50%);
+      }
     }
     @media (max-width: 640px) {
       .shell { width: min(calc(100% - 22px), var(--max)); }
@@ -301,6 +589,22 @@
       .feature-card { min-height: 210px; }
       .field.full { grid-column: auto; }
       .contact-card { padding: 36px 20px; border-radius: 28px; }
+      .recipe-showcase { padding: 24px 18px; border-radius: 28px; }
+      .recipe-included,
+      .recipe-comparison,
+      .recipe-grid,
+      .recipe-checklist { grid-template-columns: 1fr; }
+      .recipe-included-badge { justify-self: start; }
+      .recipe-block { margin-top: 42px; }
+      .recipe-copy-card,
+      .recipe-panel,
+      .recipe-compare-card,
+      .recipe-example,
+      .recipe-family,
+      .recipe-closing { padding: 22px 18px; }
+      .recipe-example { min-height: 0; }
+      .recipe-example-tag { margin-bottom: 36px; }
+      .recipe-closing .button { width: 100%; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -622,6 +926,7 @@
       <div class="nav-links">
         <a href="#case-studies">Case Studies</a>
         <a href="#philosophy">Philosophy</a>
+        <a href="#recipe-reinvention">Nutrition</a>
         <a href="#services">Services</a>
         <a href="#faq">FAQ</a>
         <a class="button primary" href="index.html">Employment</a>
@@ -833,7 +1138,7 @@
               </div>
               <div class="study-note">
                 <h4>Training Made More Efficient</h4>
-                <p>“The lifting advice was science-based, but it was practical. I learned which exercises to use, how to perform them and why they were in the workout. Using focused, lower-volume training—often around two productive working sets where appropriate—made sessions quicker, easier to follow and more enjoyable.”</p>
+                <p>“The lifting advice was science-based, but it was practical. I learned which exercises to use, how to perform them and why they were in the workout. Using focused, lower-volume training, often around two productive working sets where appropriate, made sessions quicker, easier to follow and more enjoyable.”</p>
               </div>
               <div class="study-note">
                 <h4>Foundations, Not Fitness Trends</h4>
@@ -929,7 +1234,7 @@
               <div class="study-note wide michael-quote">
                 <h4>Personal Reflection</h4>
                 <blockquote class="reflection" aria-label="Michael personal reflection">
-                  <p>I was 100 kg at the start and wanted nothing to do with the gym. Seeing how far Jaraad had come—and how much I could relate to him—made me feel that if he could do it, I could do it. He motivated me to keep pushing, not give up and trust that results would come. Now the results are showing. My back feels stronger, I feel more confident using more weight, and he has helped a lot with my mindset.</p>
+                  <p>I was 100 kg at the start and wanted nothing to do with the gym. Seeing how far Jaraad had come and how much I could relate to him made me feel that if he could do it, I could do it. He motivated me to keep pushing, not give up and trust that results would come. Now the results are showing. My back feels stronger, I feel more confident using more weight, and he has helped a lot with my mindset.</p>
                   <footer>Michael · Client testimonial</footer>
                 </blockquote>
               </div>
@@ -954,6 +1259,183 @@
       </div>
     </section>
 
+    <section id="recipe-reinvention" class="recipe-section">
+      <div class="shell">
+        <div class="recipe-showcase reveal">
+          <div class="recipe-heading">
+            <div class="label">Personalised Recipe Reinvention</div>
+            <h2>Keep Eating the Meals You Love.</h2>
+            <p class="recipe-supporting">Together, we will reinvent your favourite meals so they better support your fitness goals without turning them into something completely different.</p>
+          </div>
+
+          <div class="recipe-included" aria-label="Included in every personal training and coaching program">
+            <span class="recipe-included-badge">Included with coaching</span>
+            <p>Personalised recipe reinvention is included as a standard part of every personal training and coaching program.</p>
+          </div>
+
+          <div class="recipe-intro">
+            <article class="recipe-copy-card">
+              <p><strong>I do not believe you need to give up your favourite foods to make progress.</strong></p>
+              <p>As part of your coaching program, we will sit down together and go through the meals you genuinely enjoy. Then we will rebuild those recipes around your calorie, protein and nutrition targets while keeping each meal as close as possible to the original.</p>
+            </article>
+            <article class="recipe-copy-card">
+              <p>If you love a Big Mac, the goal is not to turn it into a Big Mac bowl. The goal is to help you make an actual Big Mac with the bun, patties, cheese, sauce, pickles and full experience, then make thoughtful changes that better suit your goals.</p>
+              <p>The same approach applies to your favourite pasta, curry, pizza, burger, dessert or family recipe. This is about making the food you already love work for you.</p>
+            </article>
+          </div>
+
+          <div class="recipe-block">
+            <div class="recipe-block-heading">
+              <h3>Your Favourite Meal → Rebuilt for Your Goals</h3>
+              <p>A practical process that keeps the identity of the original meal while helping it fit your wider nutrition plan.</p>
+            </div>
+            <div class="recipe-process" aria-label="Three-step recipe reinvention process">
+              <article class="recipe-step">
+                <span class="recipe-step-number">01</span>
+                <h4>Choose the meal.</h4>
+                <p>Bring the meals, flavours and family recipes you genuinely want to keep eating.</p>
+              </article>
+              <article class="recipe-step">
+                <span class="recipe-step-number">02</span>
+                <h4>Reinvent it together.</h4>
+                <p>We adjust ingredients, quantities, cooking methods and serving size around your goals.</p>
+              </article>
+              <article class="recipe-step">
+                <span class="recipe-step-number">03</span>
+                <h4>Test, refine and keep it.</h4>
+                <p>You try the complete recipe at home, share your feedback and keep a version you enjoy.</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="recipe-block">
+            <div class="recipe-block-heading">
+              <h3>Keep the Meal. Change the Strategy.</h3>
+              <p>Substitutions can be useful when they reflect what a client actually enjoys. They should not be forced replacements that remove the experience they wanted.</p>
+            </div>
+            <div class="recipe-comparison">
+              <article class="recipe-compare-card generic">
+                <div class="label">Generic Diet Replacement</div>
+                <ul class="recipe-compare-list">
+                  <li>“You like burgers? Eat a burger bowl.”</li>
+                  <li>“You like pizza? Use a plain wrap.”</li>
+                  <li>“You like dessert? Replace it with yoghurt.”</li>
+                </ul>
+              </article>
+              <article class="recipe-compare-card approach">
+                <div class="label">My Approach</div>
+                <ul class="recipe-compare-list">
+                  <li>“You like burgers? Let’s build you a better burger.”</li>
+                  <li>“You like pizza? Let’s create a pizza that fits your goals.”</li>
+                  <li>“You have a favourite dessert? Let’s reinvent the actual dessert.”</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+
+          <div class="recipe-block recipe-grid">
+            <article class="recipe-panel">
+              <div class="label">What Is Included</div>
+              <h3>A recipe you can confidently make at home.</h3>
+              <p>As part of your personal training program, I will work with you to:</p>
+              <ul class="recipe-checklist">
+                <li>Learn your favourite meals, foods and flavours.</li>
+                <li>Understand which parts of each meal matter most to you.</li>
+                <li>Recreate the complete meal rather than an unrelated alternative.</li>
+                <li>Adjust ingredients, quantities and cooking methods where appropriate.</li>
+                <li>Calculate estimated calories and macronutrients.</li>
+                <li>Personalise the serving size around your goals.</li>
+                <li>Create a clear recipe you can make at home.</li>
+                <li>Provide practical ingredient substitutions where useful.</li>
+                <li>Help the meal fit your overall nutrition plan.</li>
+                <li>Refine the recipe after you try it and share feedback.</li>
+              </ul>
+            </article>
+            <article class="recipe-panel">
+              <div class="label">Core Philosophy</div>
+              <h3>Nutrition should still feel like your life.</h3>
+              <p>Rigid plans are difficult to sustain when they completely change the way you enjoy food. Instead of handing every client the same meal plan, I help you build a personalised collection of meals you genuinely look forward to eating.</p>
+              <p style="margin-top:14px">The goal is not to make every meal as low in calories as physically possible. It is to find the best balance for your needs.</p>
+              <div class="recipe-balance" aria-label="Recipe reinvention priorities">
+                <span>Taste</span>
+                <span>Satisfaction</span>
+                <span>Protein</span>
+                <span>Calories</span>
+                <span>Convenience</span>
+                <span>Affordability</span>
+                <span>Long-term consistency</span>
+              </div>
+              <p style="margin-top:22px"><strong>The finished recipe should still feel like your favourite meal, not a disappointing diet substitute.</strong></p>
+            </article>
+          </div>
+
+          <div class="recipe-block">
+            <div class="recipe-block-heading">
+              <h3>Preserve What Makes It Worth Eating.</h3>
+              <p>The ingredients may change thoughtfully, but the flavour, texture and experience that made you love the meal should remain.</p>
+            </div>
+            <div class="recipe-examples">
+              <article class="recipe-example">
+                <span class="recipe-example-tag">Big Mac</span>
+                <h4>A complete homemade burger.</h4>
+                <p><strong>Buns, patties, cheese, pickles, onions, lettuce and Big Mac-style sauce.</strong> Adjustments might include leaner meat, carefully measured sauce, suitable cheese and better portion control.</p>
+              </article>
+              <article class="recipe-example">
+                <span class="recipe-example-tag">Carbonara</span>
+                <h4>Creamy pasta that feels genuine.</h4>
+                <p>Preserve the flavour and texture you enjoy, with thoughtful changes to pasta quantity, protein source, sauce ingredients and serving size.</p>
+              </article>
+              <article class="recipe-example">
+                <span class="recipe-example-tag">Pizza</span>
+                <h4>A real pizza with a proper base.</h4>
+                <p>Keep the base, sauce, cheese and toppings, then redesign the quantities to support your calorie and protein targets while still feeling like pizza.</p>
+              </article>
+            </div>
+            <article class="recipe-family">
+              <h4>Family and cultural recipes are welcome.</h4>
+              <p>Bring the recipes you grew up eating or the meals your family regularly makes. Food can carry emotional, cultural and social meaning. The goal is to improve how a recipe supports your goals without stripping away what makes it meaningful.</p>
+            </article>
+          </div>
+
+          <div class="recipe-outcomes">
+            <article class="recipe-panel">
+              <div class="label">Why This Matters</div>
+              <h3>Skills and meals you can keep.</h3>
+              <ul class="recipe-checklist">
+                <li>Continue enjoying your favourite foods.</li>
+                <li>Feel less restricted around food.</li>
+                <li>Reduce the cycle of avoiding and craving favourite meals.</li>
+                <li>Build practical cooking skills.</li>
+                <li>Understand portions and ingredients.</li>
+                <li>Stay consistent for longer.</li>
+                <li>Develop a more flexible approach to nutrition.</li>
+                <li>Keep a personal recipe collection after coaching.</li>
+              </ul>
+            </article>
+            <article class="recipe-panel">
+              <div class="label">Practical Nutrition Coaching</div>
+              <h3>Personalised education, not a rigid prescription.</h3>
+              <p>This is fitness nutrition coaching and practical recipe development within my professional scope. It is not a chef service, medical nutrition treatment or a claim that one recipe suits everyone.</p>
+              <p style="margin-top:14px">Your targets, preferences, budget, cooking confidence and feedback guide the process. Where specialised dietary support is needed, I will recommend working with an appropriately qualified professional.</p>
+            </article>
+          </div>
+
+          <div class="recipe-closing">
+            <div class="label">Built Around You</div>
+            <h3>Your nutrition should fit your life.</h3>
+            <p>Your nutrition should fit your life, not force you to build an entirely new life around your diet. We will take the foods you already love and find a realistic way to keep them in your life while you work toward your goals. Personalised recipe reinvention is included in your coaching from the start.</p>
+            <div class="recipe-closing-lines" aria-label="Personalised recipe reinvention principles">
+              <strong>No generic meal plan.</strong>
+              <strong>No bland substitutions.</strong>
+              <strong>No turning every meal into a bowl.</strong>
+              <strong>Personalised nutrition built around you.</strong>
+            </div>
+            <a class="button primary" href="#enquire">Start Your Personalised Program</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="services">
       <div class="shell">
         <div class="section-heading reveal">
@@ -968,7 +1450,7 @@
           <!-- SERVICE DESCRIPTION: Replace this paragraph when Custom Training Programs are ready. Remove aria-disabled and change the status label to enable the card later. -->
           <article class="service-card reveal" aria-disabled="true"><span class="service-status">Coming Soon</span><div><h3>Custom Training Programs</h3><p>Planned programs built around goals, experience, equipment and weekly availability.</p></div></article>
           <!-- SERVICE DESCRIPTION: Replace this paragraph when Nutrition Guidance is ready. Remove aria-disabled and change the status label to enable the card later. -->
-          <article class="service-card reveal" aria-disabled="true"><span class="service-status">Coming Soon</span><div><h3>Nutrition Guidance</h3><p>Planned habit-based nutrition support delivered within professional scope of practice.</p></div></article>
+          <article class="service-card reveal" aria-disabled="true"><span class="service-status">Coming Soon</span><div><h3>Nutrition Guidance</h3><p>Planned habit-based nutrition coaching, including personalised recipe reinvention, delivered within professional scope of practice.</p></div></article>
         </div>
       </div>
     </section>
@@ -983,7 +1465,7 @@
           <details><summary>Who will your coaching be designed for?</summary><p>The planned approach is intended for everyday people who want a structured, sustainable way to improve strength, fitness and training confidence.</p></details>
           <details><summary>Will I need access to a gym?</summary><p>Program options are expected to account for available equipment, whether training takes place in a gym or with a more limited setup.</p></details>
           <details><summary>How will progress be measured?</summary><p>Progress may be reviewed through training performance, technique, consistency, habits and appropriate body-composition measures where relevant.</p></details>
-          <details><summary>Will nutrition plans be included?</summary><p>Nutrition guidance will remain habit-based and within professional scope, with referrals used where specialised dietary support is required.</p></details>
+          <details><summary>What nutrition support will be included?</summary><p>Coaching will include habit-based nutrition education and personalised recipe reinvention rather than a rigid generic meal plan. Support will remain within professional scope, with referrals used where specialised dietary guidance is required.</p></details>
           <details><summary>When will coaching become available?</summary><p>Services are still being developed. Confirmed availability will be published here when qualifications and delivery systems are ready.</p></details>
         </div>
       </div>
@@ -1097,7 +1579,7 @@
         enquiryForm.reset();
         enquiryStartedAt = Date.now();
         enquiryMessage.className = 'form-message success';
-        enquiryMessage.textContent = 'Thanks — your enquiry has been sent to Jaraad Ramsey PT.';
+        enquiryMessage.textContent = 'Thanks! Your enquiry has been sent to Jaraad Ramsey PT.';
       } catch (error) {
         enquiryMessage.className = 'form-message error';
         enquiryMessage.textContent = error.message || 'Your enquiry could not be sent. Please try again.';
