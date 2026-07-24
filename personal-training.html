@@ -192,16 +192,28 @@
     .case-journey-mark strong { color: var(--text); font-size: .82rem; line-height: 1.35; }
     .case-metrics { margin-top: 14px; }
     .case-metrics .stat strong { color: var(--text); font-size: 1rem; }
-    .anton-story { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 14px; }
-    .anton-story .study-note { min-height: 0; padding: 24px; }
-    .anton-story .wide { grid-column: 1 / -1; }
-    .anton-story .study-note p { line-height: 1.68; }
-    .anton-quote { position: relative; overflow: hidden; padding: 30px !important; border-color: rgba(255,216,26,.35); background: radial-gradient(circle at 90% 0%, rgba(255,216,26,.13), transparent 22rem), rgba(255,216,26,.045); }
-    .anton-quote::after { content: "ANTON"; position: absolute; right: 20px; bottom: -18px; color: rgba(255,216,26,.045); font-size: clamp(4rem, 11vw, 8rem); font-weight: 900; letter-spacing: -.06em; pointer-events: none; }
-    .anton-quote .reflection { min-height: 0; max-width: 920px; z-index: 1; }
-    .anton-quote .reflection::before { color: rgba(255,216,26,.34); }
-    .anton-quote .reflection p { color: var(--text); font-size: clamp(1.25rem, 2.5vw, 1.75rem); font-weight: 650; line-height: 1.42; letter-spacing: -.025em; }
-    .anton-quote footer { padding: 18px 0 0; border: 0; color: var(--muted); font-size: .78rem; font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
+    .anton-story,
+    .michael-story { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 14px; }
+    .anton-story .study-note,
+    .michael-story .study-note { min-height: 0; padding: 24px; }
+    .anton-story .wide,
+    .michael-story .wide { grid-column: 1 / -1; }
+    .anton-story .study-note p,
+    .michael-story .study-note p { line-height: 1.68; }
+    .anton-quote,
+    .michael-quote { position: relative; overflow: hidden; padding: 30px !important; border-color: rgba(255,216,26,.35); background: radial-gradient(circle at 90% 0%, rgba(255,216,26,.13), transparent 22rem), rgba(255,216,26,.045); }
+    .anton-quote::after,
+    .michael-quote::after { position: absolute; right: 20px; bottom: -18px; color: rgba(255,216,26,.045); font-size: clamp(4rem, 11vw, 8rem); font-weight: 900; letter-spacing: -.06em; pointer-events: none; }
+    .anton-quote::after { content: "ANTON"; }
+    .michael-quote::after { content: "MICHAEL"; }
+    .anton-quote .reflection,
+    .michael-quote .reflection { min-height: 0; max-width: 920px; z-index: 1; }
+    .anton-quote .reflection::before,
+    .michael-quote .reflection::before { color: rgba(255,216,26,.34); }
+    .anton-quote .reflection p,
+    .michael-quote .reflection p { color: var(--text); font-size: clamp(1.25rem, 2.5vw, 1.75rem); font-weight: 650; line-height: 1.42; letter-spacing: -.025em; }
+    .anton-quote footer,
+    .michael-quote footer { padding: 18px 0 0; border: 0; color: var(--muted); font-size: .78rem; font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
 
     .philosophy-grid, .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
     .feature-card, .service-card { min-height: 235px; padding: 28px; position: relative; overflow: hidden; border: 1px solid var(--line-soft); border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018)); }
@@ -277,10 +289,14 @@
       .case-weight { min-height: 155px; padding: 18px; }
       .case-journey-mark { min-width: 0; padding: 4px 0; }
       .case-journey-mark::before { content: "↓"; }
-      .anton-story { grid-template-columns: 1fr; }
-      .anton-story .wide { grid-column: auto; }
-      .anton-story .study-note { padding: 20px; }
-      .anton-quote { padding: 24px 20px !important; }
+      .anton-story,
+      .michael-story { grid-template-columns: 1fr; }
+      .anton-story .wide,
+      .michael-story .wide { grid-column: auto; }
+      .anton-story .study-note,
+      .michael-story .study-note { padding: 20px; }
+      .anton-quote,
+      .michael-quote { padding: 24px 20px !important; }
       .training-week { grid-template-columns: 1fr; }
       .feature-card { min-height: 210px; }
       .field.full { grid-column: auto; }
@@ -848,59 +864,75 @@
           <article class="study-card case-study reveal" id="michael">
             <div class="study-top">
               <div>
-                <div class="label">Training Case Study</div>
+                <div class="label">Client Transformation</div>
                 <h3 class="study-name">Michael</h3>
                 <div class="progress-status">Transformation in Progress</div>
               </div>
-              <p class="study-summary">Michael followed an adapted version of the original training split and achieved strong progress while applying the same core programming principles. Exercise selection, volume and progression were adjusted to suit his experience and recovery.</p>
+              <p class="study-summary">Over approximately one year, Michael moved from 100 kg to 77 kg while getting stronger and leaner. With a history of back surgery, his training was structured around safe exercise selection, progressive strength and rebuilding confidence in movement.</p>
             </div>
             <div class="comparison case-photo-comparison" aria-label="Michael progress photos">
-              <!-- Replace these placeholders with Michael's approved progress photos when they are available. -->
-              <div class="study-media case-photo-placeholder" role="img" aria-label="Michael before progress photo coming soon">
+              <!-- Replace these placeholders with Michael's approved progress photos during his planned photo update. -->
+              <div class="study-media case-photo-placeholder" role="img" aria-label="Michael before progress photo update planned">
                 <div class="case-photo-status">
                   <small>Michael · Progress Photo</small>
                   <strong>Before</strong>
-                  <span>Coming soon...</span>
+                  <span>Photo update planned</span>
                 </div>
               </div>
-              <div class="study-media case-photo-placeholder" role="img" aria-label="Michael after progress photo coming soon">
+              <div class="study-media case-photo-placeholder" role="img" aria-label="Michael after progress photo update planned">
                 <div class="case-photo-status">
                   <small>Michael · Progress Photo</small>
                   <strong>After</strong>
-                  <span>Coming soon...</span>
+                  <span>Photo update planned</span>
                 </div>
               </div>
             </div>
 
-            <div class="case-journey" aria-label="Michael weight transformation measurements coming soon">
+            <div class="case-journey" aria-label="Michael weight transformation from 100 kilograms to 77 kilograms over approximately one year">
               <div class="case-weight">
                 <span>Starting Point</span>
-                <strong class="pending">Coming soon</strong>
-                <small>Michael’s verified starting measurement will be added when his case-study record is complete.</small>
+                <strong>100 kg</strong>
+                <small>Low motivation, little interest in the gym and a goal to become leaner, more muscular and more confident.</small>
               </div>
-              <div class="case-journey-mark"><strong>Progress data<br>pending</strong></div>
+              <div class="case-journey-mark"><strong>23 kg lost<br>in approximately 1 year</strong></div>
               <div class="case-weight">
                 <span>Current Weight</span>
-                <strong class="pending">Coming soon</strong>
-                <small>His verified current measurement will be added without estimating or inventing results.</small>
+                <strong>77 kg</strong>
+                <small>Stronger, leaner and more confident increasing his training weights while continuing to improve his physique.</small>
               </div>
             </div>
 
             <div class="label" style="margin-top:24px">Progress Summary</div>
-            <!-- MICHAEL MEASUREMENTS: Replace each dash below only with Michael's verified measurements and timeframes. -->
             <div class="stats case-metrics">
-              <div class="stat"><span>Starting Weight</span><strong>—</strong></div>
-              <div class="stat"><span>Current Weight</span><strong>—</strong></div>
-              <div class="stat"><span>Time Training Together</span><strong>—</strong></div>
-              <div class="stat"><span>Strength Improvements</span><strong>—</strong></div>
+              <div class="stat"><span>Starting Weight</span><strong>100 kg</strong></div>
+              <div class="stat"><span>Current Weight</span><strong>77 kg</strong></div>
+              <div class="stat"><span>Total Weight Lost</span><strong>23 kg</strong></div>
+              <div class="stat"><span>Time Training Together</span><strong>Approximately 1 year</strong></div>
             </div>
-            <div class="study-notes">
-              <div class="study-note"><h4>Programming Approach</h4><p>The original split was adapted to Michael’s starting point while retaining the same framework for progression, technique and recovery.</p></div>
-              <div class="study-note"><h4>Lessons Learned</h4><p>A strong framework remains useful when the details are adjusted to the person following it.</p></div>
-              <!-- MICHAEL WRITTEN STATEMENT: Paste Michael's approved personal reflection inside this blockquote. -->
-              <div class="study-note"><h4>Personal Reflection</h4><blockquote class="reflection" aria-label="Michael personal reflection area"></blockquote></div>
-              <!-- MICHAEL RESULTS: Replace the dash with a concise, verified results summary. -->
-              <div class="study-note"><h4>Results</h4><p>—</p></div>
+            <div class="michael-story">
+              <div class="study-note">
+                <h4>Goals</h4>
+                <p>Michael wanted to get leaner, build strength and visible muscle, improve his physique for summer and feel more confident in his body.</p>
+              </div>
+              <div class="study-note">
+                <h4>Back-Safe Approach</h4>
+                <p>Following back surgery, Michael needed a strict, carefully structured program. Exercises were selected to avoid aggravating his back, strengthen it progressively and reduce the risk of further injury.</p>
+              </div>
+              <div class="study-note">
+                <h4>Results</h4>
+                <p>Michael lost 23 kg while building strength and continuing to lean down. His back now feels stronger, and he feels more confident increasing the weight he uses in training.</p>
+              </div>
+              <div class="study-note">
+                <h4>Mindset Shift</h4>
+                <p>Relating to Jaraad’s own transformation made the process feel achievable. Shared interests and consistent encouragement helped Michael stay accountable, keep pushing and trust that the results would come.</p>
+              </div>
+              <div class="study-note wide michael-quote">
+                <h4>Personal Reflection</h4>
+                <blockquote class="reflection" aria-label="Michael personal reflection">
+                  <p>I was 100 kg at the start and wanted nothing to do with the gym. Seeing how far Jaraad had come—and how much I could relate to him—made me feel that if he could do it, I could do it. He motivated me to keep pushing, not give up and trust that results would come. Now the results are showing. My back feels stronger, I feel more confident using more weight, and he has helped a lot with my mindset.</p>
+                  <footer>Michael · Client testimonial</footer>
+                </blockquote>
+              </div>
             </div>
           </article>
         </div>
