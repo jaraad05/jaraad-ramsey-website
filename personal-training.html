@@ -1,1593 +1,1081 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Jaraad Ramsey personal training: evidence-based coaching, sustainable nutrition and long-term habits." />
-  <meta name="theme-color" content="#050505" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Evidence-Based Personal Training | Jaraad Ramsey" />
-  <meta property="og:description" content="Intelligent training, sustainable nutrition and long-term habits." />
-  <meta property="og:url" content="https://jaraadramsey.com/personal-training" />
-  <meta property="og:image" content="https://jaraadramsey.com/og-training.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Evidence-Based Personal Training | Jaraad Ramsey" />
-  <meta name="twitter:description" content="Intelligent training, sustainable nutrition and long-term habits." />
-  <meta name="twitter:image" content="https://jaraadramsey.com/og-training.png" />
-  <title>Personal Training | Jaraad Ramsey</title>
-
-  <style>
-    :root {
-      --bg: #050505;
-      --panel: rgba(255,255,255,.045);
-      --panel-strong: rgba(255,255,255,.075);
-      --text: #f5f5f5;
-      --muted: #a7a7a7;
-      --line: rgba(255,255,255,.12);
-      --line-soft: rgba(255,255,255,.075);
-      --shadow: 0 30px 100px rgba(0,0,0,.45);
-      --radius-lg: 32px;
-      --radius-md: 22px;
-      --max: 1180px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; background: var(--bg); }
-    body {
-      margin: 0;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 82% 8%, rgba(255,255,255,.09), transparent 28rem),
-        radial-gradient(circle at 8% 48%, rgba(255,255,255,.045), transparent 30rem),
-        linear-gradient(180deg, #050505 0%, #090909 56%, #050505 100%);
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.55;
-      overflow-x: hidden;
-    }
-
-    a { color: inherit; }
-    a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
-      outline: 2px solid #fff;
-      outline-offset: 4px;
-    }
-    .shell { width: min(calc(100% - 32px), var(--max)); margin-inline: auto; }
-
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid rgba(255,255,255,.07);
-      background: rgba(5,5,5,.72);
-      backdrop-filter: blur(20px) saturate(150%);
-      -webkit-backdrop-filter: blur(20px) saturate(150%);
-    }
-    .nav-inner { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 800; letter-spacing: -.02em; }
-    .brand-mark { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 11px; border: 1px solid var(--line); background: linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.03)); font-size: .85rem; }
-    .nav-links { display: flex; align-items: center; gap: 22px; color: var(--muted); font-size: .92rem; }
-    .nav-links a { text-decoration: none; transition: color .2s ease; }
-    .nav-links a:hover { color: var(--text); }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 20px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: transparent;
-      color: inherit;
-      text-decoration: none;
-      font: inherit;
-      font-weight: 750;
-      letter-spacing: -.01em;
-      cursor: pointer;
-      transition: transform .18s ease, background .18s ease, border-color .18s ease;
-    }
-    .button:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.3); }
-    .button.primary { color: #050505; background: #fff; border-color: #fff; }
-    .button.secondary { background: rgba(255,255,255,.04); }
-
-    .hero { min-height: calc(100vh - 72px); display: grid; align-items: center; padding: 90px 0 100px; position: relative; }
-    .hero::after { content: ""; position: absolute; left: 42%; right: 0; bottom: 9%; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.38), transparent); animation: glow 4.5s ease-in-out infinite; }
-    @keyframes glow { 0%,100% { opacity: .25; transform: translateX(-3%); } 50% { opacity: .75; transform: translateX(3%); } }
-    .eyebrow { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 28px; padding: 8px 12px; border: 1px solid var(--line-soft); border-radius: 999px; background: rgba(255,255,255,.025); color: #d4d4d4; font-size: .84rem; }
-    .dot { width: 8px; height: 8px; border-radius: 50%; background: #fff; box-shadow: 0 0 16px rgba(255,255,255,.9); }
-    h1 { margin: 0; max-width: 1060px; font-size: clamp(4rem, 9vw, 8.4rem); line-height: .88; letter-spacing: -.075em; text-transform: uppercase; }
-    .hero-copy { max-width: 820px; margin: 30px 0 36px; color: var(--muted); font-size: clamp(1.08rem, 2vw, 1.38rem); letter-spacing: -.015em; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-
-    section { padding: 104px 0; scroll-margin-top: 88px; }
-    .section-heading { display: grid; grid-template-columns: .8fr 1.2fr; gap: 52px; align-items: start; margin-bottom: 42px; }
-    h2 { margin: 0; font-size: clamp(2.6rem, 6vw, 5rem); line-height: .96; letter-spacing: -.06em; text-transform: uppercase; }
-    .section-heading p { max-width: 720px; margin: 5px 0 0; color: var(--muted); font-size: 1.08rem; }
-    .label { margin-bottom: 14px; color: #d1d1d1; font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; }
-
-    .case-studies { display: grid; gap: 28px; }
-    .study-card { overflow: hidden; padding: 34px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: radial-gradient(circle at 85% 10%, rgba(255,255,255,.08), transparent 22rem), linear-gradient(145deg, #101010, #080808); box-shadow: var(--shadow); scroll-margin-top: 92px; }
-    .case-study { padding: 46px; }
-    #case-studies { padding-top: 124px; }
-    #case-studies .section-heading { margin-bottom: 24px; }
-    .study-index { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 34px; }
-    .study-index a {
-      min-width: 76px;
-      padding: 9px 13px;
-      border: 1px solid rgba(255, 216, 26, .26);
-      border-radius: 999px;
-      color: #d2d0c5;
-      background: rgba(7, 7, 0, .9);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, .38);
-      font-size: .72rem;
-      font-weight: 800;
-      letter-spacing: .06em;
-      text-align: center;
-      text-decoration: none;
-      text-transform: uppercase;
-      transition: color .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease, transform .18s ease;
-    }
-    .study-index a:hover {
-      color: #fff;
-      border-color: rgba(255, 226, 82, .72);
-      background: rgba(255, 216, 26, .06);
-      box-shadow: 0 0 20px rgba(255, 216, 26, .11);
-      transform: translateY(-1px);
-    }
-    .featured-study { padding: 46px; border-color: rgba(255,255,255,.2); background: radial-gradient(circle at 78% 8%, rgba(255,255,255,.14), transparent 27rem), linear-gradient(145deg, #141414, #080808); }
-    .featured-heading { margin-bottom: 32px; }
-    .featured-name { margin: 0; max-width: 1020px; font-size: clamp(3.4rem, 7vw, 6.8rem); line-height: .88; letter-spacing: -.065em; text-transform: uppercase; }
-    .featured-intro { max-width: 760px; margin: 24px 0 0; color: var(--muted); font-size: 1.08rem; }
-    .progress-status { display: inline-flex; align-items: center; gap: 9px; margin-top: 22px; padding: 9px 13px; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; color: #e4e4e4; font-size: .72rem; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; }
-    .progress-status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #f2f2f2; box-shadow: 0 0 0 4px rgba(255,255,255,.09); }
-    .featured-metrics { grid-template-columns: repeat(3, 1fr); }
-    .featured-sections { grid-template-columns: repeat(2, 1fr); }
-    .featured-sections .study-note { min-height: 165px; }
-    .featured-sections .wide { grid-column: 1 / -1; }
-    .study-note p + p { margin-top: 12px; }
-    .study-note strong { color: #e7e7e7; }
-    .training-week { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 18px 0; }
-    .training-day { padding: 14px; border: 1px solid var(--line-soft); border-radius: 13px; background: rgba(255,255,255,.02); }
-    .training-day strong { display: block; margin-bottom: 5px; font-size: .76rem; letter-spacing: .1em; text-transform: uppercase; }
-    .training-day span { color: var(--muted); font-size: .9rem; line-height: 1.45; }
-    .study-top { display: grid; grid-template-columns: .7fr 1.3fr; align-items: end; gap: 38px; margin-bottom: 26px; }
-    .study-name { margin: 0; font-size: clamp(2rem, 5vw, 4rem); line-height: 1; letter-spacing: -.05em; }
-    .study-summary { margin: 0; color: var(--muted); font-size: 1.02rem; }
-    .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .study-media { min-height: 390px; margin: 0; position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-md); background: linear-gradient(135deg, rgba(255,255,255,.055), transparent 48%), linear-gradient(145deg, #141414, #090909); }
-    .study-media.featured-media { min-height: 660px; }
-    .study-media::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0 74px, rgba(255,255,255,.025) 75px), repeating-linear-gradient(0deg, transparent 0 74px, rgba(255,255,255,.02) 75px); mask-image: linear-gradient(to bottom, black, transparent 78%); }
-    .study-media.has-image::before { z-index: 1; background: linear-gradient(to top, rgba(0,0,0,.7), transparent 30%); mask-image: none; pointer-events: none; }
-    .study-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 32%; }
-    .study-media span { position: absolute; z-index: 2; left: 18px; bottom: 16px; color: #f2f2f2; font-size: .75rem; letter-spacing: .15em; text-transform: uppercase; }
-    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 14px; }
-    .stat { padding: 18px; border: 1px solid var(--line-soft); border-radius: 16px; background: rgba(255,255,255,.025); }
-    .stat span { display: block; margin-bottom: 7px; color: #888; font-size: .7rem; letter-spacing: .11em; text-transform: uppercase; }
-    .stat strong { display: block; color: #d8d8d8; font-size: .92rem; line-height: 1.3; }
-    .study-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
-    .study-note { min-height: 145px; padding: 20px; border: 1px solid var(--line-soft); border-radius: 16px; background: rgba(255,255,255,.025); }
-    .study-note h4 { margin: 0 0 10px; font-size: .76rem; letter-spacing: .13em; text-transform: uppercase; }
-    .study-note p { margin: 0; color: var(--muted); }
-    .reflection { min-height: 112px; margin: 0; position: relative; }
-    .reflection::before { content: "“"; color: rgba(255,255,255,.14); font-size: 4rem; line-height: .8; }
-    .anton-study { padding: 46px; border-color: rgba(255,255,255,.2); }
-    .anton-study .study-top { align-items: start; margin-bottom: 32px; }
-    .anton-kicker { display: inline-flex; align-items: center; gap: 9px; margin-top: 18px; color: var(--muted); font-size: .82rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-    .anton-kicker::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent, #fff); box-shadow: 0 0 14px rgba(255,216,26,.55); }
-    .case-photo-comparison { margin-bottom: 18px; }
-    .case-photo-placeholder { display: grid; place-items: center; border-color: rgba(255,216,26,.2); background: radial-gradient(circle at 50% 42%, rgba(255,216,26,.12), transparent 11rem), linear-gradient(145deg, #14130a, #080800); }
-    .case-photo-status { position: relative; z-index: 2; display: grid; justify-items: center; gap: 8px; padding: 24px; text-align: center; }
-    .case-photo-status small { color: var(--muted); font-size: .7rem; font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
-    .case-photo-status strong { font-size: clamp(2.2rem, 5vw, 4.1rem); line-height: 1; letter-spacing: -.05em; }
-    .case-photo-status span { position: static; color: var(--accent, #ffd91a); font-size: .82rem; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
-    .case-journey { display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch; gap: 16px; padding: 18px; border: 1px solid var(--line); border-radius: 24px; background: linear-gradient(135deg, rgba(255,216,26,.07), rgba(255,255,255,.015)); }
-    .case-weight { display: flex; flex-direction: column; justify-content: space-between; min-height: 190px; padding: 22px; border: 1px solid var(--line-soft); border-radius: 18px; background: rgba(0,0,0,.28); }
-    .case-weight span { color: var(--muted); font-size: .72rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
-    .case-weight strong { display: block; margin-top: 18px; font-size: clamp(3.1rem, 7vw, 5.8rem); line-height: .86; letter-spacing: -.07em; }
-    .case-weight strong.pending { max-width: 8ch; font-size: clamp(2.3rem, 5vw, 4rem); line-height: .92; }
-    .case-weight small { display: block; margin-top: 12px; color: var(--muted); font-size: .82rem; }
-    .case-journey-mark { align-self: center; display: grid; justify-items: center; gap: 10px; min-width: 122px; color: var(--muted); text-align: center; }
-    .case-journey-mark::before { content: "→"; color: var(--accent, #fff); font-size: 2rem; line-height: 1; text-shadow: 0 0 24px rgba(255,216,26,.38); }
-    .case-journey-mark strong { color: var(--text); font-size: .82rem; line-height: 1.35; }
-    .case-metrics { margin-top: 14px; }
-    .case-metrics .stat strong { color: var(--text); font-size: 1rem; }
-    .anton-story,
-    .michael-story { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 14px; }
-    .anton-story .study-note,
-    .michael-story .study-note { min-height: 0; padding: 24px; }
-    .anton-story .wide,
-    .michael-story .wide { grid-column: 1 / -1; }
-    .anton-story .study-note p,
-    .michael-story .study-note p { line-height: 1.68; }
-    .anton-quote,
-    .michael-quote { position: relative; overflow: hidden; padding: 30px !important; border-color: rgba(255,216,26,.35); background: radial-gradient(circle at 90% 0%, rgba(255,216,26,.13), transparent 22rem), rgba(255,216,26,.045); }
-    .anton-quote::after,
-    .michael-quote::after { position: absolute; right: 20px; bottom: -18px; color: rgba(255,216,26,.045); font-size: clamp(4rem, 11vw, 8rem); font-weight: 900; letter-spacing: -.06em; pointer-events: none; }
-    .anton-quote::after { content: "ANTON"; }
-    .michael-quote::after { content: "MICHAEL"; }
-    .anton-quote .reflection,
-    .michael-quote .reflection { min-height: 0; max-width: 920px; z-index: 1; }
-    .anton-quote .reflection::before,
-    .michael-quote .reflection::before { color: rgba(255,216,26,.34); }
-    .anton-quote .reflection p,
-    .michael-quote .reflection p { color: var(--text); font-size: clamp(1.25rem, 2.5vw, 1.75rem); font-weight: 650; line-height: 1.42; letter-spacing: -.025em; }
-    .anton-quote footer,
-    .michael-quote footer { padding: 18px 0 0; border: 0; color: var(--muted); font-size: .78rem; font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
-
-    .recipe-section { position: relative; }
-    .recipe-showcase {
-      overflow: hidden;
-      padding: clamp(28px, 5vw, 58px);
-      border: 1px solid rgba(255,216,26,.38);
-      border-radius: 38px;
-      background:
-        radial-gradient(circle at 92% 4%, rgba(255,216,26,.18), transparent 27rem),
-        repeating-linear-gradient(118deg, transparent 0 42px, rgba(255,216,26,.022) 43px, transparent 44px 86px),
-        linear-gradient(145deg, #111004, #070700);
-      box-shadow: var(--shadow);
-    }
-    .recipe-heading { max-width: 960px; }
-    .recipe-heading h2 { max-width: 880px; }
-    .recipe-supporting {
-      max-width: 790px;
-      margin: 24px 0 0;
-      color: var(--muted);
-      font-size: clamp(1.08rem, 2vw, 1.38rem);
-      letter-spacing: -.018em;
-    }
-    .recipe-included {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      align-items: center;
-      gap: 18px;
-      margin-top: 34px;
-      padding: 20px 22px;
-      border: 1px solid rgba(255,216,26,.45);
-      border-radius: 18px;
-      background: rgba(255,216,26,.075);
-      box-shadow: inset 0 1px 0 rgba(255,245,186,.07), 0 0 34px rgba(255,216,26,.055);
-    }
-    .recipe-included-badge {
-      display: inline-flex;
-      align-items: center;
-      min-height: 38px;
-      padding: 0 13px;
-      border-radius: 999px;
-      color: #080700;
-      background: var(--accent);
-      font-size: .7rem;
-      font-weight: 850;
-      letter-spacing: .11em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-    .recipe-included p { margin: 0; color: #fff8c8; font-weight: 650; }
-    .recipe-intro {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 18px;
-    }
-    .recipe-copy-card,
-    .recipe-panel,
-    .recipe-step,
-    .recipe-example,
-    .recipe-compare-card {
-      border: 1px solid rgba(255,216,26,.18);
-      border-radius: 20px;
-      background: linear-gradient(145deg, rgba(255,216,26,.045), rgba(255,255,255,.008)), #090901;
-    }
-    .recipe-copy-card { padding: 26px; }
-    .recipe-copy-card p { margin: 0; color: var(--muted); line-height: 1.72; }
-    .recipe-copy-card p + p { margin-top: 14px; }
-    .recipe-copy-card strong { color: var(--text); }
-    .recipe-block { margin-top: 54px; }
-    .recipe-block-heading {
-      display: grid;
-      grid-template-columns: .75fr 1.25fr;
-      align-items: end;
-      gap: 34px;
-      margin-bottom: 20px;
-    }
-    .recipe-block-heading h3 {
-      margin: 0;
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      line-height: .98;
-      letter-spacing: -.05em;
-      text-transform: uppercase;
-    }
-    .recipe-block-heading p { max-width: 680px; margin: 0; color: var(--muted); }
-    .recipe-process {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-    .recipe-step {
-      min-height: 220px;
-      padding: 24px;
-      position: relative;
-      transition: transform .2s ease, border-color .2s ease, background .2s ease;
-    }
-    .recipe-step:hover {
-      border-color: rgba(255,216,26,.4);
-      background: linear-gradient(145deg, rgba(255,216,26,.075), rgba(255,255,255,.012)), #090901;
-      transform: translateY(-3px);
-    }
-    .recipe-step-number {
-      display: grid;
-      width: 40px;
-      height: 40px;
-      place-items: center;
-      margin-bottom: 52px;
-      border: 1px solid rgba(255,216,26,.38);
-      border-radius: 12px;
-      color: var(--accent);
-      font-size: .76rem;
-      font-weight: 850;
-      letter-spacing: .08em;
-    }
-    .recipe-step h4,
-    .recipe-example h4,
-    .recipe-compare-card h4 {
-      margin: 0 0 9px;
-      font-size: 1.18rem;
-      letter-spacing: -.02em;
-    }
-    .recipe-step p,
-    .recipe-example p { margin: 0; color: var(--muted); }
-    .recipe-step:not(:last-child)::after {
-      content: "→";
-      position: absolute;
-      z-index: 2;
-      top: 50%;
-      right: -22px;
-      display: grid;
-      width: 30px;
-      height: 30px;
-      place-items: center;
-      border: 1px solid rgba(255,216,26,.35);
-      border-radius: 50%;
-      color: var(--accent);
-      background: #090901;
-      box-shadow: 0 0 20px rgba(255,216,26,.14);
-      transform: translateY(-50%);
-    }
-    .recipe-comparison {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    .recipe-compare-card { padding: 28px; }
-    .recipe-compare-card.generic { opacity: .82; }
-    .recipe-compare-card.approach {
-      border-color: rgba(255,216,26,.42);
-      background: radial-gradient(circle at 100% 0%, rgba(255,216,26,.13), transparent 18rem), rgba(255,216,26,.04);
-    }
-    .recipe-compare-card .label { margin-bottom: 20px; }
-    .recipe-compare-list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
-    .recipe-compare-list li {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 10px;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-    .recipe-compare-list li::before { color: #8f8c7f; font-weight: 900; content: "×"; }
-    .recipe-compare-card.approach .recipe-compare-list li { color: #fff8ce; }
-    .recipe-compare-card.approach .recipe-compare-list li::before { color: var(--accent); content: "✓"; }
-    .recipe-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-    .recipe-panel { padding: 28px; }
-    .recipe-panel h3 { margin: 0 0 12px; font-size: 1.5rem; letter-spacing: -.025em; }
-    .recipe-panel > p { margin: 0; color: var(--muted); line-height: 1.68; }
-    .recipe-checklist {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px 18px;
-      margin: 22px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-    .recipe-checklist li {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 10px;
-      color: var(--muted);
-      font-size: .94rem;
-      line-height: 1.5;
-    }
-    .recipe-checklist li::before { color: var(--accent); font-weight: 900; content: "✓"; }
-    .recipe-balance {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 22px;
-    }
-    .recipe-balance span {
-      padding: 8px 11px;
-      border: 1px solid rgba(255,216,26,.22);
-      border-radius: 999px;
-      color: #fff5b7;
-      background: rgba(255,216,26,.045);
-      font-size: .78rem;
-      font-weight: 750;
-    }
-    .recipe-examples {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-    .recipe-example { min-height: 270px; padding: 25px; }
-    .recipe-example-tag {
-      display: inline-flex;
-      margin-bottom: 58px;
-      color: var(--accent);
-      font-size: .72rem;
-      font-weight: 800;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-    .recipe-example strong { color: #fff; }
-    .recipe-family {
-      display: grid;
-      grid-template-columns: .65fr 1.35fr;
-      gap: 28px;
-      margin-top: 14px;
-      padding: 28px;
-      border: 1px solid rgba(255,216,26,.26);
-      border-radius: 20px;
-      background: rgba(255,216,26,.045);
-    }
-    .recipe-family h4 { margin: 0; font-size: 1.35rem; }
-    .recipe-family p { margin: 0; color: var(--muted); line-height: 1.68; }
-    .recipe-outcomes {
-      display: grid;
-      grid-template-columns: .85fr 1.15fr;
-      gap: 14px;
-      margin-top: 54px;
-    }
-    .recipe-outcomes .recipe-panel:first-child {
-      border-color: rgba(255,216,26,.35);
-      background: rgba(255,216,26,.055);
-    }
-    .recipe-closing {
-      margin-top: 18px;
-      padding: 34px;
-      border: 1px solid rgba(255,216,26,.4);
-      border-radius: 24px;
-      background:
-        radial-gradient(circle at 90% 0%, rgba(255,216,26,.16), transparent 22rem),
-        rgba(4,4,0,.72);
-    }
-    .recipe-closing h3 {
-      max-width: 800px;
-      margin: 0;
-      font-size: clamp(2rem, 4.5vw, 4rem);
-      line-height: .98;
-      letter-spacing: -.055em;
-      text-transform: uppercase;
-    }
-    .recipe-closing p { max-width: 760px; margin: 18px 0 24px; color: var(--muted); font-size: 1.02rem; }
-    .recipe-closing-lines {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 28px;
-    }
-    .recipe-closing-lines strong {
-      padding: 8px 11px;
-      border-left: 2px solid var(--accent);
-      color: #fff6bd;
-      background: rgba(255,216,26,.035);
-      font-size: .82rem;
-      letter-spacing: .02em;
-    }
-
-    .philosophy-grid, .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-    .feature-card, .service-card { min-height: 235px; padding: 28px; position: relative; overflow: hidden; border: 1px solid var(--line-soft); border-radius: var(--radius-md); background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018)); }
-    .feature-icon { width: 42px; height: 42px; display: grid; place-items: center; margin-bottom: 52px; border: 1px solid var(--line); border-radius: 13px; background: rgba(255,255,255,.04); color: #d8d8d8; font-size: .76rem; letter-spacing: .08em; }
-    .feature-card h3, .service-card h3 { margin: 0 0 10px; font-size: 1.45rem; letter-spacing: -.025em; }
-    .feature-card p, .service-card p { margin: 0; color: var(--muted); }
-    .service-card { min-height: 215px; display: flex; flex-direction: column; justify-content: space-between; }
-    .service-status { align-self: flex-start; padding: 7px 10px; border: 1px solid var(--line); border-radius: 999px; color: #aaa; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; }
-    .service-card[aria-disabled="true"] { opacity: .82; }
-
-    .faq-list { display: grid; gap: 10px; }
-    details { border: 1px solid var(--line-soft); border-radius: 18px; background: rgba(255,255,255,.025); transition: background .2s ease, border-color .2s ease; }
-    details[open] { background: rgba(255,255,255,.045); border-color: var(--line); }
-    summary { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 22px 24px; cursor: pointer; list-style: none; font-weight: 700; letter-spacing: -.015em; }
-    summary::-webkit-details-marker { display: none; }
-    summary::after { content: "+"; color: #888; font-size: 1.25rem; font-weight: 400; }
-    details[open] summary::after { content: "–"; }
-    details p { max-width: 800px; margin: 0; padding: 0 24px 24px; color: var(--muted); }
-
-    .contact-card { padding: 58px; border: 1px solid var(--line); border-radius: 38px; background: radial-gradient(circle at 90% 0%, rgba(255,255,255,.12), transparent 25rem), linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.02)); box-shadow: var(--shadow); }
-    .contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 64px; }
-    .contact-intro h2 { font-size: clamp(2.8rem, 6vw, 5.2rem); }
-    .contact-intro p { color: var(--muted); }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .field { display: grid; gap: 7px; }
-    .field.full { grid-column: 1 / -1; }
-    label { color: #bdbdbd; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
-    input, select, textarea { width: 100%; min-height: 50px; padding: 13px 15px; border: 1px solid var(--line); border-radius: 14px; background: rgba(0,0,0,.28); color: var(--text); font: inherit; }
-    textarea { min-height: 132px; resize: vertical; }
-    input::placeholder, textarea::placeholder { color: #666; }
-    .form-note { margin: 12px 0 0; color: #777; font-size: .8rem; }
-    .form-message { min-height: 1.4em; margin-top: 12px; color: #cfcfcf; font-size: .88rem; }
-    .form-message.success { color: #ffe46b; }
-    .form-message.error { color: #ff9c9c; }
-    .enquiry-trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
-    #enquiry-form button[disabled] { cursor: wait; opacity: .72; }
-
-    footer { padding: 28px 0 44px; border-top: 1px solid var(--line-soft); color: #858585; font-size: .88rem; }
-    .footer-row { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    @media (max-width: 900px) {
-      .section-heading, .contact-grid { grid-template-columns: 1fr; gap: 22px; }
-      .hero { min-height: auto; }
-      .stats { grid-template-columns: 1fr 1fr; }
-      .contact-grid { gap: 38px; }
-      .nav-links a:not(.button) { display: none; }
-      .featured-metrics { grid-template-columns: repeat(2, 1fr); }
-      .recipe-intro,
-      .recipe-block-heading,
-      .recipe-process,
-      .recipe-examples,
-      .recipe-family,
-      .recipe-outcomes { grid-template-columns: 1fr; }
-      .recipe-block-heading { align-items: start; gap: 14px; }
-      .recipe-step { min-height: 0; }
-      .recipe-step-number { margin-bottom: 32px; }
-      .recipe-step:not(:last-child)::after {
-        top: auto;
-        right: 50%;
-        bottom: -23px;
-        content: "↓";
-        transform: translateX(50%);
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jaraad Ramsey Personal Training | Training and Nutrition Coaching</title>
+    <meta
+      name="description"
+      content="Personalised training, flexible nutrition coaching, progress tracking and practical recipe reinvention with Jaraad Ramsey."
+    />
+    <meta name="theme-color" content="#131313" />
+    <link rel="canonical" href="https://jaraadramsey.com/personal-training" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Jaraad Ramsey Personal Training | Training and Nutrition Coaching"
+    />
+    <meta
+      property="og:description"
+      content="Personalised coaching that helps everyday people get stronger, leaner and more confident without making fitness their whole life."
+    />
+    <meta property="og:url" content="https://jaraadramsey.com/personal-training" />
+    <meta property="og:image" content="https://jaraadramsey.com/og-training-v2.png" />
+    <meta property="og:locale" content="en_AU" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <link rel="stylesheet" href="/assets/site.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://jaraadramsey.com/#jaraad",
+            "name": "Jaraad Ramsey",
+            "url": "https://jaraadramsey.com/",
+            "image": "https://jaraadramsey.com/assets/jaraad-ramsey-portrait.webp",
+            "email": "mailto:jaraad05@gmail.com",
+            "telephone": "+61478417858"
+          },
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://jaraadramsey.com/personal-training#service",
+            "name": "Jaraad Ramsey Personal Training",
+            "url": "https://jaraadramsey.com/personal-training",
+            "description": "Personalised training and flexible nutrition coaching for everyday people.",
+            "founder": {
+              "@id": "https://jaraadramsey.com/#jaraad"
+            },
+            "areaServed": {
+              "@type": "Place",
+              "name": "Perth, Western Australia"
+            }
+          }
+        ]
       }
-    }
-    @media (max-width: 640px) {
-      .shell { width: min(calc(100% - 22px), var(--max)); }
-      .nav-inner { min-height: 64px; }
-      .nav-links { gap: 0; }
-      .nav .button { min-height: 42px; padding-inline: 15px; font-size: .88rem; }
-      .hero { padding: 66px 0 80px; }
-      h1 { font-size: clamp(3.3rem, 16.5vw, 5rem); }
-      .hero-actions .button { flex: 1 1 150px; }
-      section { padding: 78px 0; }
-      .section-heading { margin-bottom: 28px; }
-      .study-card { padding: 18px; }
-      .case-study { padding: 22px; }
-      .featured-study { padding: 22px; }
-      .featured-name { font-size: clamp(2.35rem, 9.8vw, 3rem); line-height: .92; }
-      .study-top { grid-template-columns: 1fr; align-items: start; gap: 14px; }
-      .comparison { gap: 8px; }
-      .study-media { min-height: 255px; }
-      .study-media.featured-media { min-height: 310px; }
-      .stats, .study-notes, .philosophy-grid, .services-grid, .form-grid { grid-template-columns: 1fr; }
-      .featured-sections .wide { grid-column: auto; }
-      .anton-study { padding: 22px; }
-      .case-journey { grid-template-columns: 1fr; padding: 12px; }
-      .case-weight { min-height: 155px; padding: 18px; }
-      .case-journey-mark { min-width: 0; padding: 4px 0; }
-      .case-journey-mark::before { content: "↓"; }
-      .anton-story,
-      .michael-story { grid-template-columns: 1fr; }
-      .anton-story .wide,
-      .michael-story .wide { grid-column: auto; }
-      .anton-story .study-note,
-      .michael-story .study-note { padding: 20px; }
-      .anton-quote,
-      .michael-quote { padding: 24px 20px !important; }
-      .training-week { grid-template-columns: 1fr; }
-      .feature-card { min-height: 210px; }
-      .field.full { grid-column: auto; }
-      .contact-card { padding: 36px 20px; border-radius: 28px; }
-      .recipe-showcase { padding: 24px 18px; border-radius: 28px; }
-      .recipe-included,
-      .recipe-comparison,
-      .recipe-grid,
-      .recipe-checklist { grid-template-columns: 1fr; }
-      .recipe-included-badge { justify-self: start; }
-      .recipe-block { margin-top: 42px; }
-      .recipe-copy-card,
-      .recipe-panel,
-      .recipe-compare-card,
-      .recipe-example,
-      .recipe-family,
-      .recipe-closing { padding: 22px 18px; }
-      .recipe-example { min-height: 0; }
-      .recipe-example-tag { margin-bottom: 36px; }
-      .recipe-closing .button { width: 100%; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-      .reveal { opacity: 1; transform: none; }
-    }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    /* Electric yellow brand system */
-    :root {
-      --bg: #050500;
-      --panel: rgba(255, 216, 26, .055);
-      --panel-strong: rgba(255, 216, 26, .105);
-      --text: #ffffff;
-      --muted: #c8c6bb;
-      --line: rgba(255, 216, 26, .28);
-      --line-soft: rgba(255, 216, 26, .14);
-      --accent: #ffd91a;
-      --shadow: 0 30px 100px rgba(0, 0, 0, .58), 0 0 60px rgba(255, 216, 26, .055);
-    }
+    <header class="site-header" data-site-header>
+      <div class="container header-inner">
+        <a class="brand" href="/personal-training" aria-label="Jaraad Ramsey Personal Training home">
+          <span class="brand-mark" aria-hidden="true">JR</span>
+          <span class="brand-copy">
+            Jaraad Ramsey
+            <small>Personal Training</small>
+          </span>
+        </a>
 
-    body {
-      background:
-        radial-gradient(circle at 82% 7%, rgba(255, 216, 26, .2), transparent 28rem),
-        radial-gradient(circle at 7% 48%, rgba(255, 216, 26, .085), transparent 31rem),
-        repeating-linear-gradient(118deg, transparent 0 34px, rgba(255, 216, 26, .018) 35px, transparent 36px 72px),
-        linear-gradient(180deg, #050500 0%, #0a0901 56%, #050500 100%);
-    }
+        <nav class="desktop-nav" aria-label="Personal training navigation">
+          <a href="#coaching-method">Coaching</a>
+          <a href="#results">Results</a>
+          <a href="#included">What’s Included</a>
+          <a href="#recipe-reinvention">Recipe Reinvention</a>
+          <a href="#faq">FAQ</a>
+          <a href="https://training.jaraadramsey.com/client">Client Login</a>
+          <a class="button button-primary" href="#enquire">Enquire</a>
+        </nav>
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: 300;
-      pointer-events: none;
-      opacity: .16;
-      background-image:
-        radial-gradient(circle, rgba(255, 228, 89, .5) 0 1px, transparent 1.5px),
-        linear-gradient(108deg, transparent 48%, rgba(255, 216, 26, .1) 50%, transparent 52%);
-      background-size: 31px 31px, 190px 190px;
-      mask-image: linear-gradient(to bottom, black, transparent 82%);
-    }
-
-    a:focus-visible,
-    button:focus-visible,
-    summary:focus-visible,
-    input:focus-visible,
-    textarea:focus-visible,
-    select:focus-visible {
-      outline-color: var(--accent);
-    }
-
-    .nav {
-      border-bottom-color: rgba(255, 216, 26, .18);
-      background: rgba(5, 5, 0, .82);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, .28);
-    }
-
-    .brand-mark {
-      border-color: rgba(255, 216, 26, .62);
-      background: var(--accent);
-      color: #080700;
-      box-shadow: 0 0 24px rgba(255, 216, 26, .34), inset 0 1px 0 rgba(255, 255, 255, .5);
-    }
-
-    .nav-links a:hover { color: #fff5b7; }
-
-    .button {
-      border-color: rgba(255, 216, 26, .3);
-    }
-
-    .button:hover {
-      border-color: rgba(255, 226, 82, .75);
-      box-shadow: 0 0 28px rgba(255, 216, 26, .14);
-    }
-
-    .button.primary {
-      color: #080700;
-      background: var(--accent);
-      border-color: var(--accent);
-      box-shadow: 0 0 28px rgba(255, 216, 26, .22);
-    }
-
-    .button.secondary {
-      color: #fff;
-      background: rgba(9, 9, 2, .72);
-    }
-
-    .hero::after {
-      background: linear-gradient(90deg, transparent, rgba(255, 222, 63, .82), transparent);
-      box-shadow: 0 0 24px rgba(255, 216, 26, .32);
-    }
-
-    .eyebrow {
-      color: #fff4aa;
-      border-color: rgba(255, 216, 26, .28);
-      background: rgba(255, 216, 26, .045);
-    }
-
-    .dot {
-      background: var(--accent);
-      box-shadow: 0 0 18px rgba(255, 216, 26, .95);
-    }
-
-    h1,
-    .featured-name {
-      text-shadow: 0 0 60px rgba(255, 216, 26, .075);
-    }
-
-    .label,
-    .feature-icon,
-    .study-media span {
-      color: #ffe35c;
-    }
-
-    .study-card,
-    .feature-card,
-    .service-card,
-    .contact-card,
-    details {
-      border-color: rgba(255, 216, 26, .22);
-      background:
-        radial-gradient(circle at 88% 4%, rgba(255, 216, 26, .115), transparent 24rem),
-        repeating-linear-gradient(118deg, transparent 0 42px, rgba(255, 216, 26, .018) 43px, transparent 44px 86px),
-        linear-gradient(145deg, rgba(255, 216, 26, .045), rgba(255, 255, 255, .012));
-      box-shadow: var(--shadow);
-    }
-
-    .case-study,
-    .featured-study {
-      border-color: rgba(255, 226, 82, .42);
-      background:
-        radial-gradient(circle at 78% 8%, rgba(255, 216, 26, .2), transparent 28rem),
-        repeating-linear-gradient(118deg, transparent 0 42px, rgba(255, 216, 26, .022) 43px, transparent 44px 86px),
-        linear-gradient(145deg, #111004, #070700);
-    }
-
-    .study-media,
-    .stat,
-    .study-note,
-    .training-day,
-    .study-index a,
-    .service-status {
-      border-color: rgba(255, 216, 26, .17);
-      background:
-        linear-gradient(145deg, rgba(255, 216, 26, .045), rgba(255, 255, 255, .008)),
-        #090901;
-    }
-
-    .case-photo-placeholder,
-    .case-journey {
-      border-color: rgba(255, 216, 26, .35);
-      background:
-        radial-gradient(circle at 50% 35%, rgba(255, 216, 26, .12), transparent 14rem),
-        repeating-linear-gradient(118deg, transparent 0 34px, rgba(255, 216, 26, .022) 35px, transparent 36px 70px),
-        linear-gradient(145deg, #111004, #080800);
-      box-shadow: inset 0 1px 0 rgba(255, 236, 145, .035), 0 0 34px rgba(255, 216, 26, .045);
-    }
-
-    .case-weight {
-      border-color: rgba(255, 216, 26, .22);
-      background:
-        radial-gradient(circle at 0 0, rgba(255, 216, 26, .05), transparent 13rem),
-        rgba(4, 4, 0, .72);
-    }
-
-    .case-weight strong {
-      color: #fff;
-      text-shadow: 0 0 28px rgba(255, 216, 26, .08);
-    }
-
-    .stat,
-    .study-note {
-      box-shadow: inset 0 1px 0 rgba(255, 242, 180, .018);
-    }
-
-    .progress-status {
-      color: #fff5b7;
-      border-color: rgba(255, 216, 26, .34);
-      background: rgba(255, 216, 26, .055);
-    }
-
-    .progress-status::before {
-      background: var(--accent);
-      box-shadow: 0 0 0 4px rgba(255, 216, 26, .1), 0 0 18px rgba(255, 216, 26, .75);
-    }
-
-    .feature-icon {
-      border-color: rgba(255, 216, 26, .32);
-      background: rgba(255, 216, 26, .08);
-    }
-
-    input,
-    select,
-    textarea {
-      border-color: rgba(255, 216, 26, .24);
-      background: rgba(5, 5, 0, .78);
-      color: #fff;
-    }
-
-    input::placeholder,
-    textarea::placeholder {
-      color: #888678;
-    }
-
-    footer,
-    .form-note {
-      color: #aaa89d;
-    }
-
-    .case-rail {
-      position: fixed;
-      top: 50%;
-      right: 4px;
-      z-index: 90;
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-      padding-block: 18px;
-      opacity: 0;
-      pointer-events: none;
-      transform: translate(18px, -50%);
-      transition: opacity .24s ease, transform .24s ease;
-    }
-
-    .case-rail::before {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      bottom: 0;
-      right: -4px;
-      width: 1px;
-      background: linear-gradient(180deg, transparent, rgba(255, 216, 26, .5) 18%, rgba(255, 216, 26, .5) 82%, transparent);
-      box-shadow: 0 0 14px rgba(255, 216, 26, .28);
-    }
-
-    body.case-rail-visible .case-rail {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translate(0, -50%);
-    }
-
-    .case-rail a {
-      min-width: 76px;
-      padding: 9px 13px;
-      border: 1px solid rgba(255, 216, 26, .26);
-      border-radius: 999px;
-      background: rgba(7, 7, 0, .9);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, .38);
-      color: #d2d0c5;
-      font-size: .72rem;
-      font-weight: 800;
-      letter-spacing: .06em;
-      text-align: center;
-      text-decoration: none;
-      text-transform: uppercase;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      transition: color .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease, transform .18s ease;
-    }
-
-    .case-rail a:hover {
-      color: #fff;
-      border-color: rgba(255, 226, 82, .72);
-      transform: translateX(-3px);
-    }
-
-    .case-rail a.active,
-    .case-rail a[aria-current="true"] {
-      color: #080700;
-      background: var(--accent);
-      border-color: var(--accent);
-      box-shadow: 0 0 26px rgba(255, 216, 26, .34);
-    }
-
-    @media (max-width: 760px) {
-      .case-rail {
-        top: 50%;
-        right: 2px;
-        bottom: auto;
-        left: auto;
-        flex-direction: column;
-        gap: 7px;
-        padding: 14px 0;
-        border: 0;
-        border-radius: 0;
-        background: transparent;
-        box-shadow: none;
-        transform: translate(14px, -50%);
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-      }
-
-      body.case-rail-visible .case-rail {
-        transform: translate(0, -50%);
-      }
-
-      .case-rail a {
-        min-width: 58px;
-        padding: 8px 8px;
-        font-size: .64rem;
-        box-shadow: 0 7px 20px rgba(0, 0, 0, .48);
-      }
-
-      .case-rail a:hover {
-        transform: translateX(-2px);
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <nav class="nav">
-    <div class="shell nav-inner">
-      <a class="brand" href="personal-training.html" aria-label="Personal Training home">
-        <span class="brand-mark">JR</span>
-        <span>Personal Training</span>
-      </a>
-      <div class="nav-links">
-        <a href="#case-studies">Case Studies</a>
-        <a href="#philosophy">Philosophy</a>
-        <a href="#recipe-reinvention">Nutrition</a>
-        <a href="#services">Services</a>
-        <a href="#faq">FAQ</a>
-        <a class="button primary" href="index.html">Employment</a>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+          aria-controls="mobile-navigation"
+          data-menu-toggle
+        >
+          <span class="menu-toggle-lines" aria-hidden="true"></span>
+        </button>
       </div>
-    </div>
-  </nav>
 
-  <nav class="case-rail" aria-label="Case study shortcuts">
-    <a href="#my-transformation" data-case-target="my-transformation">Me</a>
-    <a href="#anton" data-case-target="anton">Anton</a>
-    <a href="#michael" data-case-target="michael">Michael</a>
-  </nav>
-
-  <main>
-    <header class="hero">
-      <div class="shell reveal">
-        <div class="eyebrow"><span class="dot"></span>Future personal training services</div>
-        <h1>Evidence-Based<br />Personal Training</h1>
-        <p class="hero-copy">Helping everyday people become stronger, leaner and healthier through intelligent training, sustainable nutrition and long-term habits.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#enquire">Enquire</a>
-          <a class="button secondary" href="#case-studies">View Case Studies</a>
+      <div class="mobile-menu" id="mobile-navigation" data-mobile-menu>
+        <nav aria-label="Mobile navigation">
+          <a href="#coaching-method">Coaching</a>
+          <a href="#results">Results</a>
+          <a href="#included">What’s Included</a>
+          <a href="#recipe-reinvention">Recipe Reinvention</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <div class="mobile-menu-actions">
+          <a class="button button-primary" href="#enquire">Start Your Enquiry</a>
+          <a class="button button-secondary" href="https://training.jaraadramsey.com/client">
+            Client Login
+          </a>
         </div>
       </div>
     </header>
 
-    <section id="case-studies">
-      <div class="shell">
-        <div class="section-heading reveal">
-          <h2>Case Studies</h2>
-          <p>A structured record of programming decisions, shared principles and progress. Photography, verified measurements and personal statements can be added as each record is completed.</p>
+    <main id="main-content">
+      <section class="training-hero" aria-labelledby="training-heading">
+        <div class="container training-hero-grid">
+          <div data-reveal>
+            <span class="eyebrow">Personalised training and nutrition</span>
+            <h1 id="training-heading">Build a stronger body without making fitness your entire life.</h1>
+            <p class="lead">
+              I help everyday people become stronger, leaner and more confident through personalised
+              training, flexible nutrition and practical systems they can sustain.
+            </p>
+            <div class="button-row">
+              <a class="button button-primary" href="#enquire">Start Your Enquiry</a>
+              <a class="button button-secondary" href="#results">See Client Results</a>
+            </div>
+            <a class="hero-client-link" href="https://training.jaraadramsey.com/client">
+              Already coaching with me? Access your client platform.
+            </a>
+          </div>
+
+          <div class="training-hero-visual" data-reveal aria-label="Jaraad's personal transformation">
+            <div class="training-hero-main">
+              <img
+                src="/assets/case-studies/my-transformation-after.webp"
+                width="1040"
+                height="1800"
+                alt="Jaraad after developing a sustainable training and nutrition routine"
+                fetchpriority="high"
+              />
+              <div class="training-hero-caption">
+                <strong>I have been through the process myself.</strong>
+                <span>Training, nutrition and habits built for real life.</span>
+              </div>
+            </div>
+            <div class="training-hero-inset">
+              <img
+                src="/assets/case-studies/my-transformation-before.webp"
+                width="1350"
+                height="1800"
+                alt="Jaraad before beginning his personal transformation"
+                fetchpriority="high"
+              />
+              <span>Starting point</span>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <nav class="study-index reveal" aria-label="Case study index">
-          <a href="#my-transformation">Me</a>
-          <a href="#anton">Anton</a>
-          <a href="#michael">Michael</a>
-        </nav>
+      <section class="trust-strip" aria-label="What coaching includes">
+        <div class="container">
+          <ul class="trust-list">
+            <li><span>01</span>Personalised training</li>
+            <li><span>02</span>Flexible nutrition</li>
+            <li><span>03</span>Weekly accountability</li>
+            <li><span>04</span>Coaching platform access</li>
+            <li><span>05</span>Recipe reinvention</li>
+          </ul>
+        </div>
+      </section>
 
-        <div class="case-studies">
-          <article class="study-card case-study featured-study reveal" id="my-transformation">
-            <div class="featured-heading">
-              <div><div class="label">Featured Case Study</div><h3 class="featured-name">My Transformation</h3></div>
-              <div class="progress-status">Transformation in Progress</div>
-              <p class="featured-intro">A first-person record of the training, nutrition and long-term consistency behind my ongoing pursuit of a lean, muscular and athletic physique.</p>
+      <section class="section" id="coaching" aria-labelledby="audience-heading">
+        <div class="container audience-layout">
+          <div class="audience-intro" data-reveal>
+            <span class="eyebrow">Who this is for</span>
+            <h2 id="audience-heading">You want progress that still fits normal life.</h2>
+            <p class="lead">
+              Coaching is built around the person in front of me. You do not need to already feel fit,
+              confident or comfortable in a gym.
+            </p>
+          </div>
+
+          <div class="audience-list">
+            <article class="audience-item" data-reveal>
+              <span class="audience-item-number">01</span>
+              <div>
+                <h3>You want to lose fat without cutting out every food you enjoy.</h3>
+                <p>Nutrition should give you structure without making meals stressful or isolating.</p>
+              </div>
+            </article>
+            <article class="audience-item" data-reveal>
+              <span class="audience-item-number">02</span>
+              <div>
+                <h3>You want a clear gym plan instead of guessing.</h3>
+                <p>You will know what to do, how to track it and when your program needs to change.</p>
+              </div>
+            </article>
+            <article class="audience-item" data-reveal>
+              <span class="audience-item-number">03</span>
+              <div>
+                <h3>You keep starting, stopping and losing momentum.</h3>
+                <p>Weekly accountability helps turn short bursts of motivation into repeatable habits.</p>
+              </div>
+            </article>
+            <article class="audience-item" data-reveal>
+              <span class="audience-item-number">04</span>
+              <div>
+                <h3>You want support without being judged.</h3>
+                <p>The plan meets you where you are and progresses at a pace you can handle.</p>
+              </div>
+            </article>
+            <article class="audience-item" data-reveal>
+              <span class="audience-item-number">05</span>
+              <div>
+                <h3>You want fitness to work around your life.</h3>
+                <p>Work, family, gaming, social meals and imperfect weeks are part of the plan.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section section-tint"
+        id="coaching-method"
+        aria-labelledby="coaching-method-heading"
+      >
+        <div class="container">
+          <div class="section-header" data-reveal>
+            <div>
+              <span class="eyebrow">How coaching works</span>
+              <h2 id="coaching-method-heading">A plan that keeps adapting with you.</h2>
             </div>
+            <p>
+              We start with your goals, current ability and normal week. From there, the plan is built,
+              tracked and adjusted around what is actually happening.
+            </p>
+          </div>
 
-            <div class="comparison case-photo-comparison">
-              <!-- MY TRANSFORMATION BEFORE PHOTO: Replace the src below whenever you want to update the before image. -->
-              <figure class="study-media featured-media has-image">
-                <img src="assets/case-studies/my-transformation-before.webp" alt="Jaraad before his training transformation" width="1350" height="1800" loading="lazy" decoding="async">
-                <span>Before</span>
-              </figure>
-              <!-- MY TRANSFORMATION AFTER PHOTO: Replace the src below whenever you want to update the after image. -->
-              <figure class="study-media featured-media has-image">
-                <img src="assets/case-studies/my-transformation-after.webp" alt="Jaraad after his training transformation" width="1040" height="1800" loading="lazy" decoding="async">
-                <span>After</span>
-              </figure>
+          <ol class="method-list">
+            <li class="method-step" data-reveal>
+              <span class="step-marker">01</span>
+              <h3>Understand you</h3>
+              <p>
+                We begin with an initial consultation to understand your goals, training history,
+                routine, food preferences and anything that needs to be worked around.
+              </p>
+            </li>
+            <li class="method-step" data-reveal>
+              <span class="step-marker">02</span>
+              <h3>Build the plan</h3>
+              <p>
+                You receive individual training, nutrition targets and realistic habits designed around
+                your experience, schedule and equipment access.
+              </p>
+            </li>
+            <li class="method-step" data-reveal>
+              <span class="step-marker">03</span>
+              <h3>Track what matters</h3>
+              <p>
+                Workouts, food, measurements and progress photos can be recorded in your coaching
+                platform so decisions are based on useful information, not guesswork.
+              </p>
+            </li>
+            <li class="method-step" data-reveal>
+              <span class="step-marker">04</span>
+              <h3>Adjust and progress</h3>
+              <p>
+                Weekly reviews and ongoing accountability show what is working. Training, targets and
+                habits are adjusted when your performance or circumstances change.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section" id="included" aria-labelledby="included-heading">
+        <div class="container">
+          <div class="section-header" data-reveal>
+            <div>
+              <span class="eyebrow">What’s included</span>
+              <h2 id="included-heading">The structure and support to keep moving.</h2>
             </div>
+            <p>
+              Everything has a purpose: make the next step clear, show what is changing and keep the plan
+              useful when life gets busy.
+            </p>
+          </div>
 
-            <div class="case-journey" aria-label="Jaraad weight transformation from 80 kilograms to 68 kilograms">
-              <div class="case-weight">
-                <span>Starting Point</span>
+          <div class="included-layout">
+            <article class="included-group" data-reveal>
+              <span class="mono-label">Training</span>
+              <h3>Your individual program</h3>
+              <ul class="check-list">
+                <li>Personalised workout programming</li>
+                <li>Exercise tracking</li>
+                <li>Workout history</li>
+                <li>Adjustments based on performance</li>
+              </ul>
+            </article>
+            <article class="included-group" data-reveal>
+              <span class="mono-label">Nutrition</span>
+              <h3>Flexible targets and meals</h3>
+              <ul class="check-list">
+                <li>Calorie and nutrition targets</li>
+                <li>Food and nutrition tracking</li>
+                <li>Trainer nutrition notes</li>
+                <li>Personalised recipe reinvention</li>
+              </ul>
+            </article>
+            <article class="included-group" data-reveal>
+              <span class="mono-label">Progress</span>
+              <h3>Accountability that is useful</h3>
+              <ul class="check-list">
+                <li>Weekly progress review</li>
+                <li>Progress measurements</li>
+                <li>Weekly progress photos</li>
+                <li>Program and target adjustments</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="platform-note" data-reveal>
+            <p>
+              <strong>Your coaching platform keeps everything together.</strong> Access your program,
+              workout history, nutrition goals, saved recipes and progress from one place.
+            </p>
+            <a class="button button-secondary" href="https://training.jaraadramsey.com/client">
+              Client Access
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-tint" id="my-transformation" aria-labelledby="story-heading">
+        <div class="container transformation-layout">
+          <div class="transformation-images" data-reveal>
+            <figure class="image-frame">
+              <img
+                src="/assets/case-studies/my-transformation-before.webp"
+                width="1350"
+                height="1800"
+                alt="Jaraad at 80 kilograms in August 2024"
+                loading="lazy"
+              />
+              <figcaption>Before · August 2024 · 80 kg</figcaption>
+            </figure>
+            <figure class="image-frame">
+              <img
+                src="/assets/case-studies/my-transformation-after.webp"
+                width="1040"
+                height="1800"
+                alt="Jaraad at 68 kilograms after building consistent training and nutrition habits"
+                loading="lazy"
+              />
+              <figcaption>Progress · 68 kg</figcaption>
+            </figure>
+          </div>
+
+          <div class="transformation-story" data-reveal>
+            <span class="eyebrow">My transformation</span>
+            <h2 id="story-heading">I know what it takes to build this into real life.</h2>
+            <p>
+              I started at 80 kg in August 2024 and reached 68 kg through consistent training, food
+              tracking and a system I could keep following. I learned how to diet without treating food
+              as the enemy, how to train with purpose and how to make decisions from progress data.
+            </p>
+            <p>
+              That experience shapes the way I coach. The goal is not to make your week perfect. It is to
+              build a practical system you understand well enough to keep using.
+            </p>
+            <div class="metric-row" aria-label="Jaraad's transformation results">
+              <div class="metric">
                 <strong>80 kg</strong>
-                <small>August 2024, beginning the long-term goal of building a leaner, stronger and more athletic physique.</small>
+                <span class="metric-label">Starting weight</span>
               </div>
-              <div class="case-journey-mark"><strong>12 kg lost<br>to date</strong></div>
-              <div class="case-weight">
-                <span>Current Weight</span>
+              <div class="metric">
                 <strong>68 kg</strong>
-                <small>Continuing the cutting phase while prioritising muscle, strength and training performance.</small>
+                <span class="metric-label">Progress weight</span>
+              </div>
+              <div class="metric">
+                <strong>12 kg</strong>
+                <span class="metric-label">Total change</span>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div class="label" style="margin-top:28px">Progress Summary</div>
-            <!-- MY TRANSFORMATION MEASUREMENTS: Update these figures only when you have current, verified information. Body-fat figures are estimates, not laboratory-tested measurements. -->
-            <div class="stats featured-metrics case-metrics">
-              <div class="stat"><span>Started</span><strong>August 2024</strong></div>
-              <div class="stat"><span>Estimated Body Fat</span><strong>Approximately 22% to 16%</strong></div>
-              <div class="stat"><span>Primary Goal</span><strong>Visible six-pack and muscular physique</strong></div>
-              <div class="stat"><span>Current Phase</span><strong>Cutting · In progress</strong></div>
+      <section class="section" id="results" aria-labelledby="results-heading">
+        <div class="container">
+          <div class="section-header" data-reveal>
+            <div>
+              <span class="eyebrow cyan">Client results</span>
+              <h2 id="results-heading">The person matters more than the number.</h2>
             </div>
+            <p>
+              Anton and Michael began in different places, but both needed a clear plan, useful
+              accountability and a way to keep going without overcomplicating fitness.
+            </p>
+          </div>
 
-            <div class="study-notes featured-sections">
-              <div class="study-note">
-                <h4>Starting Point</h4>
-                <p>I began this transformation in August 2024 at a bodyweight of 80 kg and an estimated body-fat level of approximately 22%.</p>
-                <p>My main goal was to build enough muscle to create a strong physique, then cut down until my six-pack became clearly visible.</p>
-              </div>
-              <div class="study-note">
-                <h4>Current Progress</h4>
-                <p>I currently weigh 68 kg, with an estimated body-fat level of approximately 16%.</p>
-                <p>I have made significant progress, but I do not consider the transformation finished. I am continuing to reduce body fat while maintaining as much muscle and strength as possible.</p>
-              </div>
-              <div class="study-note">
-                <h4>Goal</h4>
-                <p><strong>Build a muscular, athletic physique and become lean enough to clearly see my six-pack.</strong></p>
-                <p>My goal was not simply to lose weight. I wanted to build a solid base of muscle first, then gradually cut down to reveal the physique underneath.</p>
-              </div>
-              <div class="study-note">
-                <h4>Approach</h4>
-                <p>My approach was to spend time building muscle across my entire body, then move into a controlled calorie deficit to reduce body fat while continuing to train hard.</p>
-                <p>The process has focused on consistency rather than shortcuts: structured training, accurate calorie tracking, high effort and patience over time.</p>
-              </div>
-              <div class="study-note wide">
-                <h4>Training Split</h4>
-                <p>I use a high-frequency hybrid split that combines elements of full-body, upper/lower and push-pull training. It is not a traditional bro split or a pure full-body split.</p>
-                <div class="training-week">
-                  <div class="training-day"><strong>Monday</strong><span>Chest, back and triceps</span></div>
-                  <div class="training-day"><strong>Tuesday</strong><span>Legs, shoulders and biceps</span></div>
-                  <div class="training-day"><strong>Thursday</strong><span>Back, chest, shoulders and abs</span></div>
-                  <div class="training-day"><strong>Friday</strong><span>Legs, biceps and forearms</span></div>
-                  <div class="training-day"><strong>Saturday</strong><span>Chest, back, triceps and abs</span></div>
+          <div class="results-grid">
+            <article class="case-card" data-reveal>
+              <div class="case-card-header">
+                <div>
+                  <span class="mono-label">Client case study</span>
+                  <h3>Anton</h3>
                 </div>
-                <p>The split is designed so that each session emphasises different muscle groups while allowing the muscles trained hardest the previous day to recover. This creates frequent exposure to each major muscle group without repeating the exact same session structure.</p>
+                <span class="case-result">Approx. 25 kg lost</span>
               </div>
-              <div class="study-note">
-                <h4>Training Philosophy</h4>
-                <p>I believe training needs to be challenging enough to create a reason for the body to adapt. Most working sets are taken very close to failure, with a strong focus on controlled technique, progressive overload and honest effort.</p>
-                <p>Progress is not always visible from one session to the next. A single rep or small strength increase may seem insignificant, but those improvements compound over months and years.</p>
-              </div>
-              <div class="study-note">
-                <h4>Strength Progression</h4>
-                <p>Strength progression was measured through improved exercise performance, including more repetitions, better control, increased resistance and stronger execution across key movements.</p>
-                <p>Over time, I became noticeably stronger in movements such as weighted pull-ups, dips, pressing exercises, leg training and isolation work.</p>
-              </div>
-              <div class="study-note">
-                <h4>Nutrition</h4>
-                <p>During the cutting phase, I used an intake of approximately 1,800 calories per day while prioritising protein, accurate food tracking and meals that supported training performance.</p>
-                <p>The goal was to create a consistent calorie deficit without relying on extreme fasting or random restriction. Food quality matters, but calorie intake, protein and consistency are the main controllable factors.</p>
-              </div>
-              <div class="study-note">
-                <h4>Progress</h4>
-                <p>The transformation remains in progress. I have moved from 80 kg to 68 kg, while my estimated body-fat level has moved from approximately 22% to approximately 16%.</p>
-                <p>These body-fat figures are estimates rather than laboratory-tested measurements. I am currently continuing the cutting phase while working to maintain muscle, strength and training performance.</p>
-              </div>
-              <div class="study-note wide">
-                <h4>Lessons Learned</h4>
-                <p>The biggest lesson has been that unnecessary dirty bulking usually creates more fat to lose later without guaranteeing better muscle gain.</p>
-                <p>A controlled approach works better: understand calorie intake, track food accurately, train consistently and minimise unplanned overeating. The aim is to stay consistent across the week and return to the plan after imperfect days.</p>
-                <p>Another major lesson is that physique development takes time. The work from a single day may not look important, but the accumulated effect of hundreds of sessions becomes visible over one or two years.</p>
-              </div>
-              <div class="study-note wide">
-                <h4>Personal Reflection</h4>
-                <blockquote class="reflection">
-                  <p>I have wanted a visible six-pack and a lean, muscular physique for a long time. I am not fully at the end goal yet, but I am much closer than when I began.</p>
-                  <p>This transformation has taught me that real progress comes from repeating the basics for long enough: training hard, tracking honestly, managing nutrition and continuing even when the visual changes feel slow.</p>
-                  <p>I am proud of the progress so far, but I also know there is more to improve. That is what keeps me motivated. I do not see fitness as a temporary challenge. I see it as a long-term process of becoming stronger, leaner and more capable.</p>
-                </blockquote>
-              </div>
-            </div>
-          </article>
-
-          <article class="study-card case-study anton-study reveal" id="anton">
-            <div class="study-top">
-              <div>
-                <div class="label">Client Transformation</div>
-                <h3 class="study-name">Anton</h3>
-                <div class="anton-kicker">Foundations over gimmicks</div>
-                <div class="progress-status">Transformation in Progress</div>
-              </div>
-              <p class="study-summary">Anton began at approximately 105 kg with little experience in training, nutrition or body recomposition. He now weighs approximately 80 kg. His progress accelerated during a focused year in which calorie deficits, efficient training and sustainable eating finally became simple and practical.</p>
-            </div>
-
-            <div class="comparison case-photo-comparison" aria-label="Anton progress photos">
-              <!-- Replace these placeholders with Anton's approved progress photos when they are available. -->
-              <div class="study-media case-photo-placeholder" role="img" aria-label="Anton before progress photo coming soon">
-                <div class="case-photo-status">
-                  <small>Anton · Progress Photo</small>
-                  <strong>Before</strong>
-                  <span>Coming soon...</span>
+              <div class="case-meta">
+                <div>
+                  <span>Starting point</span>
+                  <strong>Approx. 105 kg</strong>
+                </div>
+                <div>
+                  <span>Progress</span>
+                  <strong>Approx. 80 kg</strong>
+                </div>
+                <div>
+                  <span>Timeframe</span>
+                  <strong>Focused year</strong>
+                </div>
+                <div>
+                  <span>Main goal</span>
+                  <strong>Lose fat and simplify fitness</strong>
                 </div>
               </div>
-              <div class="study-media case-photo-placeholder" role="img" aria-label="Anton after progress photo coming soon">
-                <div class="case-photo-status">
-                  <small>Anton · Progress Photo</small>
-                  <strong>After</strong>
-                  <span>Coming soon...</span>
+              <p class="case-summary">
+                Anton moved from constantly researching training and nutrition to understanding the
+                foundations well enough to make confident decisions for himself.
+              </p>
+              <blockquote class="case-quote">
+                “Once I understood the foundations, fitness and nutrition stopped feeling complicated.”
+              </blockquote>
+              <button class="button button-secondary" type="button" data-dialog-open="anton-case">
+                Read Anton’s Story
+              </button>
+            </article>
+
+            <article class="case-card" id="michael" data-reveal>
+              <div class="case-card-header">
+                <div>
+                  <span class="mono-label">Client case study</span>
+                  <h3>Michael</h3>
+                </div>
+                <span class="case-result">23 kg lost</span>
+              </div>
+              <div class="case-meta">
+                <div>
+                  <span>Starting point</span>
+                  <strong>100 kg</strong>
+                </div>
+                <div>
+                  <span>Progress</span>
+                  <strong>77 kg</strong>
+                </div>
+                <div>
+                  <span>Timeframe</span>
+                  <strong>Approx. one year</strong>
+                </div>
+                <div>
+                  <span>Main goal</span>
+                  <strong>Get leaner and stronger</strong>
                 </div>
               </div>
+              <p class="case-summary">
+                Michael began with very little motivation and needed his program to work around a
+                previous back surgery. Coaching focused on relatable support, careful exercise selection
+                and steady progression.
+              </p>
+              <blockquote class="case-quote">
+                “He motivated me to keep pushing, not give up and trust that results would come.”
+              </blockquote>
+              <button class="button button-secondary" type="button" data-dialog-open="michael-case">
+                Read Michael’s Story
+              </button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <dialog class="case-dialog" id="anton-case" aria-labelledby="anton-dialog-title">
+        <div class="dialog-inner">
+          <button class="dialog-close" type="button" aria-label="Close Anton case study" data-dialog-close>
+            ×
+          </button>
+          <span class="eyebrow cyan">Anton’s full story</span>
+          <h2 id="anton-dialog-title">From information overload to confidence.</h2>
+          <div class="dialog-story-grid">
+            <div>
+              <h4>Starting point</h4>
+              <p>Approximately 105 kg and unsure how to separate useful fitness advice from noise.</p>
+            </div>
+            <div>
+              <h4>Goal</h4>
+              <p>Lose body fat, train effectively and build an approach he could understand.</p>
+            </div>
+            <div>
+              <h4>Coaching approach</h4>
+              <p>
+                Focus on the foundations of training and nutrition, then build enough understanding for
+                Anton to make his own decisions.
+              </p>
+            </div>
+            <div>
+              <h4>Outcome</h4>
+              <p>
+                Reached approximately 80 kg, learned to train efficiently and became more relaxed and
+                confident around food.
+              </p>
+            </div>
+          </div>
+          <blockquote class="dialog-testimonial">
+            “Jaraad taught me the foundations. Once I understood those, fitness and nutrition stopped
+            feeling complicated. I could train efficiently, eat without fearing food and make progress
+            without constantly researching everything myself. It felt like fitness on easy mode.”
+            <footer>Anton · Client testimony</footer>
+          </blockquote>
+        </div>
+      </dialog>
+
+      <dialog class="case-dialog" id="michael-case" aria-labelledby="michael-dialog-title">
+        <div class="dialog-inner">
+          <button
+            class="dialog-close"
+            type="button"
+            aria-label="Close Michael case study"
+            data-dialog-close
+          >
+            ×
+          </button>
+          <span class="eyebrow cyan">Michael’s full story</span>
+          <h2 id="michael-dialog-title">A stronger body and a different mindset.</h2>
+          <div class="dialog-story-grid">
+            <div>
+              <h4>Starting point</h4>
+              <p>100 kg, very little motivation and no real interest in going to the gym.</p>
+            </div>
+            <div>
+              <h4>Goal</h4>
+              <p>Get leaner, build visible muscle, become stronger and feel more confident.</p>
+            </div>
+            <div>
+              <h4>Challenge</h4>
+              <p>
+                Michael had previously undergone back surgery and wanted a strict, carefully structured
+                program that he felt confident following.
+              </p>
+            </div>
+            <div>
+              <h4>Coaching approach</h4>
+              <p>
+                Select appropriate exercises, build strength progressively and use shared interests and
+                Jaraad’s own experience to make coaching relatable.
+              </p>
+            </div>
+            <div>
+              <h4>Outcome</h4>
+              <p>
+                Reached 77 kg in approximately one year, felt stronger and became more confident using
+                more weight.
+              </p>
+            </div>
+            <div>
+              <h4>Mindset</h4>
+              <p>
+                Results reinforced that consistency was working and helped Michael become more motivated
+                to keep improving.
+              </p>
+            </div>
+          </div>
+          <blockquote class="dialog-testimonial">
+            “I was 100 kg at the start and wanted nothing to do with the gym. Seeing how far Jaraad had
+            come and how much I could relate to him made me feel that if he could do it, I could do it. He
+            motivated me to keep pushing, not give up and trust that results would come. Now the results
+            are showing. My back feels stronger, I feel more confident using more weight, and he has
+            helped a lot with my mindset.”
+            <footer>Michael · Client testimony</footer>
+          </blockquote>
+        </div>
+      </dialog>
+
+      <section
+        class="section section-tint"
+        id="recipe-reinvention"
+        aria-labelledby="recipe-heading"
+      >
+        <div class="container">
+          <div class="recipe-feature">
+            <div class="recipe-intro" data-reveal>
+              <span class="eyebrow">Recipe reinvention</span>
+              <h2 id="recipe-heading">Keep the meals you love.</h2>
+              <span class="included-badge">Included in coaching</span>
+              <p>
+                You should not have to abandon your favourite meals and replace them with completely
+                different “fitness” versions. We keep the identity of the meal, then adjust ingredients,
+                portions and preparation so it fits your goals more comfortably.
+              </p>
+              <div class="recipe-example">
+                <strong>The Big Mac example</strong>
+                <p>
+                  If you love a Big Mac, the answer is not automatically a Big Mac bowl. The goal is to
+                  recreate an actual burger that still feels and tastes like the meal you enjoy.
+                </p>
+              </div>
             </div>
 
-            <div class="case-journey" aria-label="Anton weight transformation from approximately 105 kilograms to approximately 80 kilograms">
-              <div class="case-weight">
-                <span>Starting Point</span>
-                <strong>≈105 kg</strong>
-                <small>Heavier, new to structured training and mainly wanting to become slimmer.</small>
+            <div>
+              <ol class="recipe-process">
+                <li class="recipe-process-step" data-reveal>
+                  <span class="step-marker">01</span>
+                  <h3>Choose the meal</h3>
+                  <p>You pick a favourite meal, takeaway order or family recipe you genuinely enjoy.</p>
+                </li>
+                <li class="recipe-process-step" data-reveal>
+                  <span class="step-marker">02</span>
+                  <h3>Understand what matters</h3>
+                  <p>
+                    I analyse the recipe with you and identify the flavour, texture and experience that
+                    must be preserved.
+                  </p>
+                </li>
+                <li class="recipe-process-step" data-reveal>
+                  <span class="step-marker">03</span>
+                  <h3>Adjust the recipe</h3>
+                  <p>
+                    Ingredients, portions and preparation are changed carefully while keeping the meal
+                    recognisable.
+                  </p>
+                </li>
+                <li class="recipe-process-step" data-reveal>
+                  <span class="step-marker">04</span>
+                  <h3>Cook and taste</h3>
+                  <p>You prepare the updated recipe and judge it as food, not just as a set of numbers.</p>
+                </li>
+                <li class="recipe-process-step" data-reveal>
+                  <span class="step-marker">05</span>
+                  <h3>Refine it together</h3>
+                  <p>
+                    We use your feedback to improve the taste, serving size or preparation until it feels
+                    right.
+                  </p>
+                </li>
+                <li class="recipe-process-step" data-reveal>
+                  <span class="step-marker">06</span>
+                  <h3>Make it repeatable</h3>
+                  <p>
+                    The finished recipe becomes part of your normal nutrition system and can be saved in
+                    your client platform.
+                  </p>
+                </li>
+              </ol>
+
+              <div class="recipe-photo-placeholders" aria-label="Food image placeholders">
+                <div class="food-placeholder"><span>Real burger image coming</span></div>
+                <div class="food-placeholder"><span>Real pasta image coming</span></div>
+                <div class="food-placeholder"><span>Real family meal image coming</span></div>
               </div>
-              <div class="case-journey-mark"><strong>Approximately<br>25 kg lost</strong></div>
-              <div class="case-weight">
-                <span>Current Weight</span>
-                <strong>≈80 kg</strong>
-                <small>Training efficiently and eating with far more confidence and independence.</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="starting" aria-labelledby="starting-heading">
+        <div class="container start-layout">
+          <div class="start-intro" data-reveal>
+            <span class="eyebrow cyan">Starting coaching</span>
+            <h2 id="starting-heading">Know exactly what happens next.</h2>
+            <p class="lead">
+              There is no surprise checkout or pressure to commit before we have spoken. The process
+              starts with a conversation.
+            </p>
+          </div>
+
+          <ol class="start-list">
+            <li class="start-step" data-reveal>
+              <span class="step-marker">01</span>
+              <h3>Submit an enquiry</h3>
+              <p>Tell me what you want help with and what has been getting in the way.</p>
+            </li>
+            <li class="start-step" data-reveal>
+              <span class="step-marker">02</span>
+              <h3>Receive my welcome email</h3>
+              <p>You will receive an email confirming the enquiry and explaining the next step.</p>
+            </li>
+            <li class="start-step" data-reveal>
+              <span class="step-marker">03</span>
+              <h3>Book an introductory call</h3>
+              <p>Use the booking link in the welcome email to choose a time that suits you.</p>
+            </li>
+            <li class="start-step" data-reveal>
+              <span class="step-marker">04</span>
+              <h3>Talk through the fit</h3>
+              <p>We discuss your goals, current situation and whether coaching is right for you.</p>
+            </li>
+            <li class="start-step" data-reveal>
+              <span class="step-marker">05</span>
+              <h3>Receive secure payment access</h3>
+              <p>If we both decide to continue, you receive a secure Stripe payment link by email.</p>
+            </li>
+            <li class="start-step" data-reveal>
+              <span class="step-marker">06</span>
+              <h3>Complete onboarding</h3>
+              <p>I collect the details needed to build your initial training and nutrition plan.</p>
+            </li>
+            <li class="start-step" data-reveal>
+              <span class="step-marker">07</span>
+              <h3>Access your platform</h3>
+              <p>Your coaching tools, program, nutrition goals and progress tracking are ready to use.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section section-tint" id="faq" aria-labelledby="faq-heading">
+        <div class="container faq-layout">
+          <div data-reveal>
+            <span class="eyebrow">Common questions</span>
+            <h2 id="faq-heading">Clear answers before you enquire.</h2>
+            <p class="lead">
+              If your question is not here, add it to your enquiry and I will answer it directly.
+            </p>
+          </div>
+
+          <div class="faq-list" data-reveal>
+            <div class="faq-item">
+              <button
+                class="faq-question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-online"
+                data-accordion-button
+              >
+                Is coaching online or in person?
+              </button>
+              <div class="faq-answer" id="faq-online" hidden>
+                <p>
+                  Coaching and progress tracking are managed through the client platform. Use the enquiry
+                  form to tell me what type of coaching you are looking for and I will explain what is
+                  currently suitable.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button
+                class="faq-question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-experience"
+                data-accordion-button
+              >
+                Do I need gym experience?
+              </button>
+              <div class="faq-answer" id="faq-experience" hidden>
+                <p>
+                  No. Your program is built around your current ability, equipment access and confidence.
+                  It should give you a clear starting point rather than assume you already know everything.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button
+                class="faq-question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-meal-plan"
+                data-accordion-button
+              >
+                Do I need to follow a strict meal plan?
+              </button>
+              <div class="faq-answer" id="faq-meal-plan" hidden>
+                <p>
+                  No. Coaching uses flexible nutrition targets, food tracking and practical meal changes.
+                  The aim is to build an approach you can use around normal life.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button
+                class="faq-question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-injuries"
+                data-accordion-button
+              >
+                Can you work around injuries?
+              </button>
+              <div class="faq-answer" id="faq-injuries" hidden>
+                <p>
+                  Tell me about any injury, surgery, restriction or medical advice in your enquiry. I can
+                  adapt training within my scope, and I will ask for appropriate medical or allied health
+                  guidance when that is needed.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button
+                class="faq-question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-updates"
+                data-accordion-button
+              >
+                How often is my program updated?
+              </button>
+              <div class="faq-answer" id="faq-updates" hidden>
+                <p>
+                  Your progress is reviewed weekly. The program changes when your performance, goals or
+                  circumstances show that an adjustment will be useful.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button
+                class="faq-question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-checkins"
+                data-accordion-button
+              >
+                How do check-ins work?
+              </button>
+              <div class="faq-answer" id="faq-checkins" hidden>
+                <p>
+                  You record useful progress information through the coaching platform. I review that
+                  information with you and use it to guide the next week.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button
+                class="faq-question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-recipes"
+                data-accordion-button
+              >
+                Is recipe reinvention included?
+              </button>
+              <div class="faq-answer" id="faq-recipes" hidden>
+                <p>
+                  Yes. Recipe reinvention is part of coaching. It helps turn meals you already enjoy into
+                  repeatable options that work more comfortably with your nutrition targets.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button
+                class="faq-question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-payments"
+                data-accordion-button
+              >
+                How do payments work?
+              </button>
+              <div class="faq-answer" id="faq-payments" hidden>
+                <p>
+                  Payment happens only after the introductory call and approval. If coaching is a good
+                  fit, you receive a secure Stripe payment link by email.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button
+                class="faq-question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-app"
+                data-accordion-button
+              >
+                How do I access the client app?
+              </button>
+              <div class="faq-answer" id="faq-app" hidden>
+                <p>
+                  Once onboarding is complete, your client access is activated and you receive the
+                  instructions needed to use the coaching platform.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="enquire" aria-labelledby="enquiry-heading">
+        <div class="container">
+          <div class="enquiry-shell" data-reveal>
+            <div class="enquiry-intro">
+              <span class="eyebrow">Start your enquiry</span>
+              <h2 id="enquiry-heading">Tell me what you want help with.</h2>
+              <p>
+                This is not a commitment to buy coaching. It gives me enough context to understand your
+                goals and send you the right next step.
+              </p>
+              <div class="enquiry-promise">
+                <div>Your details are sent securely to Jaraad.</div>
+                <div>You will receive a response by email.</div>
+                <div>Payment is discussed only after an introductory call.</div>
               </div>
             </div>
 
-            <div class="label" style="margin-top:26px">Progress Summary</div>
-            <div class="stats case-metrics">
-              <div class="stat"><span>Weight Change</span><strong>Approximately 25 kg lost</strong></div>
-              <div class="stat"><span>Focused Progress</span><strong>Approximately one year using a calorie deficit intentionally</strong></div>
-              <div class="stat"><span>Nutrition</span><strong>Sustainable, flexible and increasingly intuitive</strong></div>
-              <div class="stat"><span>Training</span><strong>Science-based principles made simple</strong></div>
-            </div>
+            <form class="enquiry-form" id="enquiry-form" novalidate>
+              <div class="form-progress">
+                <span class="form-step-label" data-form-progress-label>Step 1 of 2</span>
+                <span class="form-progress-track" aria-hidden="true">
+                  <span data-form-progress-bar></span>
+                </span>
+              </div>
 
-            <div class="anton-story">
-              <div class="study-note">
-                <h4>Starting From the Basics</h4>
-                <p>“When I started, I did not really know much about training, nutrition or changing my body composition. I was heavier and mainly wanted to look slimmer. Jaraad explained things properly in simple terms, so I could understand what to do without having to research every little detail myself.”</p>
-              </div>
-              <div class="study-note">
-                <h4>Training Made More Efficient</h4>
-                <p>“The lifting advice was science-based, but it was practical. I learned which exercises to use, how to perform them and why they were in the workout. Using focused, lower-volume training, often around two productive working sets where appropriate, made sessions quicker, easier to follow and more enjoyable.”</p>
-              </div>
-              <div class="study-note">
-                <h4>Foundations, Not Fitness Trends</h4>
-                <p>“The biggest thing I learned from Jaraad was the foundations: body recomposition, calorie deficits, calories in versus calories out, exercise selection and sustainable nutrition. The advice never felt gimmicky. Now, when I see fitness content on social media, I can work out what is useful, what is misleading and what is just redundant.”</p>
-              </div>
-              <div class="study-note">
-                <h4>Food Freedom and Intuitive Eating</h4>
-                <p>“I learned that foods are not the enemy and they are not automatically good or bad. Most foods can fit; it comes back to overall energy intake and expenditure. Through repetition, I know the meals I normally eat, roughly what the portions contain and how they fit my goals. I do not need to track every calorie all the time because the principles now feel intuitive.”</p>
-              </div>
-              <div class="study-note">
-                <h4>One Focused Year</h4>
-                <p>“Once I properly understood how a calorie deficit worked and how simple it could be to implement, my progress sped up by a lot. During approximately one year of using a calorie deficit intentionally, I became much more consistent without making nutrition feel restrictive or complicated.”</p>
-              </div>
-              <div class="study-note">
-                <h4>Ongoing Nutrition Support</h4>
-                <p>“I still bring Jaraad foods, meals or claims from social media when I am unsure. He helps me estimate the calories and portions, explains whether something actually matters for my goals and acts as a fact-checker. That means I can make a decision with discretion instead of feeling misled.”</p>
-              </div>
-              <div class="study-note anton-quote wide">
-                <h4>Anton’s Reflection</h4>
-                <blockquote class="reflection">
-                  <p>Jaraad taught me the foundations. Once I understood those, fitness and nutrition stopped feeling complicated. I could train efficiently, eat without fearing food and make progress without constantly researching everything myself. It felt like fitness on easy mode.</p>
-                  <footer>Anton · Personal reflection</footer>
-                </blockquote>
-              </div>
-            </div>
-          </article>
-
-          <article class="study-card case-study reveal" id="michael">
-            <div class="study-top">
-              <div>
-                <div class="label">Client Transformation</div>
-                <h3 class="study-name">Michael</h3>
-                <div class="progress-status">Transformation in Progress</div>
-              </div>
-              <p class="study-summary">Over approximately one year, Michael moved from 100 kg to 77 kg while getting stronger and leaner. With a history of back surgery, his training was structured around safe exercise selection, progressive strength and rebuilding confidence in movement.</p>
-            </div>
-            <div class="comparison case-photo-comparison" aria-label="Michael progress photos">
-              <!-- Replace these placeholders with Michael's approved progress photos during his planned photo update. -->
-              <div class="study-media case-photo-placeholder" role="img" aria-label="Michael before progress photo update planned">
-                <div class="case-photo-status">
-                  <small>Michael · Progress Photo</small>
-                  <strong>Before</strong>
-                  <span>Photo update planned</span>
+              <fieldset class="form-step" data-form-step="1">
+                <legend class="honeypot">Your contact details and main goal</legend>
+                <div class="field-grid">
+                  <div class="field">
+                    <label for="name">Full name</label>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      autocomplete="name"
+                      maxlength="80"
+                      required
+                    />
+                  </div>
+                  <div class="field">
+                    <label for="email">Email</label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      autocomplete="email"
+                      maxlength="160"
+                      required
+                    />
+                  </div>
+                  <div class="field full">
+                    <label for="goal">Main goal</label>
+                    <select id="goal" name="goal" required>
+                      <option value="">Choose your main goal</option>
+                      <option value="Build strength">Build strength</option>
+                      <option value="Improve fitness">Improve fitness</option>
+                      <option value="Body composition">Lose fat or change body composition</option>
+                      <option value="Build sustainable habits">Build sustainable habits</option>
+                    </select>
+                  </div>
                 </div>
-              </div>
-              <div class="study-media case-photo-placeholder" role="img" aria-label="Michael after progress photo update planned">
-                <div class="case-photo-status">
-                  <small>Michael · Progress Photo</small>
-                  <strong>After</strong>
-                  <span>Photo update planned</span>
+                <div class="form-actions">
+                  <span class="field-help">You can add more detail in the next step.</span>
+                  <button class="button button-primary" type="button" data-form-next>Continue</button>
                 </div>
-              </div>
-            </div>
+              </fieldset>
 
-            <div class="case-journey" aria-label="Michael weight transformation from 100 kilograms to 77 kilograms over approximately one year">
-              <div class="case-weight">
-                <span>Starting Point</span>
-                <strong>100 kg</strong>
-                <small>Low motivation, little interest in the gym and a goal to become leaner, more muscular and more confident.</small>
-              </div>
-              <div class="case-journey-mark"><strong>23 kg lost<br>in approximately 1 year</strong></div>
-              <div class="case-weight">
-                <span>Current Weight</span>
-                <strong>77 kg</strong>
-                <small>Stronger, leaner and more confident increasing his training weights while continuing to improve his physique.</small>
-              </div>
-            </div>
+              <fieldset class="form-step" data-form-step="2" hidden>
+                <legend class="honeypot">Your coaching preferences and experience</legend>
+                <div class="field-grid">
+                  <div class="field">
+                    <label for="phone">Phone number <span aria-hidden="true">(optional)</span></label>
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      autocomplete="tel"
+                      maxlength="30"
+                    />
+                  </div>
+                  <div class="field">
+                    <label for="coachingType">Preferred coaching type</label>
+                    <select id="coachingType" name="coachingType" required>
+                      <option value="">Choose an option</option>
+                      <option value="Online coaching">Online coaching</option>
+                      <option value="In-person coaching">In-person coaching</option>
+                      <option value="Not sure yet">Not sure yet</option>
+                    </select>
+                  </div>
+                  <div class="field full">
+                    <label for="experience">Current training experience</label>
+                    <select id="experience" name="experience" required>
+                      <option value="">Choose your current experience</option>
+                      <option value="New to training">New to training</option>
+                      <option value="Some experience">Some experience</option>
+                      <option value="Training consistently">Training consistently</option>
+                      <option value="Returning after time away">Returning after time away</option>
+                    </select>
+                  </div>
+                  <div class="field full">
+                    <label for="challenge">What has been making progress difficult?</label>
+                    <textarea
+                      id="challenge"
+                      name="challenge"
+                      maxlength="600"
+                      placeholder="Tell me what you have tried and where you feel stuck."
+                      required
+                    ></textarea>
+                  </div>
+                  <div class="field full">
+                    <label for="message">Anything else? <span aria-hidden="true">(optional)</span></label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      maxlength="800"
+                      placeholder="Questions, schedule details or anything I should know."
+                    ></textarea>
+                  </div>
+                  <div class="honeypot" aria-hidden="true">
+                    <label for="company">Company</label>
+                    <input id="company" name="company" type="text" tabindex="-1" autocomplete="off" />
+                  </div>
+                  <input name="startedAt" type="hidden" />
+                  <label class="consent-label field full">
+                    <input name="consent" type="checkbox" required />
+                    <span>
+                      I agree that Jaraad may use these details to respond to my coaching enquiry.
+                    </span>
+                  </label>
+                </div>
+                <div class="form-actions">
+                  <button class="button button-quiet" type="button" data-form-back>Back</button>
+                  <button class="button button-primary" type="submit">Send Enquiry</button>
+                </div>
+              </fieldset>
 
-            <div class="label" style="margin-top:24px">Progress Summary</div>
-            <div class="stats case-metrics">
-              <div class="stat"><span>Starting Weight</span><strong>100 kg</strong></div>
-              <div class="stat"><span>Current Weight</span><strong>77 kg</strong></div>
-              <div class="stat"><span>Total Weight Lost</span><strong>23 kg</strong></div>
-              <div class="stat"><span>Time Training Together</span><strong>Approximately 1 year</strong></div>
-            </div>
-            <div class="michael-story">
-              <div class="study-note">
-                <h4>Goals</h4>
-                <p>Michael wanted to get leaner, build strength and visible muscle, improve his physique for summer and feel more confident in his body.</p>
-              </div>
-              <div class="study-note">
-                <h4>Back-Safe Approach</h4>
-                <p>Following back surgery, Michael needed a strict, carefully structured program. Exercises were selected to avoid aggravating his back, strengthen it progressively and reduce the risk of further injury.</p>
-              </div>
-              <div class="study-note">
-                <h4>Results</h4>
-                <p>Michael lost 23 kg while building strength and continuing to lean down. His back now feels stronger, and he feels more confident increasing the weight he uses in training.</p>
-              </div>
-              <div class="study-note">
-                <h4>Mindset Shift</h4>
-                <p>Relating to Jaraad’s own transformation made the process feel achievable. Shared interests and consistent encouragement helped Michael stay accountable, keep pushing and trust that the results would come.</p>
-              </div>
-              <div class="study-note wide michael-quote">
-                <h4>Personal Reflection</h4>
-                <blockquote class="reflection" aria-label="Michael personal reflection">
-                  <p>I was 100 kg at the start and wanted nothing to do with the gym. Seeing how far Jaraad had come and how much I could relate to him made me feel that if he could do it, I could do it. He motivated me to keep pushing, not give up and trust that results would come. Now the results are showing. My back feels stronger, I feel more confident using more weight, and he has helped a lot with my mindset.</p>
-                  <footer>Michael · Client testimonial</footer>
-                </blockquote>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="philosophy">
-      <div class="shell">
-        <div class="section-heading reveal">
-          <h2>Coaching Philosophy</h2>
-          <p>A practical approach built around sound principles, clear progression and habits that can be sustained outside the gym.</p>
-        </div>
-        <div class="philosophy-grid">
-          <article class="feature-card reveal"><div class="feature-icon">01</div><h3>Science-Based Programming</h3><p>Training decisions guided by established principles, individual needs and measurable progress.</p></article>
-          <article class="feature-card reveal"><div class="feature-icon">02</div><h3>Progressive Overload</h3><p>A structured approach to gradually increasing challenge while keeping technique and recovery in balance.</p></article>
-          <article class="feature-card reveal"><div class="feature-icon">03</div><h3>Nutrition Without Restriction</h3><p>Flexible nutrition habits designed to support performance and health without unnecessary extremes.</p></article>
-          <article class="feature-card reveal"><div class="feature-icon">04</div><h3>Long-Term Sustainable Results</h3><p>Systems that fit everyday life, with an emphasis on consistency, confidence and independence.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="recipe-reinvention" class="recipe-section">
-      <div class="shell">
-        <div class="recipe-showcase reveal">
-          <div class="recipe-heading">
-            <div class="label">Personalised Recipe Reinvention</div>
-            <h2>Keep Eating the Meals You Love.</h2>
-            <p class="recipe-supporting">Together, we will reinvent your favourite meals so they better support your fitness goals without turning them into something completely different.</p>
-          </div>
-
-          <div class="recipe-included" aria-label="Included in every personal training and coaching program">
-            <span class="recipe-included-badge">Included with coaching</span>
-            <p>Personalised recipe reinvention is included as a standard part of every personal training and coaching program.</p>
-          </div>
-
-          <div class="recipe-intro">
-            <article class="recipe-copy-card">
-              <p><strong>I do not believe you need to give up your favourite foods to make progress.</strong></p>
-              <p>As part of your coaching program, we will sit down together and go through the meals you genuinely enjoy. Then we will rebuild those recipes around your calorie, protein and nutrition targets while keeping each meal as close as possible to the original.</p>
-            </article>
-            <article class="recipe-copy-card">
-              <p>If you love a Big Mac, the goal is not to turn it into a Big Mac bowl. The goal is to help you make an actual Big Mac with the bun, patties, cheese, sauce, pickles and full experience, then make thoughtful changes that better suit your goals.</p>
-              <p>The same approach applies to your favourite pasta, curry, pizza, burger, dessert or family recipe. This is about making the food you already love work for you.</p>
-            </article>
-          </div>
-
-          <div class="recipe-block">
-            <div class="recipe-block-heading">
-              <h3>Your Favourite Meal → Rebuilt for Your Goals</h3>
-              <p>A practical process that keeps the identity of the original meal while helping it fit your wider nutrition plan.</p>
-            </div>
-            <div class="recipe-process" aria-label="Three-step recipe reinvention process">
-              <article class="recipe-step">
-                <span class="recipe-step-number">01</span>
-                <h4>Choose the meal.</h4>
-                <p>Bring the meals, flavours and family recipes you genuinely want to keep eating.</p>
-              </article>
-              <article class="recipe-step">
-                <span class="recipe-step-number">02</span>
-                <h4>Reinvent it together.</h4>
-                <p>We adjust ingredients, quantities, cooking methods and serving size around your goals.</p>
-              </article>
-              <article class="recipe-step">
-                <span class="recipe-step-number">03</span>
-                <h4>Test, refine and keep it.</h4>
-                <p>You try the complete recipe at home, share your feedback and keep a version you enjoy.</p>
-              </article>
-            </div>
-          </div>
-
-          <div class="recipe-block">
-            <div class="recipe-block-heading">
-              <h3>Keep the Meal. Change the Strategy.</h3>
-              <p>Substitutions can be useful when they reflect what a client actually enjoys. They should not be forced replacements that remove the experience they wanted.</p>
-            </div>
-            <div class="recipe-comparison">
-              <article class="recipe-compare-card generic">
-                <div class="label">Generic Diet Replacement</div>
-                <ul class="recipe-compare-list">
-                  <li>“You like burgers? Eat a burger bowl.”</li>
-                  <li>“You like pizza? Use a plain wrap.”</li>
-                  <li>“You like dessert? Replace it with yoghurt.”</li>
-                </ul>
-              </article>
-              <article class="recipe-compare-card approach">
-                <div class="label">My Approach</div>
-                <ul class="recipe-compare-list">
-                  <li>“You like burgers? Let’s build you a better burger.”</li>
-                  <li>“You like pizza? Let’s create a pizza that fits your goals.”</li>
-                  <li>“You have a favourite dessert? Let’s reinvent the actual dessert.”</li>
-                </ul>
-              </article>
-            </div>
-          </div>
-
-          <div class="recipe-block recipe-grid">
-            <article class="recipe-panel">
-              <div class="label">What Is Included</div>
-              <h3>A recipe you can confidently make at home.</h3>
-              <p>As part of your personal training program, I will work with you to:</p>
-              <ul class="recipe-checklist">
-                <li>Learn your favourite meals, foods and flavours.</li>
-                <li>Understand which parts of each meal matter most to you.</li>
-                <li>Recreate the complete meal rather than an unrelated alternative.</li>
-                <li>Adjust ingredients, quantities and cooking methods where appropriate.</li>
-                <li>Calculate estimated calories and macronutrients.</li>
-                <li>Personalise the serving size around your goals.</li>
-                <li>Create a clear recipe you can make at home.</li>
-                <li>Provide practical ingredient substitutions where useful.</li>
-                <li>Help the meal fit your overall nutrition plan.</li>
-                <li>Refine the recipe after you try it and share feedback.</li>
-              </ul>
-            </article>
-            <article class="recipe-panel">
-              <div class="label">Core Philosophy</div>
-              <h3>Nutrition should still feel like your life.</h3>
-              <p>Rigid plans are difficult to sustain when they completely change the way you enjoy food. Instead of handing every client the same meal plan, I help you build a personalised collection of meals you genuinely look forward to eating.</p>
-              <p style="margin-top:14px">The goal is not to make every meal as low in calories as physically possible. It is to find the best balance for your needs.</p>
-              <div class="recipe-balance" aria-label="Recipe reinvention priorities">
-                <span>Taste</span>
-                <span>Satisfaction</span>
-                <span>Protein</span>
-                <span>Calories</span>
-                <span>Convenience</span>
-                <span>Affordability</span>
-                <span>Long-term consistency</span>
-              </div>
-              <p style="margin-top:22px"><strong>The finished recipe should still feel like your favourite meal, not a disappointing diet substitute.</strong></p>
-            </article>
-          </div>
-
-          <div class="recipe-block">
-            <div class="recipe-block-heading">
-              <h3>Preserve What Makes It Worth Eating.</h3>
-              <p>The ingredients may change thoughtfully, but the flavour, texture and experience that made you love the meal should remain.</p>
-            </div>
-            <div class="recipe-examples">
-              <article class="recipe-example">
-                <span class="recipe-example-tag">Big Mac</span>
-                <h4>A complete homemade burger.</h4>
-                <p><strong>Buns, patties, cheese, pickles, onions, lettuce and Big Mac-style sauce.</strong> Adjustments might include leaner meat, carefully measured sauce, suitable cheese and better portion control.</p>
-              </article>
-              <article class="recipe-example">
-                <span class="recipe-example-tag">Carbonara</span>
-                <h4>Creamy pasta that feels genuine.</h4>
-                <p>Preserve the flavour and texture you enjoy, with thoughtful changes to pasta quantity, protein source, sauce ingredients and serving size.</p>
-              </article>
-              <article class="recipe-example">
-                <span class="recipe-example-tag">Pizza</span>
-                <h4>A real pizza with a proper base.</h4>
-                <p>Keep the base, sauce, cheese and toppings, then redesign the quantities to support your calorie and protein targets while still feeling like pizza.</p>
-              </article>
-            </div>
-            <article class="recipe-family">
-              <h4>Family and cultural recipes are welcome.</h4>
-              <p>Bring the recipes you grew up eating or the meals your family regularly makes. Food can carry emotional, cultural and social meaning. The goal is to improve how a recipe supports your goals without stripping away what makes it meaningful.</p>
-            </article>
-          </div>
-
-          <div class="recipe-outcomes">
-            <article class="recipe-panel">
-              <div class="label">Why This Matters</div>
-              <h3>Skills and meals you can keep.</h3>
-              <ul class="recipe-checklist">
-                <li>Continue enjoying your favourite foods.</li>
-                <li>Feel less restricted around food.</li>
-                <li>Reduce the cycle of avoiding and craving favourite meals.</li>
-                <li>Build practical cooking skills.</li>
-                <li>Understand portions and ingredients.</li>
-                <li>Stay consistent for longer.</li>
-                <li>Develop a more flexible approach to nutrition.</li>
-                <li>Keep a personal recipe collection after coaching.</li>
-              </ul>
-            </article>
-            <article class="recipe-panel">
-              <div class="label">Practical Nutrition Coaching</div>
-              <h3>Personalised education, not a rigid prescription.</h3>
-              <p>This is fitness nutrition coaching and practical recipe development within my professional scope. It is not a chef service, medical nutrition treatment or a claim that one recipe suits everyone.</p>
-              <p style="margin-top:14px">Your targets, preferences, budget, cooking confidence and feedback guide the process. Where specialised dietary support is needed, I will recommend working with an appropriately qualified professional.</p>
-            </article>
-          </div>
-
-          <div class="recipe-closing">
-            <div class="label">Built Around You</div>
-            <h3>Your nutrition should fit your life.</h3>
-            <p>Your nutrition should fit your life, not force you to build an entirely new life around your diet. We will take the foods you already love and find a realistic way to keep them in your life while you work toward your goals. Personalised recipe reinvention is included in your coaching from the start.</p>
-            <div class="recipe-closing-lines" aria-label="Personalised recipe reinvention principles">
-              <strong>No generic meal plan.</strong>
-              <strong>No bland substitutions.</strong>
-              <strong>No turning every meal into a bowl.</strong>
-              <strong>Personalised nutrition built around you.</strong>
-            </div>
-            <a class="button primary" href="#enquire">Start Your Personalised Program</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="services">
-      <div class="shell">
-        <div class="section-heading reveal">
-          <h2>Services</h2>
-          <p>These services are planned but not currently available. Descriptions and availability can be enabled when qualifications, delivery systems and pricing are ready.</p>
-        </div>
-        <div class="services-grid">
-          <!-- SERVICE DESCRIPTION: Replace this paragraph when Online Coaching is ready. Remove aria-disabled and change the status label to enable the card later. -->
-          <article class="service-card reveal" aria-disabled="true"><span class="service-status">Coming Soon</span><div><h3>Online Coaching</h3><p>Planned remote programming, structured check-ins and ongoing training support.</p></div></article>
-          <!-- SERVICE DESCRIPTION: Replace this paragraph when In-Person Personal Training is ready. Remove aria-disabled and change the status label to enable the card later. -->
-          <article class="service-card reveal" aria-disabled="true"><span class="service-status">Coming Soon</span><div><h3>In-Person Personal Training</h3><p>Planned face-to-face sessions focused on technique, progression and individual support.</p></div></article>
-          <!-- SERVICE DESCRIPTION: Replace this paragraph when Custom Training Programs are ready. Remove aria-disabled and change the status label to enable the card later. -->
-          <article class="service-card reveal" aria-disabled="true"><span class="service-status">Coming Soon</span><div><h3>Custom Training Programs</h3><p>Planned programs built around goals, experience, equipment and weekly availability.</p></div></article>
-          <!-- SERVICE DESCRIPTION: Replace this paragraph when Nutrition Guidance is ready. Remove aria-disabled and change the status label to enable the card later. -->
-          <article class="service-card reveal" aria-disabled="true"><span class="service-status">Coming Soon</span><div><h3>Nutrition Guidance</h3><p>Planned habit-based nutrition coaching, including personalised recipe reinvention, delivered within professional scope of practice.</p></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq">
-      <div class="shell">
-        <div class="section-heading reveal">
-          <h2>Frequently Asked Questions</h2>
-          <p>Practical answers about the planned coaching approach. Details can be refined as services become available.</p>
-        </div>
-        <div class="faq-list reveal">
-          <details><summary>Who will your coaching be designed for?</summary><p>The planned approach is intended for everyday people who want a structured, sustainable way to improve strength, fitness and training confidence.</p></details>
-          <details><summary>Will I need access to a gym?</summary><p>Program options are expected to account for available equipment, whether training takes place in a gym or with a more limited setup.</p></details>
-          <details><summary>How will progress be measured?</summary><p>Progress may be reviewed through training performance, technique, consistency, habits and appropriate body-composition measures where relevant.</p></details>
-          <details><summary>What nutrition support will be included?</summary><p>Coaching will include habit-based nutrition education and personalised recipe reinvention rather than a rigid generic meal plan. Support will remain within professional scope, with referrals used where specialised dietary guidance is required.</p></details>
-          <details><summary>When will coaching become available?</summary><p>Services are still being developed. Confirmed availability will be published here when qualifications and delivery systems are ready.</p></details>
-        </div>
-      </div>
-    </section>
-
-    <section id="enquire">
-      <div class="shell">
-        <div class="contact-card reveal">
-          <div class="contact-grid">
-            <div class="contact-intro"><div class="label">Future enquiries</div><h2>Start the Conversation.</h2><p>Tell me what you are working toward and I will reply to the email you provide.</p></div>
-            <form id="enquiry-form" novalidate>
-              <div class="form-grid">
-                <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" placeholder="Your name" autocomplete="name" maxlength="80" required /></div>
-                <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" maxlength="160" required /></div>
-                <div class="field full"><label for="goal">Goal</label><select id="goal" name="goal" required><option value="">Select a goal</option><option>Build strength</option><option>Improve fitness</option><option>Body composition</option><option>Build sustainable habits</option></select></div>
-                <div class="field full"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell me a little about your goals" maxlength="2000" required></textarea></div>
-                <div class="enquiry-trap"><label for="company">Company</label><input id="company" name="company" type="text" tabindex="-1" autocomplete="off" /></div>
-                <div class="field full"><button class="button primary" type="submit">Submit enquiry</button></div>
-              </div>
-              <p class="form-note">Your enquiry will be sent securely to Jaraad Ramsey PT.</p>
-              <div class="form-message" id="form-message" role="status" aria-live="polite"></div>
+              <p class="form-message" role="status" aria-live="polite" data-form-message></p>
             </form>
           </div>
         </div>
+      </section>
+
+      <section class="section-supporting" aria-labelledby="final-heading">
+        <div class="container">
+          <div class="final-cta" data-reveal>
+            <h2 id="final-heading">
+              You do not need another perfect plan. You need a plan you can actually follow.
+            </h2>
+            <div class="button-row">
+              <a class="button button-primary" href="#enquire">Start Your Enquiry</a>
+              <a class="button button-secondary" href="#results">View Client Results</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <p class="footer-brand">Jaraad Ramsey Personal Training</p>
+            <p class="footer-copy">
+              Personalised training, flexible nutrition and practical coaching systems for everyday
+              people.
+            </p>
+          </div>
+          <nav class="footer-links" aria-label="Footer navigation">
+            <a href="#coaching-method">Coaching</a>
+            <a href="#results">Results</a>
+            <a href="#faq">FAQ</a>
+            <a href="#enquire">Enquire</a>
+            <a href="https://training.jaraadramsey.com/client">Client Login</a>
+            <a href="/">Resume Website</a>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <span>© <span data-current-year></span> Jaraad Ramsey Personal Training</span>
+          <span>Perth, Western Australia</span>
+        </div>
       </div>
-    </section>
-  </main>
+    </footer>
 
-  <footer><div class="shell footer-row"><span>© 2026 Jaraad Ramsey</span><span>Personal training services are not yet available.</span></div></footer>
-
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
-
-    const caseStudySection = document.getElementById('case-studies');
-    const caseRailLinks = [...document.querySelectorAll('[data-case-target]')];
-    const caseStudyCards = caseRailLinks
-      .map((link) => document.getElementById(link.dataset.caseTarget))
-      .filter(Boolean);
-    let caseRailFrame = null;
-
-    const updateCaseRail = () => {
-      caseRailFrame = null;
-      const sectionRect = caseStudySection.getBoundingClientRect();
-      const railIsVisible = sectionRect.top < window.innerHeight - 96 && sectionRect.bottom > 112;
-      document.body.classList.toggle('case-rail-visible', railIsVisible);
-      if (!railIsVisible) return;
-
-      const readingLine = Math.min(window.innerHeight * .38, 360);
-      let activeCard = caseStudyCards[0];
-      caseStudyCards.forEach((card) => {
-        if (card.getBoundingClientRect().top <= readingLine) activeCard = card;
-      });
-
-      caseRailLinks.forEach((link) => {
-        const active = link.dataset.caseTarget === activeCard.id;
-        link.classList.toggle('active', active);
-        if (active) link.setAttribute('aria-current', 'true');
-        else link.removeAttribute('aria-current');
-      });
-    };
-
-    const queueCaseRailUpdate = () => {
-      if (caseRailFrame !== null) return;
-      caseRailFrame = requestAnimationFrame(updateCaseRail);
-    };
-
-    window.addEventListener('scroll', queueCaseRailUpdate, { passive: true });
-    window.addEventListener('resize', queueCaseRailUpdate);
-    caseRailLinks.forEach((link) => link.addEventListener('click', () => {
-      caseRailLinks.forEach((item) => {
-        const active = item === link;
-        item.classList.toggle('active', active);
-        if (active) item.setAttribute('aria-current', 'true');
-        else item.removeAttribute('aria-current');
-      });
-    }));
-    updateCaseRail();
-
-    const enquiryForm = document.getElementById('enquiry-form');
-    const enquiryMessage = document.getElementById('form-message');
-    const enquiryButton = enquiryForm.querySelector('button[type="submit"]');
-    let enquiryStartedAt = Date.now();
-
-    enquiryForm.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      enquiryMessage.className = 'form-message';
-      if (!enquiryForm.reportValidity()) return;
-
-      const fields = Object.fromEntries(new FormData(enquiryForm).entries());
-      enquiryButton.disabled = true;
-      enquiryButton.textContent = 'Sending…';
-      enquiryMessage.textContent = 'Sending your enquiry…';
-
-      try {
-        const response = await fetch('/api/enquiry', {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({ ...fields, startedAt: enquiryStartedAt }),
-        });
-        const result = await response.json();
-        if (!response.ok) throw new Error(result.error || 'Your enquiry could not be sent.');
-
-        enquiryForm.reset();
-        enquiryStartedAt = Date.now();
-        enquiryMessage.className = 'form-message success';
-        enquiryMessage.textContent = 'Thanks! Your enquiry has been sent to Jaraad Ramsey PT.';
-      } catch (error) {
-        enquiryMessage.className = 'form-message error';
-        enquiryMessage.textContent = error.message || 'Your enquiry could not be sent. Please try again.';
-      } finally {
-        enquiryButton.disabled = false;
-        enquiryButton.textContent = 'Submit enquiry';
-      }
-    });
-  </script>
-</body>
+    <script type="module" src="/assets/site.js"></script>
+    <script type="module" src="/assets/training.js"></script>
+  </body>
 </html>
