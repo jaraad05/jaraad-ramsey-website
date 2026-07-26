@@ -88,6 +88,76 @@ document.querySelectorAll("[data-accordion-button]").forEach((button) => {
   });
 });
 
+document.querySelectorAll("[data-app-gallery]").forEach((gallery) => {
+  const slides = Array.from(gallery.querySelectorAll("[data-app-slide]"));
+  const showcase = gallery.closest(".app-mobile-showcase");
+  const dots = Array.from(showcase?.querySelectorAll("[data-app-gallery-dot]") ?? []);
+  let activeIndex = 0;
+  let scrollTimer;
+
+  function setActiveSlide(index) {
+    activeIndex = Math.max(0, Math.min(index, slides.length - 1));
+    dots.forEach((dot, dotIndex) => {
+      dot.setAttribute("aria-pressed", String(dotIndex === activeIndex));
+    });
+  }
+
+  function scrollToSlide(index) {
+    const nextIndex = Math.max(0, Math.min(index, slides.length - 1));
+    const slide = slides[nextIndex];
+    if (!slide) return;
+
+    const left = slide.offsetLeft - (gallery.clientWidth - slide.clientWidth) / 2;
+    gallery.scrollTo({
+      left,
+      behavior: reducedMotion.matches ? "auto" : "smooth",
+    });
+    setActiveSlide(nextIndex);
+  }
+
+  function updateFromScroll() {
+    const galleryCenter = gallery.scrollLeft + gallery.clientWidth / 2;
+    const nearestIndex = slides.reduce((nearest, slide, index) => {
+      const slideCenter = slide.offsetLeft + slide.clientWidth / 2;
+      const nearestSlide = slides[nearest];
+      const nearestCenter = nearestSlide.offsetLeft + nearestSlide.clientWidth / 2;
+      return Math.abs(slideCenter - galleryCenter) < Math.abs(nearestCenter - galleryCenter)
+        ? index
+        : nearest;
+    }, 0);
+
+    setActiveSlide(nearestIndex);
+  }
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => scrollToSlide(index));
+  });
+
+  gallery.addEventListener("keydown", (event) => {
+    const keyTargets = {
+      ArrowLeft: activeIndex - 1,
+      ArrowRight: activeIndex + 1,
+      Home: 0,
+      End: slides.length - 1,
+    };
+
+    if (!(event.key in keyTargets)) return;
+    event.preventDefault();
+    scrollToSlide(keyTargets[event.key]);
+  });
+
+  gallery.addEventListener(
+    "scroll",
+    () => {
+      window.clearTimeout(scrollTimer);
+      scrollTimer = window.setTimeout(updateFromScroll, 80);
+    },
+    { passive: true },
+  );
+
+  setActiveSlide(0);
+});
+
 let activeDialogTrigger = null;
 
 document.querySelectorAll("[data-dialog-open]").forEach((trigger) => {
