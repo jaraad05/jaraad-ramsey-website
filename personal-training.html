@@ -628,6 +628,111 @@
         </div>
       </section>
 
+      <section class="section coaching-tiers-section" id="coaching-tiers" aria-labelledby="tiers-heading">
+        <div class="container">
+          <div class="section-header" data-reveal>
+            <div>
+              <span class="eyebrow">Coaching tiers</span>
+              <h2 id="tiers-heading">Choose the level of support you want.</h2>
+            </div>
+            <p>
+              Every tier includes one-on-one coaching and access to the client app I built. The
+              difference is how often we speak and how much in-person time is included.
+            </p>
+          </div>
+
+          <div class="coaching-tier-grid">
+            <article class="coaching-tier-card" data-reveal aria-labelledby="tier-one-heading">
+              <span class="coaching-tier-number">Tier 01</span>
+              <h3 id="tier-one-heading">One-on-One Coaching</h3>
+              <p class="coaching-tier-price">
+                <strong>$100</strong>
+                <span>AUD / month</span>
+              </p>
+              <p class="coaching-tier-summary">
+                Personal coaching, direct support and the tools needed to keep your plan moving.
+              </p>
+              <ul class="coaching-tier-features">
+                <li>Personalised one-on-one coaching</li>
+                <li>Proprietary client app included</li>
+                <li>Unlimited text support</li>
+                <li>One booked video call every month</li>
+                <li>Option to book one-on-one in-person sessions</li>
+              </ul>
+              <a
+                class="button button-secondary"
+                href="#enquire"
+                aria-label="Enquire about Tier One coaching"
+              >
+                Enquire About Tier One
+              </a>
+            </article>
+
+            <article
+              class="coaching-tier-card coaching-tier-card-priority"
+              data-reveal
+              aria-labelledby="tier-two-heading"
+            >
+              <span class="coaching-tier-number">Tier 02</span>
+              <h3 id="tier-two-heading">Priority Coaching</h3>
+              <p class="coaching-tier-price">
+                <strong>$250</strong>
+                <span>AUD / month</span>
+              </p>
+              <p class="coaching-tier-summary">
+                More scheduled contact, priority replies and a monthly session together in person.
+              </p>
+              <ul class="coaching-tier-features">
+                <li>Everything included in Tier One</li>
+                <li>One in-person training session every month</li>
+                <li>Priority replies through my work phone</li>
+                <li>Four booked video calls every month</li>
+              </ul>
+              <a
+                class="button button-primary"
+                href="#enquire"
+                aria-label="Enquire about Tier Two coaching"
+              >
+                Enquire About Tier Two
+              </a>
+            </article>
+
+            <article class="coaching-tier-card" data-reveal aria-labelledby="tier-three-heading">
+              <span class="coaching-tier-number">Tier 03</span>
+              <h3 id="tier-three-heading">Weekly In-Person Coaching</h3>
+              <p class="coaching-tier-price">
+                <strong>$550</strong>
+                <span>AUD / month</span>
+              </p>
+              <p class="coaching-tier-summary">
+                The highest level of in-person support, with regular sessions and priority access.
+              </p>
+              <ul class="coaching-tier-features">
+                <li>Everything included in Tier One and Tier Two</li>
+                <li>Four in-person training sessions every month</li>
+                <li>Priority replies through my work phone</li>
+                <li>Four booked video calls every month</li>
+              </ul>
+              <a
+                class="button button-secondary"
+                href="#enquire"
+                aria-label="Enquire about Tier Three coaching"
+              >
+                Enquire About Tier Three
+              </a>
+            </article>
+          </div>
+
+          <div class="coaching-tier-payment-note" data-reveal>
+            <span class="mono-label">How payment works</span>
+            <p>
+              Start with an enquiry. If coaching is a good fit after the introductory call, I will send
+              you the secure Stripe payment link for your chosen tier.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section class="section section-tint" id="my-transformation" aria-labelledby="story-heading">
         <div class="container transformation-layout">
           <div class="transformation-images" data-reveal>
@@ -1182,8 +1287,9 @@
               </button>
               <div class="faq-answer" id="faq-payments" hidden>
                 <p>
-                  Payment happens only after the introductory call and approval. If coaching is a good
-                  fit, you receive a secure Stripe payment link by email.
+                  Choose the tier you are interested in and submit an enquiry. If coaching is a good fit
+                  after the introductory call, you receive the matching secure Stripe payment link by
+                  email.
                 </p>
               </div>
             </div>
@@ -1289,11 +1395,18 @@
                     />
                   </div>
                   <div class="field">
-                    <label for="coachingType">Preferred coaching type</label>
+                    <label for="coachingType">Preferred coaching tier</label>
                     <select id="coachingType" name="coachingType" required>
                       <option value="">Choose an option</option>
-                      <option value="Online coaching">Online coaching</option>
-                      <option value="In-person coaching">In-person coaching</option>
+                      <option value="Tier One: One-on-One Coaching ($100 per month)">
+                        Tier One: One-on-One Coaching ($100/month)
+                      </option>
+                      <option value="Tier Two: Priority Coaching ($250 per month)">
+                        Tier Two: Priority Coaching ($250/month)
+                      </option>
+                      <option value="Tier Three: Weekly In-Person Coaching ($550 per month)">
+                        Tier Three: Weekly In-Person Coaching ($550/month)
+                      </option>
                       <option value="Not sure yet">Not sure yet</option>
                     </select>
                   </div>

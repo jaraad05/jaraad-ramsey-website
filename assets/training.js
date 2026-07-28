@@ -55,7 +55,7 @@ if (enquiryForm) {
     const formData = new FormData(enquiryForm);
     const messageParts = [
       `Phone: ${formData.get("phone") || "Not provided"}`,
-      `Coaching preference: ${formData.get("coachingType")}`,
+      `Coaching tier: ${formData.get("coachingType")}`,
       `Training experience: ${formData.get("experience")}`,
       `What has been making progress difficult: ${formData.get("challenge")}`,
     ];

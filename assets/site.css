@@ -1659,6 +1659,148 @@ p {
   border-radius: 999px;
 }
 
+.coaching-tiers-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 8%, rgba(255, 217, 26, 0.055), transparent 28rem),
+    var(--bg);
+}
+
+.coaching-tier-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 14px;
+}
+
+.coaching-tier-card {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  padding: clamp(24px, 3vw, 32px);
+  background: rgba(28, 27, 27, 0.86);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.coaching-tier-card-priority {
+  background:
+    linear-gradient(160deg, rgba(255, 217, 26, 0.055), transparent 45%),
+    var(--surface);
+  border-color: rgba(255, 217, 26, 0.38);
+}
+
+.coaching-tier-card-priority::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
+  background: var(--yellow);
+  content: "";
+}
+
+.coaching-tier-number {
+  margin-bottom: 30px;
+  color: var(--yellow);
+  font-family: var(--font-label);
+  font-size: 0.66rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.coaching-tier-card h3 {
+  min-height: 2.4em;
+  margin-bottom: 14px;
+  font-size: clamp(1.35rem, 2.3vw, 1.8rem);
+}
+
+.coaching-tier-price {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  margin: 0 0 20px;
+}
+
+.coaching-tier-price strong {
+  color: var(--text);
+  font-size: clamp(3rem, 5vw, 4.2rem);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+}
+
+.coaching-tier-price span {
+  padding-bottom: 5px;
+  color: var(--text-muted);
+  font-family: var(--font-label);
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.coaching-tier-summary {
+  min-height: 4.8em;
+  margin: 0 0 24px;
+  color: var(--text-muted);
+}
+
+.coaching-tier-features {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 30px;
+  padding: 0;
+  list-style: none;
+}
+
+.coaching-tier-features li {
+  position: relative;
+  padding-left: 24px;
+  color: var(--text-standard);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.coaching-tier-features li::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--yellow);
+  content: "✓";
+  font-weight: 800;
+}
+
+.coaching-tier-card .button {
+  width: 100%;
+  margin-top: auto;
+}
+
+.coaching-tier-payment-note {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.28fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 24px;
+  margin-top: 16px;
+  padding: 20px 24px;
+  background: var(--bg-deep);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.coaching-tier-payment-note .mono-label {
+  color: var(--yellow);
+}
+
+.coaching-tier-payment-note p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
 .transformation-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.72fr);
@@ -2695,6 +2837,17 @@ p {
     width: min(100%, 760px);
     margin-inline: auto;
   }
+
+  .coaching-tier-grid {
+    width: min(100%, 760px);
+    grid-template-columns: 1fr;
+    margin-inline: auto;
+  }
+
+  .coaching-tier-card h3,
+  .coaching-tier-summary {
+    min-height: 0;
+  }
 }
 
 @media (max-width: 560px) {
@@ -2727,6 +2880,20 @@ p {
 
   .app-availability {
     padding: 20px 18px;
+  }
+
+  .coaching-tier-card {
+    padding: 24px 20px;
+  }
+
+  .coaching-tier-number {
+    margin-bottom: 24px;
+  }
+
+  .coaching-tier-payment-note {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 19px 18px;
   }
 }
 
