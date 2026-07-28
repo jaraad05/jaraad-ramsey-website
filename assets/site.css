@@ -2307,6 +2307,34 @@ p {
   transition: width 220ms ease;
 }
 
+.enquiry-tier-selection {
+  display: grid;
+  gap: 4px;
+  margin: 0 0 20px;
+  padding: 14px 16px;
+  background: rgba(255, 217, 26, 0.055);
+  border: 1px solid rgba(255, 217, 26, 0.3);
+  border-radius: var(--radius-sm);
+}
+
+.enquiry-tier-selection[hidden] {
+  display: none;
+}
+
+.enquiry-tier-selection span {
+  color: var(--yellow);
+  font-family: var(--font-label);
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.enquiry-tier-selection strong {
+  color: var(--text);
+  font-size: 0.94rem;
+}
+
 .form-step {
   display: grid;
   gap: 16px;

@@ -84,6 +84,7 @@
           <a href="#results">Results</a>
           <a href="#included">What’s Included</a>
           <a href="#recipe-reinvention">Recipe Reinvention</a>
+          <a href="#coaching-tiers">Pricing</a>
           <a href="#faq">FAQ</a>
           <a class="button button-primary" href="#enquire">Enquire</a>
         </nav>
@@ -106,6 +107,7 @@
           <a href="#results">Results</a>
           <a href="#included">What’s Included</a>
           <a href="#recipe-reinvention">Recipe Reinvention</a>
+          <a href="#coaching-tiers">Pricing</a>
           <a href="#faq">FAQ</a>
         </nav>
         <div class="mobile-menu-actions">
@@ -126,7 +128,7 @@
             </p>
             <div class="button-row">
               <a class="button button-primary" href="#enquire">Start Your Enquiry</a>
-              <a class="button button-secondary" href="#results">See Client Results</a>
+              <a class="button button-secondary" href="#results">See Case Study Results</a>
             </div>
           </div>
 
@@ -647,7 +649,7 @@
               <h3 id="tier-one-heading">One-on-One Coaching</h3>
               <p class="coaching-tier-price">
                 <strong>$100</strong>
-                <span>AUD / month</span>
+                <span>AUD / week</span>
               </p>
               <p class="coaching-tier-summary">
                 Personal coaching, direct support and the tools needed to keep your plan moving.
@@ -663,6 +665,8 @@
                 class="button button-secondary"
                 href="#enquire"
                 aria-label="Enquire about Tier One coaching"
+                data-enquiry-tier="Tier One: One-on-One Coaching ($100 per week)"
+                data-enquiry-tier-label="Tier One: One-on-One Coaching ($100/week)"
               >
                 Enquire About Tier One
               </a>
@@ -677,7 +681,7 @@
               <h3 id="tier-two-heading">Priority Coaching</h3>
               <p class="coaching-tier-price">
                 <strong>$250</strong>
-                <span>AUD / month</span>
+                <span>AUD / week</span>
               </p>
               <p class="coaching-tier-summary">
                 More scheduled contact, priority replies and a monthly session together in person.
@@ -692,6 +696,8 @@
                 class="button button-primary"
                 href="#enquire"
                 aria-label="Enquire about Tier Two coaching"
+                data-enquiry-tier="Tier Two: Priority Coaching ($250 per week)"
+                data-enquiry-tier-label="Tier Two: Priority Coaching ($250/week)"
               >
                 Enquire About Tier Two
               </a>
@@ -702,7 +708,7 @@
               <h3 id="tier-three-heading">Weekly In-Person Coaching</h3>
               <p class="coaching-tier-price">
                 <strong>$550</strong>
-                <span>AUD / month</span>
+                <span>AUD / week</span>
               </p>
               <p class="coaching-tier-summary">
                 The highest level of in-person support, with regular sessions and priority access.
@@ -717,6 +723,8 @@
                 class="button button-secondary"
                 href="#enquire"
                 aria-label="Enquire about Tier Three coaching"
+                data-enquiry-tier="Tier Three: Weekly In-Person Coaching ($550 per week)"
+                data-enquiry-tier-label="Tier Three: Weekly In-Person Coaching ($550/week)"
               >
                 Enquire About Tier Three
               </a>
@@ -792,7 +800,7 @@
         <div class="container">
           <div class="section-header" data-reveal>
             <div>
-              <span class="eyebrow cyan">Client results</span>
+              <span class="eyebrow cyan">Case study results</span>
               <h2 id="results-heading">The person matters more than the number.</h2>
             </div>
             <p>
@@ -819,7 +827,7 @@
               </figure>
               <div class="case-card-header">
                 <div>
-                  <span class="mono-label">Client case study</span>
+                  <span class="mono-label">Case study</span>
                   <h3>Anton</h3>
                 </div>
                 <span class="case-result">Approx. 25 kg lost</span>
@@ -871,7 +879,7 @@
               </figure>
               <div class="case-card-header">
                 <div>
-                  <span class="mono-label">Client case study</span>
+                  <span class="mono-label">Case study</span>
                   <h3>Michael</h3>
                 </div>
                 <span class="case-result">23 kg lost</span>
@@ -1339,6 +1347,11 @@
                 </span>
               </div>
 
+              <p class="enquiry-tier-selection" data-enquiry-tier-selection hidden aria-live="polite">
+                <span>Enquiring about</span>
+                <strong data-enquiry-tier-selection-label></strong>
+              </p>
+
               <fieldset class="form-step" data-form-step="1">
                 <legend class="honeypot">Your contact details and main goal</legend>
                 <div class="field-grid">
@@ -1398,14 +1411,14 @@
                     <label for="coachingType">Preferred coaching tier</label>
                     <select id="coachingType" name="coachingType" required>
                       <option value="">Choose an option</option>
-                      <option value="Tier One: One-on-One Coaching ($100 per month)">
-                        Tier One: One-on-One Coaching ($100/month)
+                      <option value="Tier One: One-on-One Coaching ($100 per week)">
+                        Tier One: One-on-One Coaching ($100/week)
                       </option>
-                      <option value="Tier Two: Priority Coaching ($250 per month)">
-                        Tier Two: Priority Coaching ($250/month)
+                      <option value="Tier Two: Priority Coaching ($250 per week)">
+                        Tier Two: Priority Coaching ($250/week)
                       </option>
-                      <option value="Tier Three: Weekly In-Person Coaching ($550 per month)">
-                        Tier Three: Weekly In-Person Coaching ($550/month)
+                      <option value="Tier Three: Weekly In-Person Coaching ($550 per week)">
+                        Tier Three: Weekly In-Person Coaching ($550/week)
                       </option>
                       <option value="Not sure yet">Not sure yet</option>
                     </select>
@@ -1471,7 +1484,7 @@
             </h2>
             <div class="button-row">
               <a class="button button-primary" href="#enquire">Start Your Enquiry</a>
-              <a class="button button-secondary" href="#results">View Client Results</a>
+              <a class="button button-secondary" href="#results">View Case Study Results</a>
             </div>
           </div>
         </div>

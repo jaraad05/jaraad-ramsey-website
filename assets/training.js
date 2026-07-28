@@ -9,10 +9,34 @@ if (enquiryForm) {
   const submitButton = enquiryForm.querySelector('button[type="submit"]');
   const formMessage = enquiryForm.querySelector("[data-form-message]");
   const startedAt = enquiryForm.querySelector('input[name="startedAt"]');
+  const coachingTierSelect = enquiryForm.querySelector("#coachingType");
+  const tierSelection = enquiryForm.querySelector("[data-enquiry-tier-selection]");
+  const tierSelectionLabel = enquiryForm.querySelector("[data-enquiry-tier-selection-label]");
+  const tierButtons = document.querySelectorAll("[data-enquiry-tier]");
   let currentStep = 0;
   let submitting = false;
 
   if (startedAt) startedAt.value = String(Date.now());
+
+  function showSelectedTier(value, label) {
+    if (!tierSelection || !tierSelectionLabel) return;
+    tierSelectionLabel.textContent = label || value;
+    tierSelection.hidden = !value;
+  }
+
+  tierButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const tier = button.dataset.enquiryTier || "";
+      if (!tier || !coachingTierSelect) return;
+      coachingTierSelect.value = tier;
+      showSelectedTier(tier, button.dataset.enquiryTierLabel || tier);
+    });
+  });
+
+  coachingTierSelect?.addEventListener("change", () => {
+    const selectedOption = coachingTierSelect.options[coachingTierSelect.selectedIndex];
+    showSelectedTier(coachingTierSelect.value, selectedOption?.textContent?.trim() || "");
+  });
 
   function showStep(index) {
     currentStep = index;
