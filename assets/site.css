@@ -1850,6 +1850,10 @@ p {
   color: var(--text-muted);
 }
 
+.pricing-app-copy > p + p {
+  margin-top: 12px;
+}
+
 .pricing-app-feature-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1902,63 +1906,111 @@ p {
   text-transform: uppercase;
 }
 
+.pricing-app-note {
+  margin-top: 18px;
+  padding: 18px;
+  background: rgba(255, 217, 26, 0.035);
+  border: 1px solid rgba(255, 217, 26, 0.26);
+  border-left: 3px solid var(--yellow);
+  border-radius: var(--radius-sm);
+}
+
+.pricing-app-note strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--text);
+}
+
+.pricing-app-note p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
 .pricing-app-previews {
   display: grid;
   align-self: center;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
+  gap: 12px;
 }
 
 .pricing-app-preview {
-  display: flex;
-  min-height: 206px;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 18px;
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
   background: #171715;
   border: 1px solid var(--border);
   border-radius: 22px;
 }
 
-.pricing-app-preview:first-child {
-  grid-row: span 2;
-  min-height: 422px;
+.pricing-app-preview-dashboard {
+  grid-column: 1 / -1;
+  aspect-ratio: 1786 / 881;
 }
 
-.pricing-app-preview > span {
-  margin-bottom: 7px;
+.pricing-app-preview-dashboard > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #ffffff;
+}
+
+.pricing-app-preview-mobile {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  padding: 14px 14px 16px;
+}
+
+.pricing-app-phone-frame {
+  width: min(100%, 168px);
+  aspect-ratio: 1290 / 2796;
+  overflow: hidden;
+  background: #050504;
+  border: 1px solid rgba(255, 217, 26, 0.24);
+  border-radius: 22px;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+}
+
+.pricing-app-phone-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.pricing-app-preview figcaption {
+  display: grid;
+  width: 100%;
+  gap: 3px;
+}
+
+.pricing-app-preview-dashboard figcaption {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: auto;
+  min-width: 154px;
+  padding: 9px 11px;
+  background: rgba(14, 14, 14, 0.9);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.pricing-app-preview figcaption span {
   color: var(--yellow);
   font-family: var(--font-label);
-  font-size: 0.57rem;
+  font-size: 0.54rem;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.pricing-app-preview > strong {
+.pricing-app-preview figcaption strong {
   color: var(--text);
-  font-size: 0.92rem;
-}
-
-.pricing-app-preview > div {
-  display: grid;
-  gap: 7px;
-  margin-top: 16px;
-}
-
-.pricing-app-preview i {
-  display: block;
-  height: 8px;
-  background: #292925;
-  border-radius: 999px;
-}
-
-.pricing-app-preview i:nth-child(2) {
-  width: 76%;
-}
-
-.pricing-app-preview i:nth-child(3) {
-  width: 52%;
-  background: rgba(255, 217, 26, 0.42);
+  font-size: 0.82rem;
 }
 
 .pricing-recipe-benefit {
@@ -1969,8 +2021,8 @@ p {
   border-radius: var(--radius-lg);
 }
 
-.pricing-recipe-benefit > div {
-  max-width: 760px;
+.pricing-recipe-benefit > .recipe-feature {
+  max-width: none;
 }
 
 .pricing-recipe-benefit h3 {
@@ -1985,8 +2037,61 @@ p {
 
 .pricing-recipe-benefit .pricing-recipe-lead {
   color: var(--text);
-  font-size: 1.08rem;
+  font-size: clamp(1.18rem, 2vw, 1.45rem);
   font-weight: 700;
+}
+
+.pricing-recipe-benefit .included-badge {
+  margin-top: 0;
+}
+
+.pricing-recipe-benefit .recipe-process-step h4 {
+  margin: 10px 0 0;
+  color: var(--text);
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+
+.recipe-photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.recipe-photo-card {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  background: var(--bg-deep);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.recipe-photo-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recipe-photo-card figcaption {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  left: 8px;
+  padding: 8px 10px;
+  color: var(--text);
+  background: rgba(14, 14, 14, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  font-family: var(--font-label);
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
 }
 
 .pricing-trust {
@@ -2474,34 +2579,6 @@ p {
 
 .recipe-process-step {
   grid-template-columns: 48px minmax(0, 0.75fr) minmax(0, 1.25fr);
-}
-
-.recipe-photo-placeholders {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-top: 18px;
-}
-
-.food-placeholder {
-  display: grid;
-  min-height: 168px;
-  place-items: end start;
-  padding: 16px;
-  background:
-    linear-gradient(145deg, transparent, rgba(255, 217, 26, 0.06)),
-    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0 1px, transparent 1px 12px),
-    var(--surface);
-  border: 1px dashed var(--border-strong);
-  border-radius: var(--radius-sm);
-}
-
-.food-placeholder span {
-  color: var(--text-muted);
-  font-family: var(--font-label);
-  font-size: 0.6rem;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
 }
 
 .start-layout {
@@ -3034,7 +3111,8 @@ p {
 
   .method-step h3,
   .start-step h3,
-  .recipe-process-step h3 {
+  .recipe-process-step h3,
+  .recipe-process-step h4 {
     margin-top: 8px;
   }
 
@@ -3074,12 +3152,8 @@ p {
     max-height: 92vh;
   }
 
-  .recipe-photo-placeholders {
+  .recipe-photo-gallery {
     grid-template-columns: 1fr;
-  }
-
-  .food-placeholder {
-    min-height: 118px;
   }
 
   .field-grid {
@@ -3285,14 +3359,8 @@ p {
     grid-template-columns: 1fr 1fr;
   }
 
-  .pricing-app-preview {
-    min-height: 176px;
-  }
-
-  .pricing-app-preview:first-child {
-    min-height: 240px;
+  .pricing-app-preview-dashboard {
     grid-column: 1 / -1;
-    grid-row: auto;
   }
 
   .coaching-tier-payment-note {
@@ -3311,8 +3379,17 @@ p {
     grid-template-columns: 1fr;
   }
 
-  .pricing-app-preview:first-child {
+  .pricing-app-preview-dashboard {
     grid-column: auto;
+  }
+
+  .pricing-app-preview-dashboard,
+  .pricing-app-preview-mobile {
+    grid-column: 1;
+  }
+
+  .pricing-app-phone-frame {
+    width: min(68vw, 240px);
   }
 
   .app-gallery-slide {
