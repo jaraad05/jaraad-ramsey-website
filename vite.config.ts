@@ -18,7 +18,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         home: resolve(__dirname, "index.html"),
-        personalTraining: resolve(__dirname, "personal-training.html"),
+        resume: resolve(__dirname, "resume.html"),
+        legacyPersonalTraining: resolve(__dirname, "personal-training.html"),
       },
     },
   },

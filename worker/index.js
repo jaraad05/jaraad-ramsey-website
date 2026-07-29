@@ -134,6 +134,14 @@ async function handleEnquiry(request, env) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.pathname === "/personal-training" || url.pathname === "/personal-training.html") {
+      url.pathname = "/";
+      return Response.redirect(url, 308);
+    }
+    if (url.pathname === "/resume.html") {
+      url.pathname = "/resume";
+      return Response.redirect(url, 308);
+    }
     if (url.pathname === "/api/enquiry") {
       if (request.method !== "POST") {
         return new Response(null, {

@@ -3,23 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jaraad Ramsey | Resume and Work Experience</title>
+    <title>Jaraad Ramsey Personal Training | Training and Nutrition Coaching</title>
     <meta
       name="description"
-      content="Jaraad Ramsey is a dependable and adaptable worker based in Perth, Western Australia, with experience in technical, practical and team-based environments."
+      content="Personalised training, flexible nutrition coaching, progress tracking and practical recipe reinvention with Jaraad Ramsey."
     />
     <meta name="theme-color" content="#131313" />
     <link rel="canonical" href="https://jaraadramsey.com/" />
     <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
     <link rel="apple-touch-icon" href="/icon-192.png" />
-    <meta property="og:type" content="profile" />
-    <meta property="og:title" content="Jaraad Ramsey | Resume and Work Experience" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Jaraad Ramsey Personal Training | Training and Nutrition Coaching"
+    />
     <meta
       property="og:description"
-      content="Dependable, adaptable and ready to contribute in practical, technical and team-based work."
+      content="Personalised coaching that helps everyday people get stronger, leaner and more confident without making fitness their whole life."
     />
     <meta property="og:url" content="https://jaraadramsey.com/" />
-    <meta property="og:image" content="https://jaraadramsey.com/assets/jaraad-ramsey-portrait.webp" />
+    <meta property="og:image" content="https://jaraadramsey.com/og-training-v2.png" />
     <meta property="og:locale" content="en_AU" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -35,21 +38,31 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Jaraad Ramsey",
-        "url": "https://jaraadramsey.com/",
-        "image": "https://jaraadramsey.com/assets/jaraad-ramsey-portrait.webp",
-        "email": "mailto:jaraad05@gmail.com",
-        "telephone": "+61478417858",
-        "homeLocation": {
-          "@type": "Place",
-          "name": "Mullaloo, Western Australia"
-        },
-        "jobTitle": "Subsea Operator / Technician",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Expro"
-        }
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://jaraadramsey.com/#jaraad",
+            "name": "Jaraad Ramsey",
+            "url": "https://jaraadramsey.com/",
+            "image": "https://jaraadramsey.com/assets/jaraad-ramsey-portrait.webp",
+            "email": "mailto:jaraad05@gmail.com",
+            "telephone": "+61478417858"
+          },
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://jaraadramsey.com/#service",
+            "name": "Jaraad Ramsey Personal Training",
+            "url": "https://jaraadramsey.com/",
+            "description": "Personalised training and flexible nutrition coaching for everyday people.",
+            "founder": {
+              "@id": "https://jaraadramsey.com/#jaraad"
+            },
+            "areaServed": {
+              "@type": "Place",
+              "name": "Perth, Western Australia"
+            }
+          }
+        ]
       }
     </script>
   </head>
@@ -58,20 +71,22 @@
 
     <header class="site-header" data-site-header>
       <div class="container header-inner">
-        <a class="brand" href="/" aria-label="Jaraad Ramsey home">
+        <a class="brand" href="/" aria-label="Jaraad Ramsey Personal Training home">
           <span class="brand-mark" aria-hidden="true">JR</span>
           <span class="brand-copy">
             Jaraad Ramsey
-            <small>Resume and work experience</small>
+            <small>Personal Training</small>
           </span>
         </a>
 
-        <nav class="desktop-nav" aria-label="Primary navigation">
-          <a href="#experience">Experience</a>
-          <a href="#strengths">Strengths</a>
-          <a href="#availability">Availability</a>
-          <a href="/Jaraad-Ramsey-Resume-2026.pdf" target="_blank" rel="noopener">View Resume</a>
-          <a class="button button-primary" href="#contact">Contact</a>
+        <nav class="desktop-nav" aria-label="Personal training navigation">
+          <a href="#coaching-method">Coaching</a>
+          <a href="#results">Results</a>
+          <a href="#included">What’s Included</a>
+          <a href="#recipe-reinvention">Recipe Reinvention</a>
+          <a href="#coaching-tiers">Pricing</a>
+          <a href="#faq">FAQ</a>
+          <a class="button button-primary" href="#enquire">Enquire</a>
         </nav>
 
         <button
@@ -88,264 +103,1274 @@
 
       <div class="mobile-menu" id="mobile-navigation" data-mobile-menu>
         <nav aria-label="Mobile navigation">
-          <a href="#experience">Experience</a>
-          <a href="#strengths">Strengths</a>
-          <a href="#availability">Availability</a>
-          <a href="/Jaraad-Ramsey-Resume-2026.pdf" target="_blank" rel="noopener">View Resume</a>
-          <a href="/personal-training">Personal Training</a>
+          <a href="#coaching-method">Coaching</a>
+          <a href="#results">Results</a>
+          <a href="#included">What’s Included</a>
+          <a href="#recipe-reinvention">Recipe Reinvention</a>
+          <a href="#coaching-tiers">Pricing</a>
+          <a href="#faq">FAQ</a>
         </nav>
         <div class="mobile-menu-actions">
-          <a class="button button-primary" href="#contact">Contact Jaraad</a>
-          <a class="button button-secondary" href="tel:+61478417858">Call 0478 417 858</a>
+          <a class="button button-primary" href="#enquire">Start Your Enquiry</a>
         </div>
       </div>
     </header>
 
     <main id="main-content">
-      <section class="resume-hero" aria-labelledby="resume-heading">
-        <div class="container resume-hero-grid">
-          <div class="resume-hero-copy" data-reveal>
-            <span class="eyebrow">Available immediately in Mullaloo, WA</span>
-            <h1 id="resume-heading">Reliable. <span>Capable.</span> Ready to Work.</h1>
+      <section class="training-hero" aria-labelledby="training-heading">
+        <div class="container training-hero-grid">
+          <div data-reveal>
+            <span class="eyebrow">Personalised training and nutrition</span>
+            <h1 id="training-heading">Build a stronger body without making fitness your entire life.</h1>
             <p class="lead">
-              I am Jaraad Ramsey, an adaptable and dependable worker with experience in practical,
-              technical and team-based environments. I learn workplace systems quickly, communicate
-              clearly and take responsibility for getting the job done properly.
+              I help everyday people become stronger, leaner and more confident through personalised
+              training, flexible nutrition and practical systems they can sustain.
             </p>
             <div class="button-row">
-              <a class="button button-primary" href="mailto:jaraad05@gmail.com">Contact Jaraad</a>
+              <a class="button button-primary" href="#enquire">Start Your Enquiry</a>
+              <a class="button button-secondary" href="#results">See Case Study Results</a>
+            </div>
+          </div>
+
+          <div class="training-hero-visual" data-reveal>
+            <div class="training-hero-main">
+              <img
+                src="/assets/hero/jaraad-training-hero.jpg"
+                width="1290"
+                height="1720"
+                alt="Jaraad Ramsey"
+                fetchpriority="high"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="What coaching includes">
+        <div class="container">
+          <ul class="trust-list">
+            <li><span>01</span>Personalised training</li>
+            <li><span>02</span>Flexible nutrition</li>
+            <li><span>03</span>Weekly accountability</li>
+            <li><span>04</span>Purpose-built coaching app</li>
+            <li><span>05</span>Recipe reinvention</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="coaching" aria-labelledby="audience-heading">
+        <div class="container audience-layout">
+          <div class="audience-intro" data-reveal>
+            <span class="eyebrow">Who this is for</span>
+            <h2 id="audience-heading">You want progress that still fits normal life.</h2>
+            <p class="lead">
+              Coaching is built around the person in front of me. You do not need to already feel fit,
+              confident or comfortable in a gym.
+            </p>
+          </div>
+
+          <div class="audience-list">
+            <article class="audience-item" data-reveal>
+              <span class="audience-item-number">01</span>
+              <div>
+                <h3>You want to lose fat without cutting out every food you enjoy.</h3>
+                <p>Nutrition should give you structure without making meals stressful or isolating.</p>
+              </div>
+            </article>
+            <article class="audience-item" data-reveal>
+              <span class="audience-item-number">02</span>
+              <div>
+                <h3>You want a clear gym plan instead of guessing.</h3>
+                <p>You will know what to do, how to track it and when your program needs to change.</p>
+              </div>
+            </article>
+            <article class="audience-item" data-reveal>
+              <span class="audience-item-number">03</span>
+              <div>
+                <h3>You keep starting, stopping and losing momentum.</h3>
+                <p>Weekly accountability helps turn short bursts of motivation into repeatable habits.</p>
+              </div>
+            </article>
+            <article class="audience-item" data-reveal>
+              <span class="audience-item-number">04</span>
+              <div>
+                <h3>You want support without being judged.</h3>
+                <p>The plan meets you where you are and progresses at a pace you can handle.</p>
+              </div>
+            </article>
+            <article class="audience-item" data-reveal>
+              <span class="audience-item-number">05</span>
+              <div>
+                <h3>You want fitness to work around your life.</h3>
+                <p>Work, family, gaming, social meals and imperfect weeks are part of the plan.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section section-tint"
+        id="coaching-method"
+        aria-labelledby="coaching-method-heading"
+      >
+        <div class="container">
+          <div class="section-header" data-reveal>
+            <div>
+              <span class="eyebrow">How coaching works</span>
+              <h2 id="coaching-method-heading">A plan that keeps adapting with you.</h2>
+            </div>
+            <p>
+              We start with your goals, current ability and normal week. From there, the plan is built,
+              tracked and adjusted around what is actually happening.
+            </p>
+          </div>
+
+          <ol class="method-list">
+            <li class="method-step" data-reveal>
+              <span class="step-marker">01</span>
+              <h3>Understand you</h3>
+              <p>
+                We begin with an initial consultation to understand your goals, training history,
+                routine, food preferences and anything that needs to be worked around.
+              </p>
+            </li>
+            <li class="method-step" data-reveal>
+              <span class="step-marker">02</span>
+              <h3>Build the plan</h3>
+              <p>
+                You receive individual training, nutrition targets and realistic habits designed around
+                your experience, schedule and equipment access.
+              </p>
+            </li>
+            <li class="method-step" data-reveal>
+              <span class="step-marker">03</span>
+              <h3>Track what matters</h3>
+              <p>
+                Workouts, food, measurements and progress photos can be recorded in your coaching
+                platform so decisions are based on useful information, not guesswork.
+              </p>
+            </li>
+            <li class="method-step" data-reveal>
+              <span class="step-marker">04</span>
+              <h3>Adjust and progress</h3>
+              <p>
+                Weekly reviews and ongoing accountability show what is working. Training, targets and
+                habits are adjusted when your performance or circumstances change.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section" id="included" aria-labelledby="included-heading">
+        <div class="container">
+          <div class="section-header" data-reveal>
+            <div>
+              <span class="eyebrow">What’s included</span>
+              <h2 id="included-heading">The structure and support to keep moving.</h2>
+            </div>
+            <p>
+              Everything has a purpose: make the next step clear, show what is changing and keep the plan
+              useful when life gets busy.
+            </p>
+          </div>
+
+          <div class="included-layout">
+            <article class="included-group" data-reveal>
+              <span class="mono-label">Training</span>
+              <h3>Your individual program</h3>
+              <ul class="check-list">
+                <li>Personalised workout programming</li>
+                <li>Exercise tracking</li>
+                <li>Workout history</li>
+                <li>Adjustments based on performance</li>
+              </ul>
+            </article>
+            <article class="included-group" data-reveal>
+              <span class="mono-label">Nutrition</span>
+              <h3>Flexible targets and meals</h3>
+              <ul class="check-list">
+                <li>Calorie and nutrition targets</li>
+                <li>Food and nutrition tracking</li>
+                <li>Trainer nutrition notes</li>
+                <li>Personalised recipe reinvention</li>
+              </ul>
+            </article>
+            <article class="included-group" data-reveal>
+              <span class="mono-label">Progress</span>
+              <h3>Accountability that is useful</h3>
+              <ul class="check-list">
+                <li>Weekly progress review</li>
+                <li>Progress measurements</li>
+                <li>Weekly progress photos</li>
+                <li>Program and target adjustments</li>
+              </ul>
+            </article>
+          </div>
+
+        </div>
+      </section>
+
+
+      <section class="section coaching-tiers-section" id="coaching-tiers" aria-labelledby="tiers-heading">
+        <div class="container">
+          <div class="pricing-section-header" data-reveal>
+            <span class="eyebrow">Coaching plans</span>
+            <h2 id="tiers-heading">Choose how much coaching and support you want.</h2>
+            <p>
+              Every plan combines personalised coaching, accountability, practical nutrition support
+              and access to the software I built for my clients. Choose the level of access and
+              face-to-face support that fits you.
+            </p>
+          </div>
+
+          <div class="coaching-tier-grid">
+            <article class="coaching-tier-card" data-reveal aria-labelledby="tier-one-heading">
+              <span class="coaching-tier-number">Tier 01</span>
+              <h3 id="tier-one-heading">Online Coaching</h3>
+              <p class="coaching-tier-price">
+                <strong>$199</strong>
+                <span>AUD / month</span>
+              </p>
+              <p class="coaching-tier-summary">
+                Perfect for busy people who want expert coaching wherever they are.
+              </p>
+              <ul class="coaching-tier-features">
+                <li>Training designed specifically around your goals, schedule and equipment</li>
+                <li>Personalised nutrition coaching with recipe reinventions that fit your lifestyle</li>
+                <li>Full access to my proprietary coaching app, with no extra subscription</li>
+                <li>Weekly check-ins that create structure and accountability</li>
+                <li>Direct coach access for questions, accountability and support, fair use</li>
+                <li>One 30-minute coaching review every month to keep your progress moving</li>
+              </ul>
+              <p class="coaching-tier-outcome">
+                <span>Designed for</span>
+                Everything you need to transform your physique from anywhere.
+              </p>
               <a
                 class="button button-secondary"
-                href="/Jaraad-Ramsey-Resume-2026.pdf"
-                target="_blank"
-                rel="noopener"
+                href="#enquire"
+                aria-label="Enquire about Online Coaching"
+                data-enquiry-tier="Tier One: Online Coaching ($199 per month)"
+                data-enquiry-tier-label="Online Coaching ($199/month)"
               >
-                View Resume
+                Enquire About Online Coaching
               </a>
+            </article>
+
+            <article class="coaching-tier-card" data-reveal aria-labelledby="tier-two-heading">
+              <span class="coaching-tier-number">Tier 02</span>
+              <h3 id="tier-two-heading">Hybrid Coaching</h3>
+              <p class="coaching-tier-price">
+                <strong>$349</strong>
+                <span>AUD / month</span>
+              </p>
+              <p class="coaching-tier-summary">
+                Ideal for clients who want online convenience with regular in-person accountability.
+              </p>
+              <ul class="coaching-tier-features">
+                <li>Everything included in Online Coaching</li>
+                <li>Two monthly in-person coaching sessions for technique and confidence</li>
+                <li>Hands-on exercise coaching and form corrections</li>
+                <li>Faster coach responses when you need direction</li>
+                <li>Priority scheduling for greater convenience</li>
+              </ul>
+              <p class="coaching-tier-outcome">
+                <span>Designed for</span>
+                The perfect balance between online coaching and face-to-face accountability.
+              </p>
+              <a
+                class="button button-secondary"
+                href="#enquire"
+                aria-label="Enquire about Hybrid Coaching"
+                data-enquiry-tier="Tier Two: Hybrid Coaching ($349 per month)"
+                data-enquiry-tier-label="Hybrid Coaching ($349/month)"
+              >
+                Enquire About Hybrid Coaching
+              </a>
+            </article>
+
+            <article
+              class="coaching-tier-card coaching-tier-card-premium"
+              data-reveal
+              aria-labelledby="tier-three-heading"
+            >
+              <div class="coaching-tier-topline">
+                <span class="coaching-tier-number">Tier 03</span>
+                <span class="coaching-tier-badge">Maximum support</span>
+              </div>
+              <h3 id="tier-three-heading">Premium Coaching</h3>
+              <p class="coaching-tier-price">
+                <strong>$649</strong>
+                <span>AUD / month</span>
+              </p>
+              <p class="coaching-tier-summary">
+                My highest level of coaching for maximum accountability and a fully personalised experience.
+              </p>
+              <ul class="coaching-tier-features">
+                <li>Everything included in Hybrid Coaching</li>
+                <li>Four monthly in-person coaching sessions for consistent hands-on support</li>
+                <li>Highest priority coach access and accountability</li>
+                <li>Weekly progress reviews with proactive adjustments</li>
+                <li>Ongoing recipe reinvention support built around the foods you love</li>
+                <li>Quarterly goal planning to keep the long-term direction clear</li>
+                <li>My most personalised level of coaching</li>
+              </ul>
+              <p class="coaching-tier-outcome">
+                <span>Designed for</span>
+                My complete coaching experience with maximum support.
+              </p>
+              <a
+                class="button button-primary"
+                href="#enquire"
+                aria-label="Enquire about Premium Coaching"
+                data-enquiry-tier="Tier Three: Premium Coaching ($649 per month)"
+                data-enquiry-tier-label="Premium Coaching ($649/month)"
+              >
+                Enquire About Premium Coaching
+              </a>
+            </article>
+          </div>
+
+          <div
+            class="pricing-app-included"
+            id="coaching-app"
+            data-reveal
+            aria-labelledby="pricing-app-heading"
+          >
+            <div class="pricing-app-copy">
+              <span class="eyebrow">Included in every plan</span>
+              <h3 id="pricing-app-heading">Every coaching plan includes my proprietary coaching app</h3>
+              <p>
+                Most trainers rely on generic third-party platforms. I designed and coded my own
+                client app around the coaching experience I wanted to provide, bringing workouts,
+                nutrition, progress and feedback into one simple system.
+              </p>
+              <p>
+                Everything you record syncs back to my coaching dashboard, helping me review what is
+                happening between sessions and make informed adjustments.
+              </p>
+
+              <div class="pricing-app-feature-grid" role="list" aria-label="Included app tools">
+                <div role="listitem"><span aria-hidden="true">↗</span><strong>Workout Tracking</strong></div>
+                <div role="listitem"><span aria-hidden="true">◒</span><strong>Nutrition Tracking</strong></div>
+                <div role="listitem"><span aria-hidden="true">▦</span><strong>Progress Dashboard</strong></div>
+                <div role="listitem"><span aria-hidden="true">✓</span><strong>Weekly Check-ins</strong></div>
+                <div role="listitem"><span aria-hidden="true">∞</span><strong>Habit Tracking</strong></div>
+                <div role="listitem"><span aria-hidden="true">◇</span><strong>Progress Photos</strong></div>
+                <div role="listitem"><span aria-hidden="true">•••</span><strong>Direct Messaging</strong></div>
+                <div class="pricing-app-feature-coming" role="listitem">
+                  <span aria-hidden="true">AI</span>
+                  <strong>AI Meal Estimation <small>Coming soon</small></strong>
+                </div>
+                <div role="listitem"><span aria-hidden="true">PR</span><strong>Personal Records</strong></div>
+                <div role="listitem"><span aria-hidden="true">◎</span><strong>Goal Tracking</strong></div>
+              </div>
+
+              <div class="pricing-app-note">
+                <strong>No additional app subscription</strong>
+                <p>
+                  Access is included in your coaching. You will not need to pay separately for a
+                  workout tracker, nutrition tracker or third-party coaching platform.
+                </p>
+              </div>
             </div>
-            <ul class="hero-proof" aria-label="Current details">
-              <li>Seeking part-time employment</li>
-              <li>Certificate III and IV in Fitness in progress</li>
-              <li>Based in Mullaloo, Perth</li>
+
+            <div class="pricing-app-previews" aria-label="JR Coaching software screenshots">
+              <figure class="pricing-app-preview pricing-app-preview-dashboard">
+                <img
+                  src="/assets/client-app/coach-dashboard.png"
+                  width="1786"
+                  height="881"
+                  alt="JR Coaching trainer dashboard showing client, workout and nutrition summaries"
+                  loading="lazy"
+                  decoding="async"
+                >
+                <figcaption>
+                  <span>Coach Console</span>
+                  <strong>Progress Dashboard</strong>
+                </figcaption>
+              </figure>
+
+              <figure class="pricing-app-preview pricing-app-preview-mobile">
+                <div class="pricing-app-phone-frame">
+                  <img
+                    src="/assets/client-app/client-app-nutrition.png"
+                    width="1290"
+                    height="2796"
+                    alt="JR Coaching calorie and nutrition tracker"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                </div>
+                <figcaption>
+                  <span>Client App</span>
+                  <strong>Calorie Tracker</strong>
+                </figcaption>
+              </figure>
+
+              <figure class="pricing-app-preview pricing-app-preview-mobile">
+                <div class="pricing-app-phone-frame">
+                  <img
+                    src="/assets/client-app/client-app-workouts.png"
+                    width="1290"
+                    height="2796"
+                    alt="JR Coaching workout tracker showing an active workout and assigned routines"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                </div>
+                <figcaption>
+                  <span>Client App</span>
+                  <strong>Workout Tracker</strong>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div
+            class="pricing-recipe-benefit"
+            id="recipe-reinvention"
+            data-reveal
+            aria-labelledby="pricing-recipe-heading"
+          >
+            <div class="recipe-feature">
+              <div class="recipe-intro">
+              <span class="eyebrow">A better way to eat</span>
+              <h3 id="pricing-recipe-heading">Recipe Reinvention</h3>
+                <span class="included-badge">Included in coaching</span>
+                <p class="pricing-recipe-lead">Keep the meals you love.</p>
+              <p>
+                  You should not have to abandon your favourite meals and replace them with completely
+                  different “fitness” versions. We keep the identity of the meal, then adjust
+                  ingredients, portions and preparation so it fits your goals more comfortably.
+              </p>
+                <div class="recipe-example">
+                  <strong>The Big Mac example</strong>
+                  <p>
+                    If you love a Big Mac, the answer is not automatically a Big Mac bowl. The goal is
+                    to recreate an actual burger that still feels and tastes like the meal you enjoy.
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <ol class="recipe-process">
+                  <li class="recipe-process-step">
+                    <span class="step-marker">01</span>
+                    <h4>Choose the meal</h4>
+                    <p>You pick a favourite meal, takeaway order or family recipe you genuinely enjoy.</p>
+                  </li>
+                  <li class="recipe-process-step">
+                    <span class="step-marker">02</span>
+                    <h4>Understand what matters</h4>
+                    <p>
+                      I identify the flavour, texture and experience that must be preserved.
+                    </p>
+                  </li>
+                  <li class="recipe-process-step">
+                    <span class="step-marker">03</span>
+                    <h4>Adjust the recipe</h4>
+                    <p>
+                      Ingredients, portions and preparation change carefully while the meal stays
+                      recognisable.
+                    </p>
+                  </li>
+                  <li class="recipe-process-step">
+                    <span class="step-marker">04</span>
+                    <h4>Cook and taste</h4>
+                    <p>You judge the updated recipe as food, not just as a set of numbers.</p>
+                  </li>
+                  <li class="recipe-process-step">
+                    <span class="step-marker">05</span>
+                    <h4>Refine it together</h4>
+                    <p>We use your feedback to improve the taste, serving size or preparation.</p>
+                  </li>
+                  <li class="recipe-process-step">
+                    <span class="step-marker">06</span>
+                    <h4>Make it repeatable</h4>
+                    <p>The finished recipe becomes part of your normal nutrition system.</p>
+                  </li>
+                </ol>
+
+                <div class="recipe-photo-gallery" aria-label="Real Recipe Reinvention meals">
+                  <figure class="recipe-photo-card">
+                    <img
+                      src="/assets/recipe-reinvention/real-burger.jpg"
+                      width="1600"
+                      height="1200"
+                      alt="Two homemade burgers reinvented around a client's nutrition goals"
+                      loading="lazy"
+                      decoding="async"
+                    >
+                    <figcaption>Real burger</figcaption>
+                  </figure>
+                  <figure class="recipe-photo-card">
+                    <img
+                      src="/assets/recipe-reinvention/steak-and-fries.jpg"
+                      width="1600"
+                      height="1200"
+                      alt="Two plates of steak, seasoned fries and broccolini"
+                      loading="lazy"
+                      decoding="async"
+                    >
+                    <figcaption>Steak and fries</figcaption>
+                  </figure>
+                  <figure class="recipe-photo-card">
+                    <img
+                      src="/assets/recipe-reinvention/family-meal.jpg"
+                      width="1600"
+                      height="1200"
+                      alt="A hearty family meal with chicken, eggs, vegetables and chilli"
+                      loading="lazy"
+                      decoding="async"
+                    >
+                    <figcaption>Real family meal</figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pricing-trust" data-reveal>
+            <div>
+              <span class="eyebrow">Why JR Coaching</span>
+              <h3>Why clients choose JR Coaching</h3>
+            </div>
+            <ul>
+              <li>
+                <span aria-hidden="true">∆</span>
+                <div><strong>Evidence-based coaching</strong><small>Progress-led decisions without guesswork.</small></div>
+              </li>
+              <li>
+                <span aria-hidden="true">⌘</span>
+                <div><strong>Proprietary coaching software</strong><small>Everything organised in one connected system.</small></div>
+              </li>
+              <li>
+                <span aria-hidden="true">◎</span>
+                <div><strong>Personalised programming</strong><small>Training shaped around your real life and goals.</small></div>
+              </li>
+              <li>
+                <span aria-hidden="true">◒</span>
+                <div><strong>Recipe reinvention philosophy</strong><small>Keep the meals you love without unnecessary restriction.</small></div>
+              </li>
+              <li>
+                <span aria-hidden="true">∞</span>
+                <div><strong>Sustainable long-term results</strong><small>Systems you can understand and continue using.</small></div>
+              </li>
+              <li>
+                <span aria-hidden="true">•••</span>
+                <div><strong>Direct access to your coach</strong><small>Real support, accountability and clear answers.</small></div>
+              </li>
             </ul>
           </div>
 
-          <figure class="portrait-frame" data-reveal>
-            <img
-              src="/assets/jaraad-ramsey-portrait.webp"
-              width="1086"
-              height="1448"
-              alt="Jaraad Ramsey"
-              fetchpriority="high"
-            />
-            <figcaption class="portrait-caption">
-              <strong>Jaraad Ramsey</strong>
-              <span>Mullaloo, Western Australia</span>
-            </figcaption>
+          <div class="coaching-tier-payment-note" data-reveal>
+            <span class="mono-label">How payment works</span>
+            <p>
+              Start with an enquiry. If coaching is a good fit after the introductory call, I will send
+              you the secure Stripe payment link for your chosen tier.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-tint" id="my-transformation" aria-labelledby="story-heading">
+        <div class="container transformation-layout">
+          <div class="transformation-images" data-reveal>
+            <figure class="image-frame">
+              <img
+                src="/assets/case-studies/my-transformation-before.webp"
+                width="1350"
+                height="1800"
+                alt="Jaraad at 80 kilograms in August 2024"
+                loading="lazy"
+              />
+              <figcaption>Before · August 2024 · 80 kg</figcaption>
+            </figure>
+            <figure class="image-frame">
+              <img
+                src="/assets/case-studies/my-transformation-after.webp"
+                width="1040"
+                height="1800"
+                alt="Jaraad at 68 kilograms after building consistent training and nutrition habits"
+                loading="lazy"
+              />
+              <figcaption>Progress · 68 kg</figcaption>
+            </figure>
+          </div>
+
+          <div class="transformation-story" data-reveal>
+            <span class="eyebrow">My transformation</span>
+            <h2 id="story-heading">I know what it takes to build this into real life.</h2>
+            <p>
+              I started at 80 kg in August 2024 and reached 68 kg through consistent training, food
+              tracking and a system I could keep following. I learned how to diet without treating food
+              as the enemy, how to train with purpose and how to make decisions from progress data.
+            </p>
+            <p>
+              That experience shapes the way I coach. The goal is not to make your week perfect. It is to
+              build a practical system you understand well enough to keep using.
+            </p>
+            <div class="metric-row" aria-label="Jaraad's transformation results">
+              <div class="metric">
+                <strong>80 kg</strong>
+                <span class="metric-label">Starting weight</span>
+              </div>
+              <div class="metric">
+                <strong>68 kg</strong>
+                <span class="metric-label">Progress weight</span>
+              </div>
+              <div class="metric">
+                <strong>12 kg</strong>
+                <span class="metric-label">Total change</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="results" aria-labelledby="results-heading">
+        <div class="container">
+          <div class="section-header" data-reveal>
+            <div>
+              <span class="eyebrow cyan">Case study results</span>
+              <h2 id="results-heading">The person matters more than the number.</h2>
+            </div>
+            <p>
+              Anton and Michael began in different places, but both needed a clear plan, useful
+              accountability and a way to keep going without overcomplicating fitness.
+            </p>
+          </div>
+
+          <div class="results-grid">
+            <article class="case-card" data-reveal>
+              <figure class="case-photo-comparison" aria-label="Anton before and progress photos">
+                <div>
+                  <span>Before</span>
+                  <img
+                    src="/assets/case-studies/anton-before.jpg"
+                    width="1182"
+                    height="1330"
+                    alt="Anton before coaching, shown from the chin down for privacy"
+                    loading="lazy"
+                  />
+                </div>
+                <div>
+                  <span>Progress</span>
+                  <img
+                    src="/assets/case-studies/anton-progress.jpg"
+                    width="1182"
+                    height="1330"
+                    alt="Anton’s progress, shown from the chin down for privacy"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>Anton · Before and progress</figcaption>
+              </figure>
+              <div class="case-card-header">
+                <div>
+                  <span class="mono-label">Case study</span>
+                  <h3>Anton</h3>
+                </div>
+                <span class="case-result">Approx. 25 kg lost</span>
+              </div>
+              <div class="case-meta">
+                <div>
+                  <span>Starting point</span>
+                  <strong>Approx. 105 kg</strong>
+                </div>
+                <div>
+                  <span>Progress</span>
+                  <strong>Approx. 80 kg</strong>
+                </div>
+                <div>
+                  <span>Timeframe</span>
+                  <strong>Two years</strong>
+                </div>
+                <div>
+                  <span>Main goal</span>
+                  <strong>Lose fat and simplify fitness</strong>
+                </div>
+              </div>
+              <p class="case-summary">
+                Anton moved from constantly researching training and nutrition to understanding the
+                foundations well enough to make confident decisions for himself.
+              </p>
+              <blockquote class="case-quote">
+                “Once I understood the foundations, fitness and nutrition stopped feeling complicated.”
+              </blockquote>
+              <button class="button button-secondary" type="button" data-dialog-open="anton-case">
+                Read Anton’s Story
+              </button>
+            </article>
+
+            <article class="case-card" id="michael" data-reveal>
+              <figure
+                class="case-photo-placeholder"
+                aria-label="Michael before and progress photos coming soon"
+              >
+                <div>
+                  <span>Before</span>
+                  <strong aria-hidden="true">M</strong>
+                </div>
+                <div>
+                  <span>Progress</span>
+                  <strong aria-hidden="true">M</strong>
+                </div>
+                <figcaption>Michael photos coming soon</figcaption>
+              </figure>
+              <div class="case-card-header">
+                <div>
+                  <span class="mono-label">Case study</span>
+                  <h3>Michael</h3>
+                </div>
+                <span class="case-result">23 kg lost</span>
+              </div>
+              <div class="case-meta">
+                <div>
+                  <span>Starting point</span>
+                  <strong>100 kg</strong>
+                </div>
+                <div>
+                  <span>Progress</span>
+                  <strong>77 kg</strong>
+                </div>
+                <div>
+                  <span>Timeframe</span>
+                  <strong>Approx. one year</strong>
+                </div>
+                <div>
+                  <span>Main goal</span>
+                  <strong>Get leaner and stronger</strong>
+                </div>
+              </div>
+              <p class="case-summary">
+                Michael began with very little motivation and needed his program to work around a
+                previous back surgery. Coaching focused on relatable support, careful exercise selection
+                and steady progression.
+              </p>
+              <blockquote class="case-quote">
+                “He motivated me to keep pushing, not give up and trust that results would come.”
+              </blockquote>
+              <button class="button button-secondary" type="button" data-dialog-open="michael-case">
+                Read Michael’s Story
+              </button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <dialog class="case-dialog" id="anton-case" aria-labelledby="anton-dialog-title">
+        <div class="dialog-inner">
+          <button class="dialog-close" type="button" aria-label="Close Anton case study" data-dialog-close>
+            ×
+          </button>
+          <span class="eyebrow cyan">Anton’s full story</span>
+          <h2 id="anton-dialog-title">From information overload to confidence.</h2>
+          <figure class="case-photo-comparison case-dialog-photos">
+            <div>
+              <span>Before</span>
+              <img
+                src="/assets/case-studies/anton-before.jpg"
+                width="1182"
+                height="1330"
+                alt="Anton before coaching, shown from the chin down for privacy"
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <span>Progress</span>
+              <img
+                src="/assets/case-studies/anton-progress.jpg"
+                width="1182"
+                height="1330"
+                alt="Anton’s progress, shown from the chin down for privacy"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>Anton · Before and progress</figcaption>
           </figure>
-        </div>
-      </section>
-
-      <section class="section section-tint" id="experience" aria-labelledby="experience-heading">
-        <div class="container">
-          <div class="section-header" data-reveal>
+          <div class="dialog-story-grid">
             <div>
-              <span class="eyebrow">Career trajectory</span>
-              <h2 id="experience-heading">Experience in practical operations</h2>
+              <h4>Starting point</h4>
+              <p>Approximately 105 kg and unsure how to separate useful fitness advice from noise.</p>
             </div>
-            <p>
-              My time at Expro developed the habits that matter in a workplace: following procedures,
-              supporting the team, communicating clearly and staying dependable when deadlines matter.
+            <div>
+              <h4>Goal</h4>
+              <p>Lose body fat, train effectively and build an approach he could understand.</p>
+            </div>
+            <div>
+              <h4>Coaching approach</h4>
+              <p>
+                Focus on the foundations of training and nutrition, then build enough understanding for
+                Anton to make his own decisions.
+              </p>
+            </div>
+            <div>
+              <h4>Outcome</h4>
+              <p>
+                Reached approximately 80 kg, learned to train efficiently and became more relaxed and
+                confident around food.
+              </p>
+            </div>
+          </div>
+          <blockquote class="dialog-testimonial">
+            “Jaraad taught me the foundations. Once I understood those, fitness and nutrition stopped
+            feeling complicated. I could train efficiently, eat without fearing food and make progress
+            without constantly researching everything myself. It felt like fitness on easy mode.”
+            <footer>Anton · Client testimony</footer>
+          </blockquote>
+        </div>
+      </dialog>
+
+      <dialog class="case-dialog" id="michael-case" aria-labelledby="michael-dialog-title">
+        <div class="dialog-inner">
+          <button
+            class="dialog-close"
+            type="button"
+            aria-label="Close Michael case study"
+            data-dialog-close
+          >
+            ×
+          </button>
+          <span class="eyebrow cyan">Michael’s full story</span>
+          <h2 id="michael-dialog-title">A stronger body and a different mindset.</h2>
+          <div class="dialog-story-grid">
+            <div>
+              <h4>Starting point</h4>
+              <p>100 kg, very little motivation and no real interest in going to the gym.</p>
+            </div>
+            <div>
+              <h4>Goal</h4>
+              <p>Get leaner, build visible muscle, become stronger and feel more confident.</p>
+            </div>
+            <div>
+              <h4>Challenge</h4>
+              <p>
+                Michael had previously undergone back surgery and wanted a strict, carefully structured
+                program that he felt confident following.
+              </p>
+            </div>
+            <div>
+              <h4>Coaching approach</h4>
+              <p>
+                Select appropriate exercises, build strength progressively and use shared interests and
+                Jaraad’s own experience to make coaching relatable.
+              </p>
+            </div>
+            <div>
+              <h4>Outcome</h4>
+              <p>
+                Reached 77 kg in approximately one year, felt stronger and became more confident using
+                more weight.
+              </p>
+            </div>
+            <div>
+              <h4>Mindset</h4>
+              <p>
+                Results reinforced that consistency was working and helped Michael become more motivated
+                to keep improving.
+              </p>
+            </div>
+          </div>
+          <blockquote class="dialog-testimonial">
+            “I was 100 kg at the start and wanted nothing to do with the gym. Seeing how far Jaraad had
+            come and how much I could relate to him made me feel that if he could do it, I could do it. He
+            motivated me to keep pushing, not give up and trust that results would come. Now the results
+            are showing. My back feels stronger, I feel more confident using more weight, and he has
+            helped a lot with my mindset.”
+            <footer>Michael · Client testimony</footer>
+          </blockquote>
+        </div>
+      </dialog>
+
+      <section class="section" id="starting" aria-labelledby="starting-heading">
+        <div class="container start-layout">
+          <div class="start-intro" data-reveal>
+            <span class="eyebrow cyan">Starting coaching</span>
+            <h2 id="starting-heading">Know exactly what happens next.</h2>
+            <p class="lead">
+              There is no surprise checkout or pressure to commit before we have spoken. The process
+              starts with a conversation.
             </p>
           </div>
 
-          <article class="experience-feature" data-reveal>
-            <div>
-              <span class="mono-label">Featured experience</span>
-              <div class="experience-title-row">
-                <h3>Expro, Perth Base</h3>
-                <span class="experience-role">Subsea Operator / Technician</span>
-              </div>
-              <p class="experience-copy">
-                Supported internal teams with equipment processes, operational tasks and accurate record
-                keeping in a practical, safety-conscious environment. The role required clear
-                communication, careful work and the ability to learn unfamiliar tools and procedures
-                quickly.
-              </p>
-
-              <div class="responsibility-grid">
-                <div class="responsibility-card">
-                  <h4>Technical and operational work</h4>
-                  <p>
-                    Troubleshot technical and operational issues, learned equipment processes and worked
-                    confidently with unfamiliar systems.
-                  </p>
-                </div>
-                <div class="responsibility-card">
-                  <h4>Safety and procedure</h4>
-                  <p>
-                    Followed equipment processes and safety procedures carefully while keeping work
-                    accurate and organised.
-                  </p>
-                </div>
-                <div class="responsibility-card">
-                  <h4>Records and deadlines</h4>
-                  <p>
-                    Maintained accurate records, kept track of tasks and worked to the deadlines expected
-                    by the team.
-                  </p>
-                </div>
-                <div class="responsibility-card">
-                  <h4>Team support</h4>
-                  <p>
-                    Explained unfamiliar tools and processes to colleagues and contractors in clear,
-                    practical language.
-                  </p>
-                </div>
-              </div>
-
-              <ul class="tag-list" aria-label="Skills developed">
-                <li class="tag">Technical troubleshooting</li>
-                <li class="tag">Operational support</li>
-                <li class="tag">Physical work</li>
-                <li class="tag">Team communication</li>
-                <li class="tag">Safety awareness</li>
-              </ul>
-            </div>
-
-            <div class="experience-duration">
-              <span class="mono-label">Employment</span>
-              <strong>2024-2026</strong>
-            </div>
-          </article>
+          <ol class="start-list">
+            <li class="start-step" data-reveal>
+              <span class="step-marker">01</span>
+              <h3>Submit an enquiry</h3>
+              <p>Tell me what you want help with and what has been getting in the way.</p>
+            </li>
+            <li class="start-step" data-reveal>
+              <span class="step-marker">02</span>
+              <h3>Receive my welcome email</h3>
+              <p>You will receive an email confirming the enquiry and explaining the next step.</p>
+            </li>
+            <li class="start-step" data-reveal>
+              <span class="step-marker">03</span>
+              <h3>Book an introductory call</h3>
+              <p>Use the booking link in the welcome email to choose a time that suits you.</p>
+            </li>
+            <li class="start-step" data-reveal>
+              <span class="step-marker">04</span>
+              <h3>Talk through the fit</h3>
+              <p>We discuss your goals, current situation and whether coaching is right for you.</p>
+            </li>
+            <li class="start-step" data-reveal>
+              <span class="step-marker">05</span>
+              <h3>Receive secure payment access</h3>
+              <p>If we both decide to continue, you receive a secure Stripe payment link by email.</p>
+            </li>
+            <li class="start-step" data-reveal>
+              <span class="step-marker">06</span>
+              <h3>Complete onboarding</h3>
+              <p>I collect the details needed to build your initial training and nutrition plan.</p>
+            </li>
+            <li class="start-step" data-reveal>
+              <span class="step-marker">07</span>
+              <h3>Access your platform</h3>
+              <p>Your coaching tools, program, nutrition goals and progress tracking are ready to use.</p>
+            </li>
+          </ol>
         </div>
       </section>
 
-      <section class="section" id="strengths" aria-labelledby="strengths-heading">
-        <div class="container">
-          <div class="section-header compact" data-reveal>
-            <span class="eyebrow">What I bring</span>
-            <h2 id="strengths-heading">Useful strengths, backed by experience</h2>
-            <p>
-              I am comfortable learning on the job, working with people and taking a practical approach
-              when something needs to be solved.
+      <section class="section section-tint" id="faq" aria-labelledby="faq-heading">
+        <div class="container faq-layout">
+          <div data-reveal>
+            <span class="eyebrow">Common questions</span>
+            <h2 id="faq-heading">Clear answers before you enquire.</h2>
+            <p class="lead">
+              If your question is not here, add it to your enquiry and I will answer it directly.
             </p>
           </div>
 
-          <div class="strength-grid">
-            <article class="strength-card" data-reveal>
-              <span class="strength-number">01</span>
-              <h3>Technical aptitude</h3>
-              <p>
-                I learn unfamiliar equipment, software and workplace systems quickly, taking a methodical
-                approach when something needs troubleshooting.
-              </p>
-            </article>
-            <article class="strength-card" data-reveal>
-              <span class="strength-number">02</span>
-              <h3>Physically capable</h3>
-              <p>
-                Comfortable in active, hands-on roles and prepared to maintain a consistent standard
-                throughout a shift.
-              </p>
-            </article>
-            <article class="strength-card" data-reveal>
-              <span class="strength-number">03</span>
-              <h3>Fast learner</h3>
-              <p>
-                I absorb procedures quickly, take feedback well and adapt when the task or working
-                environment changes.
-              </p>
-            </article>
-            <article class="strength-card" data-reveal>
-              <span class="strength-number">04</span>
-              <h3>Clear communicator</h3>
-              <p>
-                I can explain technical ideas in plain language and contribute positively to a
-                team-based workplace.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-tint" id="availability" aria-labelledby="availability-heading">
-        <div class="container">
-          <div class="section-header" data-reveal>
-            <div>
-              <span class="eyebrow">Ready to start</span>
-              <h2 id="availability-heading">Availability and education</h2>
-            </div>
-            <p>
-              I am looking for stable part-time work around Mullaloo and greater Perth while completing
-              my fitness qualifications.
-            </p>
-          </div>
-
-          <div class="availability-layout">
-            <article class="availability-panel" data-reveal>
-              <span class="mono-label">Current availability</span>
-              <h3>Open to practical part-time work</h3>
-              <ul class="check-list">
-                <li>Available for part-time employment</li>
-                <li>Available every day except Saturday</li>
-                <li>Open to retail, gyms, hospitality and practical roles</li>
-                <li>Available to start immediately</li>
-              </ul>
-              <div class="location-line">
-                <span class="location-pin" aria-hidden="true">●</span>
+          <div class="faq-list" data-reveal>
+            <div class="faq-item">
+              <button
+                class="faq-question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-online"
+                data-accordion-button
+              >
+                Is coaching online or in person?
+              </button>
+              <div class="faq-answer" id="faq-online" hidden>
                 <p>
-                  <strong>Mullaloo, Western Australia</strong><br />
-                  Seeking opportunities in Perth and the northern suburbs.
+                  Coaching and progress tracking are managed through the client app. Use the enquiry
+                  form to tell me what type of coaching you are looking for and I will explain what is
+                  currently suitable.
                 </p>
               </div>
-            </article>
-
-            <article class="education-panel" data-reveal>
-              <span class="mono-label">Education and development</span>
-              <h3>Currently building new skills</h3>
-              <div class="education-list">
-                <div class="education-item">
-                  <strong>Certificates III and IV in Fitness</strong>
-                  <p>Currently completing practical study in fitness and personal training.</p>
-                </div>
-                <div class="education-item">
-                  <strong>Bachelor of Engineering, Engineering Foundations</strong>
-                  <p>Curtin University, 2025 to present.</p>
-                </div>
-                <div class="education-item">
-                  <strong>Western Australian Certificate of Education</strong>
-                  <p>
-                    Ocean Reef Senior High School, graduated 2023. ATAR 90.10 with mathematics,
-                    chemistry, physics and engineering studies.
-                  </p>
-                </div>
+            </div>
+            <div class="faq-item">
+              <button
+                class="faq-question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-experience"
+                data-accordion-button
+              >
+                Do I need gym experience?
+              </button>
+              <div class="faq-answer" id="faq-experience" hidden>
+                <p>
+                  No. Your program is built around your current ability, equipment access and confidence.
+                  It should give you a clear starting point rather than assume you already know everything.
+                </p>
               </div>
-            </article>
+            </div>
+            <div class="faq-item">
+              <button
+                class="faq-question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-meal-plan"
+                data-accordion-button
+              >
+                Do I need to follow a strict meal plan?
+              </button>
+              <div class="faq-answer" id="faq-meal-plan" hidden>
+                <p>
+                  No. Coaching uses flexible nutrition targets, food tracking and practical meal changes.
+                  The aim is to build an approach you can use around normal life.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button
+                class="faq-question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-injuries"
+                data-accordion-button
+              >
+                Can you work around injuries?
+              </button>
+              <div class="faq-answer" id="faq-injuries" hidden>
+                <p>
+                  Tell me about any injury, surgery, restriction or medical advice in your enquiry. I can
+                  adapt training within my scope, and I will ask for appropriate medical or allied health
+                  guidance when that is needed.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button
+                class="faq-question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-updates"
+                data-accordion-button
+              >
+                How often is my program updated?
+              </button>
+              <div class="faq-answer" id="faq-updates" hidden>
+                <p>
+                  Your progress is reviewed weekly. The program changes when your performance, goals or
+                  circumstances show that an adjustment will be useful.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button
+                class="faq-question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-checkins"
+                data-accordion-button
+              >
+                How do check-ins work?
+              </button>
+              <div class="faq-answer" id="faq-checkins" hidden>
+                <p>
+                  You record useful progress information through the client app. I review that
+                  information with you and use it to guide the next week.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button
+                class="faq-question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-recipes"
+                data-accordion-button
+              >
+                Is recipe reinvention included?
+              </button>
+              <div class="faq-answer" id="faq-recipes" hidden>
+                <p>
+                  Yes. Recipe reinvention is part of coaching. It helps turn meals you already enjoy into
+                  repeatable options that work more comfortably with your nutrition targets.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button
+                class="faq-question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-payments"
+                data-accordion-button
+              >
+                How do payments work?
+              </button>
+              <div class="faq-answer" id="faq-payments" hidden>
+                <p>
+                  Choose the tier you are interested in and submit an enquiry. If coaching is a good fit
+                  after the introductory call, you receive the matching secure Stripe payment link by
+                  email.
+                </p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button
+                class="faq-question"
+                type="button"
+                aria-expanded="false"
+                aria-controls="faq-app"
+                data-accordion-button
+              >
+                How do I access the client app?
+              </button>
+              <div class="faq-answer" id="faq-app" hidden>
+                <p>
+                  Once onboarding is complete, your app access is activated and you receive the
+                  instructions needed to use the client app.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section" id="contact" aria-labelledby="contact-heading">
+      <section class="section" id="enquire" aria-labelledby="enquiry-heading">
         <div class="container">
-          <div class="resume-contact" data-reveal>
-            <span class="eyebrow">Start a conversation</span>
-            <h2 id="contact-heading">Let’s discuss how I can support your team.</h2>
-            <p>
-              If you have a suitable part-time opportunity, email or call me directly. You can also open
-              my full resume below.
-            </p>
+          <div class="enquiry-shell" data-reveal>
+            <div class="enquiry-intro">
+              <span class="eyebrow">Start your enquiry</span>
+              <h2 id="enquiry-heading">Tell me what you want help with.</h2>
+              <p>
+                This is not a commitment to buy coaching. It gives me enough context to understand your
+                goals and send you the right next step.
+              </p>
+              <div class="enquiry-promise">
+                <div>Your details are sent securely to Jaraad.</div>
+                <div>You will receive a response by email.</div>
+                <div>Payment is discussed only after an introductory call.</div>
+              </div>
+            </div>
+
+            <form class="enquiry-form" id="enquiry-form" novalidate>
+              <div class="form-progress">
+                <span class="form-step-label" data-form-progress-label>Step 1 of 2</span>
+                <span class="form-progress-track" aria-hidden="true">
+                  <span data-form-progress-bar></span>
+                </span>
+              </div>
+
+              <p class="enquiry-tier-selection" data-enquiry-tier-selection hidden aria-live="polite">
+                <span>Enquiring about</span>
+                <strong data-enquiry-tier-selection-label></strong>
+              </p>
+
+              <fieldset class="form-step" data-form-step="1">
+                <legend class="honeypot">Your contact details and main goal</legend>
+                <div class="field-grid">
+                  <div class="field">
+                    <label for="name">Full name</label>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      autocomplete="name"
+                      maxlength="80"
+                      required
+                    />
+                  </div>
+                  <div class="field">
+                    <label for="email">Email</label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      autocomplete="email"
+                      maxlength="160"
+                      required
+                    />
+                  </div>
+                  <div class="field full">
+                    <label for="goal">Main goal</label>
+                    <select id="goal" name="goal" required>
+                      <option value="">Choose your main goal</option>
+                      <option value="Build strength">Build strength</option>
+                      <option value="Improve fitness">Improve fitness</option>
+                      <option value="Body composition">Lose fat or change body composition</option>
+                      <option value="Build sustainable habits">Build sustainable habits</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-actions">
+                  <span class="field-help">You can add more detail in the next step.</span>
+                  <button class="button button-primary" type="button" data-form-next>Continue</button>
+                </div>
+              </fieldset>
+
+              <fieldset class="form-step" data-form-step="2" hidden>
+                <legend class="honeypot">Your coaching preferences and experience</legend>
+                <div class="field-grid">
+                  <div class="field">
+                    <label for="phone">Phone number <span aria-hidden="true">(optional)</span></label>
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      autocomplete="tel"
+                      maxlength="30"
+                    />
+                  </div>
+                  <div class="field">
+                    <label for="coachingType">Preferred coaching tier</label>
+                    <select id="coachingType" name="coachingType" required>
+                      <option value="">Choose an option</option>
+                      <option value="Tier One: Online Coaching ($199 per month)">
+                        Tier One: Online Coaching ($199/month)
+                      </option>
+                      <option value="Tier Two: Hybrid Coaching ($349 per month)">
+                        Tier Two: Hybrid Coaching ($349/month)
+                      </option>
+                      <option value="Tier Three: Premium Coaching ($649 per month)">
+                        Tier Three: Premium Coaching ($649/month)
+                      </option>
+                      <option value="Not sure yet">Not sure yet</option>
+                    </select>
+                  </div>
+                  <div class="field full">
+                    <label for="experience">Current training experience</label>
+                    <select id="experience" name="experience" required>
+                      <option value="">Choose your current experience</option>
+                      <option value="New to training">New to training</option>
+                      <option value="Some experience">Some experience</option>
+                      <option value="Training consistently">Training consistently</option>
+                      <option value="Returning after time away">Returning after time away</option>
+                    </select>
+                  </div>
+                  <div class="field full">
+                    <label for="challenge">What has been making progress difficult?</label>
+                    <textarea
+                      id="challenge"
+                      name="challenge"
+                      maxlength="600"
+                      placeholder="Tell me what you have tried and where you feel stuck."
+                      required
+                    ></textarea>
+                  </div>
+                  <div class="field full">
+                    <label for="message">Anything else? <span aria-hidden="true">(optional)</span></label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      maxlength="800"
+                      placeholder="Questions, schedule details or anything I should know."
+                    ></textarea>
+                  </div>
+                  <div class="honeypot" aria-hidden="true">
+                    <label for="company">Company</label>
+                    <input id="company" name="company" type="text" tabindex="-1" autocomplete="off" />
+                  </div>
+                  <input name="startedAt" type="hidden" />
+                  <label class="consent-label field full">
+                    <input name="consent" type="checkbox" required />
+                    <span>
+                      I agree that Jaraad may use these details to respond to my coaching enquiry.
+                    </span>
+                  </label>
+                </div>
+                <div class="form-actions">
+                  <button class="button button-quiet" type="button" data-form-back>Back</button>
+                  <button class="button button-primary" type="submit">Send Enquiry</button>
+                </div>
+              </fieldset>
+
+              <p class="form-message" role="status" aria-live="polite" data-form-message></p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-supporting" aria-labelledby="final-heading">
+        <div class="container">
+          <div class="final-cta" data-reveal>
+            <h2 id="final-heading">
+              You do not need another perfect plan. You need a plan you can actually follow.
+            </h2>
             <div class="button-row">
-              <a class="button button-primary" href="mailto:jaraad05@gmail.com">Email Jaraad</a>
-              <a class="button button-secondary" href="tel:+61478417858">Call 0478 417 858</a>
-              <a
-                class="button button-secondary"
-                href="/Jaraad-Ramsey-Resume-2026.pdf"
-                target="_blank"
-                rel="noopener"
-              >
-                View Resume
-              </a>
+              <a class="button button-primary" href="#enquire">Start Your Enquiry</a>
+              <a class="button button-secondary" href="#results">View Case Study Results</a>
             </div>
           </div>
         </div>
@@ -356,25 +1381,28 @@
       <div class="container">
         <div class="footer-grid">
           <div>
-            <p class="footer-brand">Jaraad Ramsey</p>
+            <p class="footer-brand">Jaraad Ramsey Personal Training</p>
             <p class="footer-copy">
-              Dependable, adaptable and available for part-time opportunities around Mullaloo and Perth.
+              Personalised training, flexible nutrition and practical coaching systems for everyday
+              people.
             </p>
           </div>
           <nav class="footer-links" aria-label="Footer navigation">
-            <a href="mailto:jaraad05@gmail.com">Email</a>
-            <a href="tel:+61478417858">Phone</a>
-            <a href="/Jaraad-Ramsey-Resume-2026.pdf" target="_blank" rel="noopener">Resume</a>
-            <a href="/personal-training">Personal Training</a>
+            <a href="#coaching-method">Coaching</a>
+            <a href="#results">Results</a>
+            <a href="#faq">FAQ</a>
+            <a href="#enquire">Enquire</a>
+            <a href="/resume">Resume Website</a>
           </nav>
         </div>
         <div class="footer-bottom">
-          <span>© <span data-current-year></span> Jaraad Ramsey</span>
-          <span>Mullaloo, Western Australia</span>
+          <span>© <span data-current-year></span> Jaraad Ramsey Personal Training</span>
+          <span>Perth, Western Australia</span>
         </div>
       </div>
     </footer>
 
     <script type="module" src="/assets/site.js"></script>
+    <script type="module" src="/assets/training.js"></script>
   </body>
 </html>
