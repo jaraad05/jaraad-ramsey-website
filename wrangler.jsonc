@@ -3,6 +3,9 @@
   "name": "old-rice-bbaa",
   "compatibility_date": "2026-07-18",
   "main": "./worker/index.js",
+  "vars": {
+    "DASHBOARD_ENQUIRY_URL": "https://training.jaraadramsey.com/api/enquiries"
+  },
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
