@@ -174,6 +174,10 @@ async function handleEnquiry(request, env) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.pathname === "/index.html") {
+      url.pathname = "/";
+      return Response.redirect(url, 308);
+    }
     if (url.pathname === "/personal-training" || url.pathname === "/personal-training.html") {
       url.pathname = "/";
       return Response.redirect(url, 308);

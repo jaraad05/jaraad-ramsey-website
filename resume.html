@@ -29,9 +29,10 @@
       rel="stylesheet"
     />
     <script>
-      document.documentElement.classList.add("js");
+      window.JR_LOCAL_FILE_PREVIEW = window.location.protocol === "file:";
+      if (!window.JR_LOCAL_FILE_PREVIEW) document.documentElement.classList.add("js");
     </script>
-    <link rel="stylesheet" href="/assets/site.css" />
+    <link rel="stylesheet" href="./assets/site.css" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -58,7 +59,7 @@
 
     <header class="site-header" data-site-header>
       <div class="container header-inner">
-        <a class="brand" href="/resume" aria-label="Jaraad Ramsey resume home">
+        <a class="brand" href="./resume.html" aria-label="Jaraad Ramsey resume home">
           <span class="brand-mark" aria-hidden="true">JR</span>
           <span class="brand-copy">
             Jaraad Ramsey
@@ -70,7 +71,7 @@
           <a href="#experience">Experience</a>
           <a href="#strengths">Strengths</a>
           <a href="#availability">Availability</a>
-          <a href="/Jaraad-Ramsey-Resume-2026.pdf" target="_blank" rel="noopener">View Resume</a>
+          <a href="./Jaraad-Ramsey-Resume-2026.pdf" target="_blank" rel="noopener">View Resume</a>
           <a class="button button-primary" href="#contact">Contact</a>
         </nav>
 
@@ -91,8 +92,8 @@
           <a href="#experience">Experience</a>
           <a href="#strengths">Strengths</a>
           <a href="#availability">Availability</a>
-          <a href="/Jaraad-Ramsey-Resume-2026.pdf" target="_blank" rel="noopener">View Resume</a>
-          <a href="/">Personal Training</a>
+          <a href="./Jaraad-Ramsey-Resume-2026.pdf" target="_blank" rel="noopener">View Resume</a>
+          <a href="./index.html">Personal Training</a>
         </nav>
         <div class="mobile-menu-actions">
           <a class="button button-primary" href="#contact">Contact Jaraad</a>
@@ -116,7 +117,7 @@
               <a class="button button-primary" href="mailto:jaraad05@gmail.com">Contact Jaraad</a>
               <a
                 class="button button-secondary"
-                href="/Jaraad-Ramsey-Resume-2026.pdf"
+                href="./Jaraad-Ramsey-Resume-2026.pdf"
                 target="_blank"
                 rel="noopener"
               >
@@ -132,7 +133,7 @@
 
           <figure class="portrait-frame" data-reveal>
             <img
-              src="/assets/jaraad-ramsey-portrait.webp"
+              src="./assets/jaraad-ramsey-portrait.webp"
               width="1086"
               height="1448"
               alt="Jaraad Ramsey"
@@ -340,7 +341,7 @@
               <a class="button button-secondary" href="tel:+61478417858">Call 0478 417 858</a>
               <a
                 class="button button-secondary"
-                href="/Jaraad-Ramsey-Resume-2026.pdf"
+                href="./Jaraad-Ramsey-Resume-2026.pdf"
                 target="_blank"
                 rel="noopener"
               >
@@ -364,8 +365,8 @@
           <nav class="footer-links" aria-label="Footer navigation">
             <a href="mailto:jaraad05@gmail.com">Email</a>
             <a href="tel:+61478417858">Phone</a>
-            <a href="/Jaraad-Ramsey-Resume-2026.pdf" target="_blank" rel="noopener">Resume</a>
-            <a href="/">Personal Training</a>
+            <a href="./Jaraad-Ramsey-Resume-2026.pdf" target="_blank" rel="noopener">Resume</a>
+            <a href="./index.html">Personal Training</a>
           </nav>
         </div>
         <div class="footer-bottom">
@@ -375,6 +376,13 @@
       </div>
     </footer>
 
-    <script type="module" src="/assets/site.js"></script>
+    <script>
+      if (window.JR_LOCAL_FILE_PREVIEW) {
+        const script = document.createElement("script");
+        script.src = "./assets/site.js";
+        document.body.appendChild(script);
+      }
+    </script>
+    <script type="module" src="./assets/site.js"></script>
   </body>
 </html>

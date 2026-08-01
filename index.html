@@ -32,9 +32,10 @@
       rel="stylesheet"
     />
     <script>
-      document.documentElement.classList.add("js");
+      window.JR_LOCAL_FILE_PREVIEW = window.location.protocol === "file:";
+      if (!window.JR_LOCAL_FILE_PREVIEW) document.documentElement.classList.add("js");
     </script>
-    <link rel="stylesheet" href="/assets/site.css" />
+    <link rel="stylesheet" href="./assets/site.css" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -71,7 +72,7 @@
 
     <header class="site-header" data-site-header>
       <div class="container header-inner">
-        <a class="brand" href="/" aria-label="Jaraad Ramsey Personal Training home">
+        <a class="brand" href="./index.html" aria-label="Jaraad Ramsey Personal Training home">
           <span class="brand-mark" aria-hidden="true">JR</span>
           <span class="brand-copy">
             Jaraad Ramsey
@@ -80,11 +81,9 @@
         </a>
 
         <nav class="desktop-nav" aria-label="Personal training navigation">
-          <a href="#coaching-method">Coaching</a>
           <a href="#results">Results</a>
-          <a href="#included">What’s Included</a>
+          <a href="#coaching-tiers">Coaching</a>
           <a href="#recipe-reinvention">Recipe Reinvention</a>
-          <a href="#coaching-tiers">Pricing</a>
           <a href="#faq">FAQ</a>
           <a class="button button-primary" href="#enquire">Enquire</a>
         </nav>
@@ -103,11 +102,9 @@
 
       <div class="mobile-menu" id="mobile-navigation" data-mobile-menu>
         <nav aria-label="Mobile navigation">
-          <a href="#coaching-method">Coaching</a>
           <a href="#results">Results</a>
-          <a href="#included">What’s Included</a>
+          <a href="#coaching-tiers">Coaching</a>
           <a href="#recipe-reinvention">Recipe Reinvention</a>
-          <a href="#coaching-tiers">Pricing</a>
           <a href="#faq">FAQ</a>
         </nav>
         <div class="mobile-menu-actions">
@@ -117,36 +114,119 @@
     </header>
 
     <main id="main-content">
-      <section class="training-hero" aria-labelledby="training-heading">
-        <div class="container training-hero-grid">
-          <div data-reveal>
-            <span class="eyebrow">Personalised training and nutrition</span>
-            <h1 id="training-heading">Build a stronger body without making fitness your entire life.</h1>
-            <p class="lead">
-              I help everyday people become stronger, leaner and more confident through personalised
-              training, flexible nutrition and practical systems they can sustain.
-            </p>
-            <div class="button-row">
-              <a class="button button-primary" href="#enquire">Start Your Enquiry</a>
-              <a class="button button-secondary" href="#results">See Case Study Results</a>
+      <section class="training-hero results-first-hero" aria-labelledby="training-heading">
+        <div class="container">
+          <div class="results-first-layout">
+            <div class="results-first-copy" data-reveal>
+              <span class="eyebrow">My transformation</span>
+              <h1 id="training-heading">I know what it takes to build this into real life.</h1>
+              <p class="lead">
+                I went from 80 kg to 68 kg through consistent training, practical nutrition and a
+                system I could keep following. That experience now shapes how I coach.
+              </p>
+              <div class="metric-row" aria-label="Jaraad's transformation results">
+                <div class="metric">
+                  <strong>80 kg</strong>
+                  <span class="metric-label">Starting weight</span>
+                </div>
+                <div class="metric">
+                  <strong>68 kg</strong>
+                  <span class="metric-label">Progress weight</span>
+                </div>
+                <div class="metric">
+                  <strong>12 kg</strong>
+                  <span class="metric-label">Total change</span>
+                </div>
+              </div>
+              <div class="button-row">
+                <a class="button button-primary" href="#enquire">Start Your Enquiry</a>
+                <a class="button button-secondary" href="#coaching-tiers">See Coaching Options</a>
+              </div>
+            </div>
+
+            <div class="transformation-images results-first-images" data-reveal>
+              <figure class="image-frame">
+                <img
+                  src="./assets/case-studies/my-transformation-before.webp"
+                  width="1350"
+                  height="1800"
+                  alt="Jaraad at 80 kilograms in August 2024"
+                  fetchpriority="high"
+                />
+                <figcaption>Before · August 2024 · 80 kg</figcaption>
+              </figure>
+              <figure class="image-frame">
+                <img
+                  src="./assets/case-studies/my-transformation-after.webp"
+                  width="1040"
+                  height="1800"
+                  alt="Jaraad at 68 kilograms after consistent training and nutrition"
+                  fetchpriority="high"
+                />
+                <figcaption>Progress · 68 kg</figcaption>
+              </figure>
             </div>
           </div>
 
-          <div class="training-hero-visual" data-reveal>
-            <div class="training-hero-main">
-              <img
-                src="/assets/hero/jaraad-training-hero.jpg"
-                width="1290"
-                height="1720"
-                alt="Jaraad Ramsey"
-                fetchpriority="high"
-              />
+          <div class="hero-results-heading" id="results" data-reveal>
+            <div>
+              <span class="eyebrow cyan">Case study results</span>
+              <h2>Real progress, built around the person.</h2>
             </div>
+            <p>Two different starting points. Two clear outcomes. No overcomplicated fitness rules.</p>
+          </div>
+
+          <div class="hero-case-grid">
+            <article class="hero-case-card" data-reveal>
+              <figure class="hero-case-media" aria-label="Anton before and progress photos">
+                <img
+                  src="./assets/case-studies/anton-before.jpg"
+                  width="1182"
+                  height="1330"
+                  alt="Anton before coaching, shown from the chin down for privacy"
+                />
+                <img
+                  src="./assets/case-studies/anton-progress.jpg"
+                  width="1182"
+                  height="1330"
+                  alt="Anton’s progress, shown from the chin down for privacy"
+                />
+              </figure>
+              <div class="hero-case-content">
+                <div class="hero-case-topline">
+                  <span class="mono-label">Anton · Two years</span>
+                  <strong class="hero-case-stat">Approx. 25 kg lost</strong>
+                </div>
+                <h3>From information overload to confidence.</h3>
+                <p>Anton simplified training and nutrition enough to make confident decisions himself.</p>
+                <button class="button button-secondary" type="button" data-dialog-open="anton-case">
+                  Read Anton’s Story
+                </button>
+              </div>
+            </article>
+
+            <article class="hero-case-card" data-reveal>
+              <figure class="hero-case-placeholder" aria-label="Michael transformation photos coming soon">
+                <span>Photos coming soon</span>
+                <strong aria-hidden="true">M</strong>
+              </figure>
+              <div class="hero-case-content">
+                <div class="hero-case-topline">
+                  <span class="mono-label">Michael · Approx. one year</span>
+                  <strong class="hero-case-stat">23 kg lost</strong>
+                </div>
+                <h3>A stronger body and a different mindset.</h3>
+                <p>Michael reached 77 kg, built confidence and trained carefully around previous back surgery.</p>
+                <button class="button button-secondary" type="button" data-dialog-open="michael-case">
+                  Read Michael’s Story
+                </button>
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="trust-strip" aria-label="What coaching includes">
+      <section class="trust-strip" aria-label="What coaching includes" hidden>
         <div class="container">
           <ul class="trust-list">
             <li><span>01</span>Personalised training</li>
@@ -158,7 +238,7 @@
         </div>
       </section>
 
-      <section class="section" id="coaching" aria-labelledby="audience-heading">
+      <section class="section" id="coaching" aria-labelledby="audience-heading" hidden>
         <div class="container audience-layout">
           <div class="audience-intro" data-reveal>
             <span class="eyebrow">Who this is for</span>
@@ -213,6 +293,7 @@
         class="section section-tint"
         id="coaching-method"
         aria-labelledby="coaching-method-heading"
+        hidden
       >
         <div class="container">
           <div class="section-header" data-reveal>
@@ -263,7 +344,7 @@
         </div>
       </section>
 
-      <section class="section" id="included" aria-labelledby="included-heading">
+      <section class="section" id="included" aria-labelledby="included-heading" hidden>
         <div class="container">
           <div class="section-header" data-reveal>
             <div>
@@ -478,23 +559,23 @@
             <div class="pricing-app-previews" aria-label="JR Coaching software screenshots">
               <figure class="pricing-app-preview pricing-app-preview-dashboard">
                 <img
-                  src="/assets/client-app/coach-dashboard.png"
-                  width="1786"
-                  height="881"
-                  alt="JR Coaching trainer dashboard showing client, workout and nutrition summaries"
+                  src="./assets/client-app/coach-dashboard.png"
+                  width="2880"
+                  height="1800"
+                  alt="JR Coaching dashboard showing priority coaching items, weekly reviews, training flags and client follow-ups"
                   loading="lazy"
                   decoding="async"
                 >
                 <figcaption>
                   <span>Trainer view</span>
-                  <strong>Coach Console</strong>
+                  <strong>Live Coach Dashboard</strong>
                 </figcaption>
               </figure>
 
               <figure class="pricing-app-preview pricing-app-preview-mobile">
                 <div class="pricing-app-phone-frame">
                   <img
-                    src="/assets/client-app/client-app-nutrition.png"
+                    src="./assets/client-app/client-app-nutrition.png"
                     width="1290"
                     height="2796"
                     alt="JR Coaching calorie and nutrition tracker"
@@ -511,7 +592,7 @@
               <figure class="pricing-app-preview pricing-app-preview-mobile">
                 <div class="pricing-app-phone-frame">
                   <img
-                    src="/assets/client-app/client-app-workouts.png"
+                    src="./assets/client-app/client-app-workouts.png"
                     width="1290"
                     height="2796"
                     alt="JR Coaching workout tracker showing an active workout and assigned routines"
@@ -595,7 +676,7 @@
                 <div class="recipe-photo-gallery" aria-label="Real Recipe Reinvention meals">
                   <figure class="recipe-photo-card">
                     <img
-                      src="/assets/recipe-reinvention/real-burger.jpg"
+                      src="./assets/recipe-reinvention/real-burger.jpg"
                       width="1600"
                       height="1200"
                       alt="Two homemade burgers reinvented around a client's nutrition goals"
@@ -606,7 +687,7 @@
                   </figure>
                   <figure class="recipe-photo-card">
                     <img
-                      src="/assets/recipe-reinvention/steak-and-fries.jpg"
+                      src="./assets/recipe-reinvention/steak-and-fries.jpg"
                       width="1600"
                       height="1200"
                       alt="Two plates of steak, seasoned fries and broccolini"
@@ -617,7 +698,7 @@
                   </figure>
                   <figure class="recipe-photo-card">
                     <img
-                      src="/assets/recipe-reinvention/family-meal.jpg"
+                      src="./assets/recipe-reinvention/family-meal.jpg"
                       width="1600"
                       height="1200"
                       alt="A hearty family meal with chicken, eggs, vegetables and chilli"
@@ -631,7 +712,7 @@
             </div>
           </div>
 
-          <div class="pricing-trust" data-reveal>
+          <div class="pricing-trust" data-reveal hidden>
             <div>
               <span class="eyebrow">Why JR Coaching</span>
               <h3>Why clients choose JR Coaching</h3>
@@ -674,12 +755,12 @@
         </div>
       </section>
 
-      <section class="section section-tint" id="my-transformation" aria-labelledby="story-heading">
+      <section class="section section-tint" id="transformation-archive" aria-labelledby="story-heading" hidden>
         <div class="container transformation-layout">
           <div class="transformation-images" data-reveal>
             <figure class="image-frame">
               <img
-                src="/assets/case-studies/my-transformation-before.webp"
+                src="./assets/case-studies/my-transformation-before.webp"
                 width="1350"
                 height="1800"
                 alt="Jaraad at 80 kilograms in August 2024"
@@ -689,7 +770,7 @@
             </figure>
             <figure class="image-frame">
               <img
-                src="/assets/case-studies/my-transformation-after.webp"
+                src="./assets/case-studies/my-transformation-after.webp"
                 width="1040"
                 height="1800"
                 alt="Jaraad at 68 kilograms after building consistent training and nutrition habits"
@@ -729,7 +810,7 @@
         </div>
       </section>
 
-      <section class="section" id="results" aria-labelledby="results-heading">
+      <section class="section" id="results-archive" aria-labelledby="results-heading" hidden>
         <div class="container">
           <div class="section-header" data-reveal>
             <div>
@@ -748,7 +829,7 @@
                 <div>
                   <span>Before</span>
                   <img
-                    src="/assets/case-studies/anton-before.jpg"
+                    src="./assets/case-studies/anton-before.jpg"
                     width="1182"
                     height="1330"
                     alt="Anton before coaching, shown from the chin down for privacy"
@@ -758,7 +839,7 @@
                 <div>
                   <span>Progress</span>
                   <img
-                    src="/assets/case-studies/anton-progress.jpg"
+                    src="./assets/case-studies/anton-progress.jpg"
                     width="1182"
                     height="1330"
                     alt="Anton’s progress, shown from the chin down for privacy"
@@ -871,7 +952,7 @@
             <div>
               <span>Before</span>
               <img
-                src="/assets/case-studies/anton-before.jpg"
+                src="./assets/case-studies/anton-before.jpg"
                 width="1182"
                 height="1330"
                 alt="Anton before coaching, shown from the chin down for privacy"
@@ -881,7 +962,7 @@
             <div>
               <span>Progress</span>
               <img
-                src="/assets/case-studies/anton-progress.jpg"
+                src="./assets/case-studies/anton-progress.jpg"
                 width="1182"
                 height="1330"
                 alt="Anton’s progress, shown from the chin down for privacy"
@@ -998,38 +1079,18 @@
           <ol class="start-list">
             <li class="start-step" data-reveal>
               <span class="step-marker">01</span>
-              <h3>Submit an enquiry</h3>
-              <p>Tell me what you want help with and what has been getting in the way.</p>
+              <h3>Enquire</h3>
+              <p>Tell me your goal, preferred coaching tier and what has been getting in the way.</p>
             </li>
             <li class="start-step" data-reveal>
               <span class="step-marker">02</span>
-              <h3>Receive my welcome email</h3>
-              <p>You will receive an email confirming the enquiry and explaining the next step.</p>
+              <h3>Talk it through</h3>
+              <p>Use the welcome email to book a call so we can discuss your goals and whether coaching fits.</p>
             </li>
             <li class="start-step" data-reveal>
               <span class="step-marker">03</span>
-              <h3>Book an introductory call</h3>
-              <p>Use the booking link in the welcome email to choose a time that suits you.</p>
-            </li>
-            <li class="start-step" data-reveal>
-              <span class="step-marker">04</span>
-              <h3>Talk through the fit</h3>
-              <p>We discuss your goals, current situation and whether coaching is right for you.</p>
-            </li>
-            <li class="start-step" data-reveal>
-              <span class="step-marker">05</span>
-              <h3>Receive secure payment access</h3>
-              <p>If we both decide to continue, you receive a secure Stripe payment link by email.</p>
-            </li>
-            <li class="start-step" data-reveal>
-              <span class="step-marker">06</span>
-              <h3>Complete onboarding</h3>
-              <p>I collect the details needed to build your initial training and nutrition plan.</p>
-            </li>
-            <li class="start-step" data-reveal>
-              <span class="step-marker">07</span>
-              <h3>Access your platform</h3>
-              <p>Your coaching tools, program, nutrition goals and progress tracking are ready to use.</p>
+              <h3>Start coaching</h3>
+              <p>If it is a good fit, you receive secure payment, onboarding and access to your coaching platform.</p>
             </li>
           </ol>
         </div>
@@ -1360,7 +1421,7 @@
         </div>
       </section>
 
-      <section class="section-supporting" aria-labelledby="final-heading">
+      <section class="section-supporting" aria-labelledby="final-heading" hidden>
         <div class="container">
           <div class="final-cta" data-reveal>
             <h2 id="final-heading">
@@ -1386,11 +1447,11 @@
             </p>
           </div>
           <nav class="footer-links" aria-label="Footer navigation">
-            <a href="#coaching-method">Coaching</a>
+            <a href="#coaching-tiers">Coaching</a>
             <a href="#results">Results</a>
             <a href="#faq">FAQ</a>
             <a href="#enquire">Enquire</a>
-            <a href="/resume">Resume Website</a>
+            <a href="./resume.html">Resume Website</a>
           </nav>
         </div>
         <div class="footer-bottom">
@@ -1400,7 +1461,17 @@
       </div>
     </footer>
 
-    <script type="module" src="/assets/site.js"></script>
-    <script type="module" src="/assets/training.js"></script>
+    <script>
+      if (window.JR_LOCAL_FILE_PREVIEW) {
+        ["./assets/site.js", "./assets/training.js"].forEach((source) => {
+          const script = document.createElement("script");
+          script.src = source;
+          script.async = false;
+          document.body.appendChild(script);
+        });
+      }
+    </script>
+    <script type="module" src="./assets/site.js"></script>
+    <script type="module" src="./assets/training.js"></script>
   </body>
 </html>

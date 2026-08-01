@@ -1946,14 +1946,15 @@ p {
 
 .pricing-app-preview-dashboard {
   grid-column: 1 / -1;
-  aspect-ratio: 1786 / 881;
+  aspect-ratio: 48 / 29;
 }
 
 .pricing-app-preview-dashboard > img {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center bottom;
   background: #ffffff;
 }
 
@@ -3418,5 +3419,346 @@ p {
   .js [data-reveal] {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* Results-first homepage: keep the original visual language while removing
+   repeated explanations and using denser, more visual layouts. */
+
+[hidden] {
+  display: none !important;
+}
+
+.results-first-hero {
+  padding-block: clamp(48px, 6vw, 76px);
+}
+
+.results-first-layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.76fr) minmax(480px, 1.24fr);
+  align-items: center;
+  gap: clamp(38px, 6vw, 82px);
+}
+
+.results-first-copy .lead {
+  max-width: 610px;
+}
+
+.results-first-copy .metric-row {
+  margin-block: 28px;
+}
+
+.results-first-images {
+  min-width: 0;
+}
+
+.results-first-images .image-frame:first-child {
+  transform: translateY(18px);
+}
+
+.hero-results-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.62fr);
+  align-items: end;
+  gap: clamp(28px, 5vw, 70px);
+  margin-top: clamp(60px, 8vw, 96px);
+  padding-top: clamp(34px, 5vw, 54px);
+  border-top: 1px solid var(--border);
+}
+
+.hero-results-heading h2 {
+  max-width: 720px;
+  margin-bottom: 0;
+}
+
+.hero-results-heading p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.hero-case-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.hero-case-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(360px, auto) auto;
+  min-width: 0;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.hero-case-media {
+  display: grid;
+  min-width: 0;
+  min-height: 380px;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  margin: 0;
+  background: var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-case-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  object-fit: cover;
+  object-position: center 36%;
+}
+
+.hero-case-placeholder {
+  position: relative;
+  display: grid;
+  min-height: 380px;
+  margin: 0;
+  overflow: hidden;
+  place-items: center;
+  color: var(--text-muted);
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255, 217, 26, 0.1), transparent 42%),
+    var(--bg-deep);
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-case-placeholder span {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  color: var(--yellow);
+  font-family: var(--font-label);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-case-placeholder strong {
+  color: rgba(255, 247, 230, 0.16);
+  font-size: clamp(4rem, 8vw, 7rem);
+}
+
+.hero-case-content {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: clamp(22px, 3vw, 32px);
+}
+
+.hero-case-topline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 14px;
+  margin-bottom: 22px;
+}
+
+.hero-case-stat {
+  color: var(--cyan);
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.hero-case-content h3 {
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+}
+
+.hero-case-content p {
+  margin-bottom: 22px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.hero-case-content .button {
+  width: 100%;
+  margin-top: auto;
+}
+
+#coaching-tiers,
+#starting,
+#faq,
+#enquire {
+  padding-block: clamp(56px, 7vw, 88px);
+}
+
+.pricing-section-header {
+  margin-bottom: clamp(34px, 5vw, 54px);
+}
+
+.pricing-app-included,
+.pricing-recipe-benefit {
+  margin-top: clamp(36px, 5vw, 58px);
+}
+
+.pricing-app-included,
+.pricing-recipe-benefit {
+  padding: clamp(26px, 4vw, 44px);
+}
+
+.pricing-recipe-benefit .recipe-process {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.pricing-recipe-benefit .recipe-process::before {
+  display: none;
+}
+
+.pricing-recipe-benefit .recipe-process-step {
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 12px;
+  padding: 16px;
+  background: var(--bg-deep);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.pricing-recipe-benefit .recipe-process-step .step-marker {
+  width: 40px;
+  height: 40px;
+  border-width: 4px;
+}
+
+.pricing-recipe-benefit .recipe-process-step h4 {
+  margin-top: 8px;
+}
+
+.pricing-recipe-benefit .recipe-process-step p {
+  grid-column: 1 / -1;
+  margin: 2px 0 0;
+  font-size: 0.82rem;
+}
+
+#starting .start-layout {
+  grid-template-columns: minmax(260px, 0.58fr) minmax(0, 1.42fr);
+  gap: clamp(34px, 6vw, 76px);
+}
+
+#starting .start-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+#starting .start-list::before {
+  display: none;
+}
+
+#starting .start-step {
+  display: block;
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+#starting .start-step .step-marker {
+  width: 42px;
+  height: 42px;
+  margin-bottom: 28px;
+  border-color: var(--surface);
+}
+
+#starting .start-step h3 {
+  margin: 0 0 8px;
+}
+
+#starting .start-step p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.86rem;
+}
+
+@media (max-width: 1120px) {
+  .results-first-layout {
+    grid-template-columns: minmax(300px, 0.82fr) minmax(400px, 1.18fr);
+  }
+
+  .hero-case-card {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-case-media,
+  .hero-case-placeholder {
+    min-height: 320px;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-case-media img {
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 920px) {
+  .results-first-layout,
+  .hero-results-heading,
+  #starting .start-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .results-first-copy {
+    max-width: 760px;
+  }
+
+  .results-first-images {
+    width: min(100%, 680px);
+  }
+
+  .hero-results-heading {
+    align-items: start;
+    gap: 10px;
+  }
+
+  .pricing-recipe-benefit .recipe-process,
+  #starting .start-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .results-first-hero {
+    padding-block: 44px 58px;
+  }
+
+  .results-first-layout {
+    gap: 34px;
+  }
+
+  .results-first-images .image-frame:first-child {
+    transform: none;
+  }
+
+  .hero-results-heading {
+    margin-top: 58px;
+    padding-top: 34px;
+  }
+
+  .hero-case-grid,
+  .pricing-recipe-benefit .recipe-process,
+  #starting .start-list {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-case-media,
+  .hero-case-placeholder {
+    min-height: 260px;
+  }
+
+  .hero-case-media img {
+    min-height: 260px;
+  }
+
+  .hero-case-content {
+    padding: 22px 20px;
+  }
+
+  #starting .start-step .step-marker {
+    margin-bottom: 20px;
   }
 }
